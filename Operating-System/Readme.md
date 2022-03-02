@@ -12,7 +12,7 @@ Operating System
   - Operating System
   - Hardware
     + CPU, I/O, Memory
-    + 
+   
  <img width="520" alt="스크린샷 2022-03-02 오후 12 17 05" src="https://user-images.githubusercontent.com/59719632/156288923-a5f5883a-d072-4532-990e-590404198090.png">
  
 * Operating System
