@@ -3,7 +3,7 @@ Operating System
 시험 정리 자료
 -----------
 
-# Chap1. Introduction
+# Chap 1. Introduction
 
 * Computer System의 4가지 계층
   - User
