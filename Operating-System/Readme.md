@@ -80,6 +80,7 @@ Operating System
       * user mode : 1
       * kernel mode : 0
     
+<img width="588" alt="스크린샷 2022-03-02 오후 1 15 57" src="https://user-images.githubusercontent.com/59719632/156293999-f61803aa-3608-4e5b-ab72-927970ab6d4d.png">
 
 
 
