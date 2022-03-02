@@ -5,7 +5,7 @@ Algorithm
 
 # Chap 1. Algorithms: Efficiency, Analysis, and Order
 * 챕터 1에서는 알고리즘의 효율성(efficiency)을 다룬다.
-* "order" 라는 개념은 알고리즘의 efficiency를 나타낸다.
+* "Order" 라는 개념은 알고리즘의 efficiency를 나타낸다.
 
 ## 1-1.Some Definitions
 * Problem : a question to which we seek an answer.
