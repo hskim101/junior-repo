@@ -9,9 +9,9 @@ Algorithm
 
 ## 1-1.Some Definitions
 * Problem : a question to which we seek an answer.
-* Problem Instance : a problem where each parameter is assigned a specific value.
+* Problem Instance : 각각의 parameter가 값을 갖는 경우
   - ex) Determine whether the number 5 is in the list [10, 7, 11, 5, 13, 8] of 6 numbers.
-* Algorithm : 각각의 problem instance을 해결하기 위한 단계별 절차.
+* Algorithm : 각각의 problem instance를 해결하기 위한 단계별 절차.
   - ex) Sequential Search Algorithm(순차 탐색)
 
 ## 1-2. 효율적인 알고리즘 개발의 중요성
@@ -41,6 +41,7 @@ print(seq_search(len(lst),lst,10))
 ```
 
 * Binary Search Algorithm
+  - list가 정렬되어 있는 상태
 
 ```java
 // Java
@@ -103,12 +104,16 @@ print(binary_search(lst,4,0,len(lst)-1))
 
 * Sequential Search vs Binary Search
   - worst case 비교
+    + 가장 핵심적인 연산(basic operation)이 실행되는 횟수로 비교
+    
 <img width="547" alt="스크린샷 2022-02-28 오후 7 25 29" src="https://user-images.githubusercontent.com/59719632/155966908-5f7f6041-b5f6-441e-80d4-4dedae6edcf7.png">
 
 * Fibonacci Sequence
-<img width="645" alt="스크린샷 2022-02-28 오후 7 27 59" src="https://user-images.githubusercontent.com/59719632/155967348-c210d34b-5a70-43f0-8a52-bae93dfbe282.png">
-  - Recursive Algorithm
 
+<img width="645" alt="스크린샷 2022-02-28 오후 7 27 59" src="https://user-images.githubusercontent.com/59719632/155967348-c210d34b-5a70-43f0-8a52-bae93dfbe282.png">
+
+  - Recursive Algorithm
+    + 굉장히 비효율적
 ```java
 // Java
 public static int Fib(int n){
@@ -122,7 +127,7 @@ public static int Fib(int n){
 # python3
 def fib(n): # Recursive
     if n<=1:
-        return 1
+        return n
     else:
         return fib(n-1)+fib(n-2)
 ```
@@ -136,7 +141,7 @@ def fib(n): # Recursive
 // Java
 public static int Fib2(int n){
     index i;
-    int[] f=new int[n+1];
+    int[] f=new int[n+1]; // n번째 항 구하려면 배열 size가 n+1이여야 한다. 0번째 항부터 시작하므로.
     
     f[0] = 0;
     if(n > 0){
@@ -167,18 +172,18 @@ def fib(n): # Iterative ( Dynamic-Programming)
 * Input Size
   - size of array
     + ex) **n**\-tuple
-  - single number \- 
+  - single number
     + ex) **n**\-th Fibonacci Number
   - Graph에서는 vertices 수와 edges 수 둘 다 input size이다.
 
 * Basic Operation
-  - 알고리즘이 실행될 때 기본적으로 실행되는 연산
+  - 알고리즘이 실행될 때 알고리즘 전체의 계산 양에 가장 많은 영향을 미치는 연산
     + 정렬 또는 탐색 알고리즘의 비교 연산
     + 행렬 곱의 덧셈 연산
 * Time Complexity (시간 복잡도)
-  - The determination of how many times the basic operation is don for each value of the input size.
+  - 입력 크기에 대한 basic operation 횟수
     + 순차 탐색 알고리즘의 worst case는 **n**번 비교하는 것이다.
-
+    + 개발 환경과 독립이다.
 * Types of Time Complexity Analysis
   - Sum of **n** numbers
 
@@ -227,11 +232,12 @@ def seq_search(n:int, S:list, x:int){
     return location;
 ```
 
-<img width="604" alt="스크린샷 2022-03-01 오후 3 12 24" src="https://user-images.githubusercontent.com/59719632/156114996-4eb033a5-7928-435f-952d-1718ca3508f2.png">
+  <img width="604" alt="스크린샷 2022-03-01 오후 3 12 24" src="https://user-images.githubusercontent.com/59719632/156114996-4eb033a5-7928-435f-952d-1718ca3508f2.png">
 
   - Every Case
     + Size가 **n**인 모든 인스턴스에 대해 **basic operation**이 동일한 횟수로 수행될 때 적용 가능
-  - Non-Every case
+    + sum 연산
+  - Non-Every case : 동일한 input size라도 basic operation 실행 횟수가 달라질 수 있다.
     + Best Case : the **minimum** of times
     + Worst Case : the **maximum** of times
     + Average Case : the **average** of times
@@ -249,6 +255,8 @@ def seq_search(n:int, S:list, x:int){
     + T(n)=n\*(1000\*t)
     + T2(n)=n^2\*(1\*t)
       * T2(n) 알고리즘이 T(n) 보다 n<1000 일 때 더 낫다. n의 값이 클 경우 T(n)이 더 낫다.
+      * 일반적으로 복잡도가 n^k인 함수에서 k가 작을수록 효율적이다.
+      * n이 작은 경우 차수가 높은 알고리즘이 더 좋을 수 있다.
 
 ## 1-4. Order
 * Complexity Function
