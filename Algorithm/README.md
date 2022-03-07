@@ -284,27 +284,45 @@ def seq_search(n:int, S:list, x:int){
 * **Big O**
   - O(f(n)) is the set of complexity functions g(n)
 for which there exists some positive **real constant c** and **some non\-negative integer N**
-  - dim g(n) <= dim f(n)
+  - f(n) (i.e log n, n, nlog n, n^2, n^3, 2^n, n!, ...)
+  - g(n) <= c\*f(n) 일 때 O(g(n)) = O(f(n))
 
 <img width="400" alt="스크린샷 2022-03-01 오후 4 02 14" src="https://user-images.githubusercontent.com/59719632/156120827-fdfd4ff0-ac0e-495a-af01-b4cf222f0d20.png">
 
+  - 증명 과정 (정의 이용), 상수 c와 N 찾음
+
+<img width="600" alt="스크린샷 2022-03-07 오후 11 18 08" src="https://user-images.githubusercontent.com/59719632/157051909-94b39bea-c7ac-4d68-a41e-eb430f98dc22.png">
+
+  - 반례 이용
+  
+  <img width="600" alt="스크린샷 2022-03-07 오후 11 35 34" src="https://user-images.githubusercontent.com/59719632/157054540-a0d7526a-c71c-48e2-b51e-1bac5121d6d2.png">
 
 * **Omega(Ω)**
-  - dim g(n) >= dim f(n)
+  - g(n) >= c\*f(n), for all n>=N (Big O와 부등호 방향 반대)
+  - 차수가 높거나 같은 것
  
-<img width="557" alt="스크린샷 2022-03-01 오후 4 07 00" src="https://user-images.githubusercontent.com/59719632/156121402-010927cc-b505-4fd5-8a12-ea0f7046e18f.png">
+<img width="600" alt="스크린샷 2022-03-01 오후 4 07 00" src="https://user-images.githubusercontent.com/59719632/156121402-010927cc-b505-4fd5-8a12-ea0f7046e18f.png">
+
+  - 중명 과정 
+  
+  <img width="600" alt="스크린샷 2022-03-07 오후 11 39 43" src="https://user-images.githubusercontent.com/59719632/157055305-e26cd76f-b650-4292-b58a-c579b3a3337c.png">
+
+<img width="600" alt="스크린샷 2022-03-07 오후 11 44 48" src="https://user-images.githubusercontent.com/59719632/157056249-c457627c-a526-40e7-b79d-af867c417c3c.png">
 
 * **Theta(θ)**
-  - Ω(f(n)) <= dim g(n) <= O(f(n))
+  - Omega와 Big O의 교집합
   - θ(f(n))은 f(n)의 최고 차수
+  - c\*f(n) <= g(n) <= d\*f(n), for all n>=N
 
-<img width="564" alt="스크린샷 2022-03-01 오후 4 08 55" src="https://user-images.githubusercontent.com/59719632/156121659-209c88ed-74b0-432f-902e-306d88a03013.png">
+<img width="600" alt="스크린샷 2022-03-01 오후 4 08 55" src="https://user-images.githubusercontent.com/59719632/156121659-209c88ed-74b0-432f-902e-306d88a03013.png">
+
 
 * **small o**
   - O(f(n))과 거의 비슷하지만 small o는 n이 무한대로 커질 때만 사용
   - g(n)의 절대값에 어떤 작은 양의 숫자를 곱해도 f(n)보다는 크게되는 순간이 x를 키우다보면 언젠가는 나타난다.
   - small o가 성립하면 Big O도 성립한다.
  
+
 <img width="161" alt="스크린샷 2022-03-01 오후 4 18 19" src="https://user-images.githubusercontent.com/59719632/156122844-7bd5576f-0d69-40c8-80ce-87cc4d507e5f.png">
   
   - Exponential이 Factorial보다 느리게 증가함 증명
