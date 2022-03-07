@@ -264,7 +264,7 @@ def seq_search(n:int, S:list, x:int){
   - ex) n, log n, n^2 + n/2
  
 * Complextiy of an Algorithm
-  - the complexity function indicating **how many times** the basic operation.
+  - 입력 크기에 따라 basic operation이 몇 회나 실행되는지 나타내는 함수.
 
 * Linear Time Algorithm
   - O(n)
@@ -274,7 +274,7 @@ def seq_search(n:int, S:list, x:int){
   - O(n^2)
   - ex) Average case of Bubble sort with n items.
 
-Input Size가 충분히 클 때 알고리즘이 어떻게 수행되는지 관심이 있다.
+**Input Size가 충분히 클 때 알고리즘이 어떻게 수행되는지 관심이 있다.**
 
 <p align="center">
 <img width="300" alt="스크린샷 2022-03-01 오후 3 42 45" src="https://user-images.githubusercontent.com/59719632/156118442-8690ad49-72b1-4cb0-b962-cdbeb83570de.png"> <img width="300" alt="스크린샷 2022-03-01 오후 3 42 52" src="https://user-images.githubusercontent.com/59719632/156118462-811714c3-06e9-439a-81ff-53be5f13f56e.png"></p>
@@ -296,6 +296,7 @@ for which there exists some positive **real constant c** and **some non\-negativ
 
 * **Theta(θ)**
   - Ω(f(n)) <= dim g(n) <= O(f(n))
+  - θ(f(n))은 f(n)의 최고 차수
 
 <img width="564" alt="스크린샷 2022-03-01 오후 4 08 55" src="https://user-images.githubusercontent.com/59719632/156121659-209c88ed-74b0-432f-902e-306d88a03013.png">
 
@@ -306,7 +307,7 @@ for which there exists some positive **real constant c** and **some non\-negativ
  
 <img width="161" alt="스크린샷 2022-03-01 오후 4 18 19" src="https://user-images.githubusercontent.com/59719632/156122844-7bd5576f-0d69-40c8-80ce-87cc4d507e5f.png">
   
-   - Exponential이 Factorial보다 느리게 증가함 증명
+  - Exponential이 Factorial보다 느리게 증가함 증명
   
 <img width="586" alt="스크린샷 2022-03-01 오후 4 25 48" src="https://user-images.githubusercontent.com/59719632/156123933-49408f0e-6155-4486-a2a2-8b7447a960f0.png">
 
@@ -322,3 +323,5 @@ for which there exists some positive **real constant c** and **some non\-negativ
 * Using a Limit to Determine Order
 
 <img width="454" alt="스크린샷 2022-03-01 오후 4 23 32" src="https://user-images.githubusercontent.com/59719632/156123545-358a3bf5-21b1-4ca1-b608-a467cb8cb868.png">
+
+
