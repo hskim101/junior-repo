@@ -159,7 +159,15 @@ Operating System
   - System call 번호는 EAX register에 저장된다.
   - 그 번호는 <am/unistd.h>에 정의된 함수 포인터를 호출하게 해준다.
 
-* System Call parameter Passing
+## 2-4. System Call parameter Passing
+* Parameters는 **block or in\-memory table**에 저장된다.
+  - system call을 호출할 때 block을 메모리에 만들고, system call을 통과한 args를 block에 차곡차곡 쌓는다.
+  - cpu register 하나만 사용해도 할 수 있다.
+  - args가 아무리 많더라도 시작 위치만 던져 줄 수 있기 때문에 args에 대한 갯수, 길이 제한이 없다.
+  - window에서는 stack 영역을 사용한다.
+
+
+<img width="550" alt="스크린샷 2022-03-07 오후 12 59 42" src="https://user-images.githubusercontent.com/59719632/156965628-9bd171c1-9414-4106-97af-8972b9559bc8.png">
 
 
 
