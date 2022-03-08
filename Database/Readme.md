@@ -127,6 +127,8 @@ CREATE TABLE instructor (
 <img width="718" alt="스크린샷 2022-03-09 오전 12 12 07" src="https://user-images.githubusercontent.com/59719632/157266525-4f5d9195-b3f7-4b66-ba87-c34157505e89.png">
 
 ## 2-3. Relational Algebra
+* 관계 대수는 절차적 언어이다.
+* 하나 또는 두개의 relation을 input으로 받아 하나의 새로운 relation으로 반환한다.
 * Select : p는 조건문, r은 table
  - 조건문에 비교 연산자 (=,!=,>,>=,<,<=) 사용 가능
  - and, or, not 으로 길게 사용할 수도 있다.
