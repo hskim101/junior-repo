@@ -99,30 +99,30 @@ CREATE TABLE instructor (
 # Chap 2. Intro to Relational Model
 
 ## 2-1. Relation Schema and Instance
-* Schema는 타입, Instance는 특정 시점의 테이블 값
-* Schema는 attributes의 순서쌍
-* r(R)의 의미는 schema R을 따르는 r이라는 테이블이 있다.
-* 어떠한 테이블의 현재 값들은 테이블로 나타난다.
-* 각 행들은 순서쌍으로 나타내진다. (tuple)
+ * Schema는 타입, Instance는 특정 시점의 테이블 값
+ * Schema는 attributes의 순서쌍
+ * r(R)의 의미는 schema R을 따르는 r이라는 테이블이 있다.
+ * 어떠한 테이블의 현재 값들은 테이블로 나타난다.
+ * 각 행들은 순서쌍으로 나타내진다. (tuple)
 
 ## 2-2. Attributes
-* domain은 각 attribute들이 허용되는 값들의 집합
-* Attribute 값은 한 칸에 하나의 값만 적는다.
-* null 이라는 특별한 값이 있다. 모든 domain에는 null이 포함된다.
+ * domain은 각 attribute들이 허용되는 값들의 집합
+ * Attribute 값은 한 칸에 하나의 값만 적는다.
+ * null 이라는 특별한 값이 있다. 모든 domain에는 null이 포함된다.
 
 ## 2-3. Relations are Unordered
-* 열 하나 하나는 순서를 지켜야 하지만 행 단위로 봤을 때는 순서 상관 없다.
+ * 열 하나 하나는 순서를 지켜야 하지만 행 단위로 봤을 때는 순서 상관 없다.
 
 ## 2-4. Instance 
-* Instance는 특정 시점의 database의 snapshot이다.
+ * Instance는 특정 시점의 database의 snapshot이다.
 
 ## 2-5. Keys
-* superkey : 각 행을 구분할 수 있는 Column
-* candidate key(후보 키) : superkey 중 불필요한 요소가 없는 것
- - ex) 학번, 주민등록번호
-* primary key(기본 키) : 가급적이면 변하지 않는 고유의 값
-* Foreign key(외래 키) : Table이 여러 개가 있을 때 다른 table에 존재하는 key
-* Schema Diagram 
+ * superkey : 각 행을 구분할 수 있는 Column
+ * candidate key(후보 키) : superkey 중 불필요한 요소가 없는 것
+   - ex) 학번, 주민등록번호
+ * primary key(기본 키) : 가급적이면 변하지 않는 고유의 값
+ * Foreign key(외래 키) : Table이 여러 개가 있을 때 다른 table에 존재하는 key
+ * Schema Diagram 
 
 <img width="718" alt="스크린샷 2022-03-09 오전 12 12 07" src="https://user-images.githubusercontent.com/59719632/157266525-4f5d9195-b3f7-4b66-ba87-c34157505e89.png">
 
@@ -130,8 +130,8 @@ CREATE TABLE instructor (
 * 관계 대수는 절차적 언어이다.
 * 하나 또는 두개의 relation을 input으로 받아 하나의 새로운 relation으로 반환한다.
 * Select : p는 조건문, r은 table
- - 조건문에 비교 연산자 (=,!=,>,>=,<,<=) 사용 가능
- - and, or, not 으로 길게 사용할 수도 있다.
+  - 조건문에 비교 연산자 (=,!=,>,>=,<,<=) 사용 가능
+  - and, or, not 으로 길게 사용할 수도 있다.
 
 <img width="457" alt="스크린샷 2022-03-09 오전 12 16 57" src="https://user-images.githubusercontent.com/59719632/157267532-825b8653-1063-4a02-8b52-0ba69ed1069e.png">
 
@@ -147,42 +147,42 @@ CREATE TABLE instructor (
 <img width="324" alt="스크린샷 2022-03-09 오전 12 22 34" src="https://user-images.githubusercontent.com/59719632/157268621-572bdd66-b1ed-436b-beef-069e76a01690.png">
 
 * Cartesian\-Product : 가능한 모든 조합의 행으로 이루어진 테이블 생성
- - table X table
- - Attribute name이 겹치면 table.attribute 식으로 renaming이 일어난다.
+  - table X table
+  - Attribute name이 겹치면 table.attribute 식으로 renaming이 일어난다.
 
 <img width="647" alt="스크린샷 2022-03-09 오전 12 28 30" src="https://user-images.githubusercontent.com/59719632/157269781-709c8e0d-592c-4fa2-9333-bcd6890a2c20.png">
 
 * Join : Cartesian Product의 단점을 보완하기 위한 연산자
- - 쓸데 없는 튜플들을 제외시키기 위함
- - Cartesian\-Product 한 결과에서 Select로 의미 있는 튜플만 남긴다.
- - 나비넥타이 모양
+  - 쓸데 없는 튜플들을 제외시키기 위함
+  - Cartesian\-Product 한 결과에서 Select로 의미 있는 튜플만 남긴다.
+  - 나비넥타이 모양
  
 <img width="665" alt="스크린샷 2022-03-09 오전 12 31 11" src="https://user-images.githubusercontent.com/59719632/157270306-cefd85cf-2138-4e5b-8d4e-778850680161.png">
 
 <img width="634" alt="스크린샷 2022-03-09 오전 12 32 59" src="https://user-images.githubusercontent.com/59719632/157270634-a30ba716-acbf-4546-97ba-40b2387c8752.png">
 
 * Union : 합집합
- - 두 테이블의 attribute가 같아야한다.
- - 직관적으로 똑같은 모양의 테이블
+  - 두 테이블의 attribute가 같아야한다.
+  - 직관적으로 똑같은 모양의 테이블
  
 <img width="434" alt="스크린샷 2022-03-09 오전 12 36 23" src="https://user-images.githubusercontent.com/59719632/157271232-558711f5-1772-4c04-9542-4ea11181e6ca.png">
 
 * Set\-Intersection  : 교집합
- - 직관적으로 똑같은 모양의 두 테이블
+  - 직관적으로 똑같은 모양의 두 테이블
 
 <img width="643" alt="스크린샷 2022-03-09 오전 12 37 37" src="https://user-images.githubusercontent.com/59719632/157271492-040ef4a3-7141-4c99-aeb8-190655543258.png">
 
 * Set Difference : 차집합
- - 직관적으로 똑같은 모양의 두 테이블
+  - 직관적으로 똑같은 모양의 두 테이블
 
 <img width="680" alt="스크린샷 2022-03-09 오전 12 38 27" src="https://user-images.githubusercontent.com/59719632/157271635-290e1379-4788-40a7-809d-ba34eaf40c63.png">
 
 * Assignment : 간단하게 화살표는 assignment 이다. 
- - AS와 같음
+  - AS와 같음
 <img width="609" alt="스크린샷 2022-03-09 오전 12 39 37" src="https://user-images.githubusercontent.com/59719632/157271899-8ea4ee67-b958-4e29-88f9-03fbb2e66c52.png">
 
 * Equivalent Queries : 같은 결과의 테이블이라도 식이 다를 수 있다.
- - The two queries are not identical(수행 절차가 다르다.); they are equivalent
+  - The two queries are not identical(수행 절차가 다르다.); they are equivalent
  
  <p align="center">
 <img width="500" alt="스크린샷 2022-03-09 오전 12 43 15" src="https://user-images.githubusercontent.com/59719632/157272573-660cf870-f863-4d3b-bcec-eccb508d70cd.png">
