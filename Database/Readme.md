@@ -44,7 +44,7 @@ CREATE TABLE instructor (
 
 ## 1-5. Data Manipulation Language (DML)
   * Query라고도 불린다.
-  * Procedural DML : 내가 원하는 답을 얻기 위해 절차를 일일이 다 써줌
+  * Procedural DML : 내가 원하는 답을 얻기 위해 절차를 일일이 다 써줌 (Relational Algebra)
   * Declarative DML : 내가 원하는 답을 얻기 위한 절차는 신경쓰지 않음
     + 사용하기 쉽다.
     + SQL이 선언적 DML에 포함된다.
@@ -189,4 +189,62 @@ CREATE TABLE instructor (
 
 <img width="500" alt="스크린샷 2022-03-09 오전 12 43 21" src="https://user-images.githubusercontent.com/59719632/157272589-286791db-53a2-41d9-a95c-946660bf7d87.png">
 </p>
+
+
+# Chap 3. Introduction to SQL
+## 3-1. SQL Parts
+* Data Definition Language
+  - 각 relation의 schema 정의
+  - 각 column들의 data type 정의
+  - 제약조건(primary key)을 걸어서 옳지 않은 데이터가 들어오는 것을 막아줌
+  - Index를 만들어서 검색을 빠르게 할 수 있다.
+  - 각 table에 대한 보안이나 권한
+  - 어떠한 물리적 구조로 저장될지 정해줌
+
+* Domain Types in SQL
+  - char(n) : **고정된 길이**의 string, 마지막에 널문자 안 들어감
+  - varchar(n) : 가변 길이 (Variable length) string, 마지막에 널문자 들어간다.
+  - int, smallint
+  - numeric(p,d) : p 숫자의 총 갯수 (precision), d는 소수부분(decimal)에 올 수 있는 숫자 갯수
+  - real, double
+  - float(n) : 최소 n개의 precision을 가지고 있는 소수
+
+* Create Table Construct
+
+```mysql
+CREATE TABLE instructor(
+     ID char(5),
+     name varchar(20),
+     dept_name varchar(20),
+     salary numeric(8,2)
+)
+```
+  - 제약조건
+    + primary key(A_1, ..., A_n)
+    + foreign key(A_m, ..., A_n) references r : table r에 있는 column에 있는 값만 사용하게 제한
+    + not null
+
+![스크린샷 2022-03-09 오전 11 38 49](https://user-images.githubusercontent.com/59719632/157361922-469047cc-0e0d-4eb1-8e92-d45851ade83a.png)
+
+
+![스크린샷 2022-03-09 오전 11 43 48](https://user-images.githubusercontent.com/59719632/157362539-56d583fe-498c-4377-b503-36bbe2da7b94.png)
+
+* Updates to tables
+  - Insert
+    + INSERT INTO instructor VALUES('10211','Smith','Biology',660000);
+  - Delete (빈 테이블로 만드는 것)
+    + Remove all tuples
+    + DELETE FROM student
+  - Drop (테이블 자체를 삭제하는 것)
+    + DROP TABLE r
+  - Alter (테이블 변경)
+    + ALTER TABLE r ADD A D
+    + D라는 Domain을 가지는 A라는 attribute를 추가하겠다. 기존에 있던 tuple들의 A에 대한 값은 null로 할당된다.
+ 
+* Basic Query Structure
+
+![스크린샷 2022-03-09 오전 11 52 05](https://user-images.githubusercontent.com/59719632/157363443-94807920-a9f5-4e7b-8c8b-de36266e48d2.png)
+
+
+
 
