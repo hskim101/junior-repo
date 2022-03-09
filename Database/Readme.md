@@ -209,7 +209,7 @@ CREATE TABLE instructor (
   - real, double
   - float(n) : 최소 n개의 precision을 가지고 있는 소수
 
-* Create Table Construct
+## 3-2. Create Table Construct
 
 ```mysql
 CREATE TABLE instructor(
@@ -229,7 +229,7 @@ CREATE TABLE instructor(
 
 ![스크린샷 2022-03-09 오전 11 43 48](https://user-images.githubusercontent.com/59719632/157362539-56d583fe-498c-4377-b503-36bbe2da7b94.png)
 
-* Updates to tables
+## 3-3. Updates to tables
   - Insert
     + INSERT INTO instructor VALUES('10211','Smith','Biology',660000);
   - Delete (빈 테이블로 만드는 것)
@@ -241,7 +241,7 @@ CREATE TABLE instructor(
     + ALTER TABLE r ADD A D
     + D라는 Domain을 가지는 A라는 attribute를 추가하겠다. 기존에 있던 tuple들의 A에 대한 값은 null로 할당된다.
  
-* Basic Query Structure
+##3-4. Basic Query Structure
 
 ![스크린샷 2022-03-09 오전 11 52 05](https://user-images.githubusercontent.com/59719632/157363443-94807920-a9f5-4e7b-8c8b-de36266e48d2.png)
 
