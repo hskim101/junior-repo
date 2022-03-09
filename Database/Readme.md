@@ -240,11 +240,14 @@ CREATE TABLE instructor(
   - Alter (테이블 변경)
     + ALTER TABLE r ADD A D
     + D라는 Domain을 가지는 A라는 attribute를 추가하겠다. 기존에 있던 tuple들의 A에 대한 값은 null로 할당된다.
- 
+
+![스크린샷 2022-03-09 오전 11 58 19](https://user-images.githubusercontent.com/59719632/157382698-28c37ec1-f27d-483e-a5ee-44ae18b11150.png)
+
+
+![스크린샷 2022-03-09 오전 11 58 38](https://user-images.githubusercontent.com/59719632/157382707-f5344d64-a8c1-4f20-88fe-9a4b766458da.png)
+
+![스크린샷 2022-03-09 오후 12 01 50](https://user-images.githubusercontent.com/59719632/157382715-cc30211b-1885-4ca0-ae54-68e6abec45dc.png)
+
 ##3-4. Basic Query Structure
 
 ![스크린샷 2022-03-09 오전 11 52 05](https://user-images.githubusercontent.com/59719632/157363443-94807920-a9f5-4e7b-8c8b-de36266e48d2.png)
-
-
-
-
