@@ -169,7 +169,83 @@ Operating System
 
 <img width="550" alt="스크린샷 2022-03-07 오후 12 59 42" src="https://user-images.githubusercontent.com/59719632/156965628-9bd171c1-9414-4106-97af-8972b9559bc8.png">
 
+## 2-5. System Programs
+* System program : OS system call로 구현된 프로그램.
+* File management
+  - command line 상에서 호출하는 대부분의 실행 파일
+* Status information
+  - 어떤 시스템의 상태를 확인할 수 있는 프로그램
+
+## 2-6. Layered Approach
+* Layered Approach : 상위 레이어가 하위 레이어의 개체를 호출해 나가는 접근. 
+  - 레이어를 건너 뛰어서 호출하면 안되고 순차적으로 호출해야한다. (down call)
+  - up call은 사용하면 안된다.
+  - 같은 레이어는 양방향 호출해도 무방하다.
+* Advantages : 만들기 쉽고 디버깅하기 쉽다.
+* Disadvantages : layer의 적절한 배분이 쉽지 않다, 부하가 심해질 수 있다.
+
+![스크린샷 2022-03-10 오전 12 05 13](https://user-images.githubusercontent.com/59719632/157468906-94b0806d-129a-4723-aa28-b4b58f25112b.png)
+
+## 2-7. Monolithic Structure of Simple Structure
+* MS\-DOS : 적은 공간에 만들어서 한 레이어가 잘 분리되지 못했다.
 
 
+![스크린샷 2022-03-10 오전 12 13 09](https://user-images.githubusercontent.com/59719632/157470470-d37cb117-1e6b-4e94-b759-fe29485c44ce.png)
 
+## 2-8. System Structure
+* 각각 layered 형태로 구성되어 있다. 
+  ![스크린샷 2022-03-10 오전 12 14 14](https://user-images.githubusercontent.com/59719632/157470679-3536d3a0-ea98-4b4a-84d0-e5676bf7bd24.png)
+
+* 문제점 : 새로운 함수를 새로운 레이어들에 확장하는 것이 어렵다. 안정화된 코드를 수정하면 버그들이 생길 수 있다.
+ 
+![스크린샷 2022-03-10 오전 12 17 27](https://user-images.githubusercontent.com/59719632/157471324-eeb5618f-69b5-46d6-a189-d2527b81eb5c.png)
+
+* Microkernel System Structure : 위의 문제점을 보완하기 위해 나온 구조 
+  - kernel 안에 최소한의 기능만 집어넣고 나머지 기능들은 모두 user mode로 올림(독립적인 프로세스 서버로 돌아감)
+
+  ![스크린샷 2022-03-10 오전 12 20 36](https://user-images.githubusercontent.com/59719632/157472005-a7e44df9-621b-4508-8fd5-da0f6c3c2bf2.png)
+
+  - 장점 : 버그가 생기면 user mode에서 프로세스가 죽기 때문에 시스템이 다운되지 않는다.
+
+## 2-9. Modules
+* 필요한 module만 동적으로 loading 해서 사용한다.
+* 장점 : 사용할 필요가 없는 device를 기본적으로 탑재할 필요가 없다.
+
+
+![스크린샷 2022-03-10 오전 12 26 56](https://user-images.githubusercontent.com/59719632/157473279-fddc84de-f680-4336-8ce9-281ec2f4669a.png)
+
+## 2-10. Virtual Machine
+* OS와 hardware를 새로운 hardware 처럼 보이게한다.
+* virtual machine은 하나의 hardware라고 볼 수 있다.
+
+![스크린샷 2022-03-10 오전 12 30 58](https://user-images.githubusercontent.com/59719632/157474084-754bc89c-43eb-450b-b957-a49febcbf66b.png)
+
+* VMware Architecture
+
+![스크린샷 2022-03-10 오전 12 32 12](https://user-images.githubusercontent.com/59719632/157474363-4ac350f5-b068-439a-9fda-c7cbe5ec6d95.png)
+
+* Java Virtual Machine
+  - class loader : 개발자가 만든 java class file을 load, 개발자가 reference 하고 있는 java API를 load 하는 역할
+
+  ![스크린샷 2022-03-10 오전 12 35 27](https://user-images.githubusercontent.com/59719632/157474928-97c53488-1cfb-4ec0-9b76-57abb31842c3.png)
+  
+## 2-11. System Boot
+* Booting : 컴퓨터를 시작홰서 kernel을 loading하는 과정
+* Bootstrap program (or boot loader, BIOS) \- One\-step process
+  - Step 1 : 문제가 있는지 검사
+  - Step 2 : kernel을 main memory에 load한 후 시작
+
+* Two\-step booting process (Linux, Unix, and Window OS)
+  - Step 1 : bootstrap program, 
+    + 1) 문제가 있는지 검사
+    + 2) Load boot block (Mast Boot Record, MBR)
+    + 3) boot block 코드 실행
+  - Step 2 : boot block 코드가 kernel을 main memory로 load한다.
+
+![스크린샷 2022-03-10 오전 12 40 51](https://user-images.githubusercontent.com/59719632/157475980-5ec0e70e-18f7-45e7-a1dc-5bf36e0d2e5c.png)
+
+* boot block 안에 OS를 선택할 수 있는 기능이 있다. (멀티 부팅)
+
+ 
+![스크린샷 2022-03-10 오전 12 44 31](https://user-images.githubusercontent.com/59719632/157476663-2a7244b0-0040-458b-8788-abf159a06565.png)
 
