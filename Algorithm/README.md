@@ -321,17 +321,22 @@ for which there exists some positive **real constant c** and **some non\-negativ
   - O(f(n))과 거의 비슷하지만 small o는 n이 무한대로 커질 때만 사용
   - g(n)의 절대값에 어떤 작은 양의 숫자를 곱해도 f(n)보다는 크게되는 순간이 x를 키우다보면 언젠가는 나타난다.
   - small o가 성립하면 Big O도 성립한다.
+  - f(n)의 차수 이하인 것들
+  - g(n) <= c\*f(n), for all n>=N, 모든 c에 대해 성립
+  - Big O는 어떤 c, small o는 모든 c에 대해 성립
  
 
-<img width="161" alt="스크린샷 2022-03-01 오후 4 18 19" src="https://user-images.githubusercontent.com/59719632/156122844-7bd5576f-0d69-40c8-80ce-87cc4d507e5f.png">
+  <img width="161" alt="스크린샷 2022-03-01 오후 4 18 19" src="https://user-images.githubusercontent.com/59719632/156122844-7bd5576f-0d69-40c8-80ce-87cc4d507e5f.png">
   
+  ![스크린샷 2022-03-10 오전 11 39 01](https://user-images.githubusercontent.com/59719632/157577546-afb1421a-1b5f-4768-8c12-ce5b37a428c9.png)
+
   - Exponential이 Factorial보다 느리게 증가함 증명
   
-<img width="586" alt="스크린샷 2022-03-01 오후 4 25 48" src="https://user-images.githubusercontent.com/59719632/156123933-49408f0e-6155-4486-a2a2-8b7447a960f0.png">
+  <img width="586" alt="스크린샷 2022-03-01 오후 4 25 48" src="https://user-images.githubusercontent.com/59719632/156123933-49408f0e-6155-4486-a2a2-8b7447a960f0.png">
 
    - 로피탈 정리 이용한 **small o** 증명
 
-<img width="493" alt="스크린샷 2022-03-01 오후 4 25 56" src="https://user-images.githubusercontent.com/59719632/156123950-7ec6d0bc-55ac-4116-bd85-684ee07bfff8.png">
+  <img width="493" alt="스크린샷 2022-03-01 오후 4 25 56" src="https://user-images.githubusercontent.com/59719632/156123950-7ec6d0bc-55ac-4116-bd85-684ee07bfff8.png">
 
 
 * Properties of Order
