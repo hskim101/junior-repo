@@ -147,3 +147,148 @@ print(mul_kA)
 print(mul_AB)
 print(matmul_AC)
 ```
+
+# Chap 2. 다양한 행렬 및 행렬식
+## 2-1. 전치행렬
+* 기존 행렬의 행과 열을 바꾼 행렬
+
+ ![스크린샷 2022-03-10 오후 4 50 55](https://user-images.githubusercontent.com/59719632/157613848-9893f077-2b7a-4edb-96ee-a5688ec11fdb.png)
+
+* 전치 행렬의 성질
+ 
+  ![스크린샷 2022-03-10 오후 4 53 20](https://user-images.githubusercontent.com/59719632/157614230-c5578cae-d628-46b0-b1c2-d0916f11196e.png)
+
+## 2-2. 대칭행렬 (Symemetric matrix)
+* 기존 행렬과 전치 행렬이 동일한 **정사각행렬** : A = A^T
+* 대칭 행렬의 성질
+  - 대칭행렬(A,B) 간 덧셈, 뺄셈 결과 : 대칭행렬
+  - 대칭행렬(A,B) 간 행렬 곱 : 대칭행렬이 아님
+  - 대칭행렬(A)의 거듭제곱(A^n) : 대칭행렬
+  - \*\*\* **AA^T, A^TA : 대칭행렬 (A는 대칭행렬일 필요가 없음)**
+
+  ![스크린샷 2022-03-10 오후 5 00 02](https://user-images.githubusercontent.com/59719632/157615276-9915373b-94f8-47a3-9818-488f32349b47.png)
+
+## 2-3. 대각행렬(diagonal matrix, D)
+  - 정사각행렬에서 주대각원소를 제외한 나머지 원소가 0인 행렬
+  - 대각행렬의 역행렬 및 거듭제곱
+
+  ![스크린샷 2022-03-10 오후 5 01 23](https://user-images.githubusercontent.com/59719632/157615466-0c770577-5464-43a7-adf3-c56221593d71.png)
+  
+  - 대각행렬의 성질
+    + 행렬 A와 대각행렬 D의 행렬곱 AD : 행렬 A의 열이 대각 원소의 배수만큼 변환
+    + DA는 행렬 A의 행이 대각 원소의 배수만큼 변환된다.
+
+  <p align="center"><img width="700" alt="스크린샷 2022-03-10 오후 5 03 53" src="https://user-images.githubusercontent.com/59719632/157615895-ffaf2ccf-a4ff-4aba-bf02-ef07791c2ece.png"> <img width="700" alt="스크린샷 2022-03-10 오후 5 04 06" src="https://user-images.githubusercontent.com/59719632/157615900-94e859a5-f961-43be-8104-bd0470527258.png"></p>
+
+## 2-4. 단위행렬(identity matrix, I)
+  - 주대각원소가 1인 대각행렬
+  - 항등행렬이라고도 한다.
+
+  <img width="500" alt="스크린샷 2022-03-10 오후 5 06 43" src="https://user-images.githubusercontent.com/59719632/157616300-f5826a31-2a86-4fc6-adb0-d0fa33f72b74.png">
+  
+## 2-5. 영행렬(zero matrix, 0)
+  - 모든 행렬 구성 원소가 0인 행렬
+ 
+  <img width="241" alt="스크린샷 2022-03-10 오후 5 08 25" src="https://user-images.githubusercontent.com/59719632/157616535-1585e4a3-8d77-4423-be6d-643922d06ba3.png">
+
+## 2-6. 삼각행렬(triangular matrix)
+  - 상삼각행렬(U), 하삼각행렬(L)로 구성
+  - 상삼각행렬(U) : 주대각원소 아래쪽에 있는 모든 원소가 0인 정사각행렬
+  - 하삼각행렬(L) : 주대각원소 위쪽에 있는 모든 원소가 0인 정사각행렬
+
+  ![스크린샷 2022-03-10 오후 5 10 05](https://user-images.githubusercontent.com/59719632/157616779-d40731c5-e853-4584-895b-04ebed8b3f0a.png)
+
+  - 삼각행렬 간 덧셈, 뺄셈, 행렬 곱의 결과 : 삼각행렬
+  - 상삼각행렬과 하삼각행렬은 전치행렬 관계이다.
+
+  ![스크린샷 2022-03-10 오후 5 11 45](https://user-images.githubusercontent.com/59719632/157617077-4db85e63-f9d5-4bd8-b302-d207950c0e2a.png)
+  
+## 2-7. 특이행렬(singular matrix)
+  - 특이행렬 A란 A의 역행렬이 존재하지 않는 행렬 => det(A) = 0 이 되는 행렬
+
+## 2-8. 정칙행렬(non\-singular\-matrix)
+  - 정칙행렬 A란 A의 역행렬이 존재하는 행렬 => det(A) != 0 이 되는 행렬
+
+## 2-9. 행렬식
+* 행렬식(determinant, det(A) or |A|)
+  - 행렬의 특성을 하나의 숫자로 표현하는 방법
+* 행렬이 단위 공간을 얼마나 늘렸는지 혹은 줄였는지를 나타냄
+  - 행렬식=1 : 해당 행렬이 단위 공간의 부피와 같음
+  - 행렬식=0 : 해당 행렬이 나타내는 부피가 0
+  - 행렬식=10 : 해당 행렬이 단위 공간 부피의 10배에 해당함
+
+  ![스크린샷 2022-03-10 오후 5 17 55](https://user-images.githubusercontent.com/59719632/157618107-817a0e23-8300-4565-9776-e39a4ae4d8f3.png)
+  
+  ![스크린샷 2022-03-10 오후 5 27 30](https://user-images.githubusercontent.com/59719632/157619728-b0c50544-942c-4d00-bf17-50d464b3578f.png)
+
+* 소행렬식 (minor of entry a_ij) M_ij
+  + 행렬의 i행과 j열을 제외하고 구성된 부분 행렬의 행렬식
+
+* 여인수(cofactor of entry a_ij) C_ij = (-1)^(i+j) \* M_ij
+  
+  ![스크린샷 2022-03-10 오후 5 29 54](https://user-images.githubusercontent.com/59719632/157620182-1d9dcf32-4f5a-477b-ae12-b2c68fe1073f.png)
+
+  - 여인수를 이용해 행렬식을 구하는 방법
+ 
+  ![스크린샷 2022-03-10 오후 5 31 59](https://user-images.githubusercontent.com/59719632/157620574-bdced6a5-8c5d-4272-b3bf-da07e8289224.png)
+
+  ![스크린샷 2022-03-10 오후 5 33 09](https://user-images.githubusercontent.com/59719632/157620775-221b2b34-8425-46b1-97ae-f7515959b4fe.png)  
+
+* 삼각행렬의 행렬식
+![스크린샷 2022-03-10 오후 5 35 35](https://user-images.githubusercontent.com/59719632/157621168-a84987a7-eff4-4a6f-95f4-b9c8543d57db.png)
+
+* 대각행렬의 행렬식
+![스크린샷 2022-03-10 오후 5 35 39](https://user-images.githubusercontent.com/59719632/157621196-8b22e2a9-8c47-4ca5-a44e-e03cf234b7e7.png)
+
+* 전치행렬의 행렬식 : det(A) = det(A^T)
+
+* 특정 행과 열의 원소가 모두 0일 때 행렬식 = 0
+
+* 행렬곱과 행렬식
+  - det(AB) = det(A) \* det(B)
+
+```python3
+import numpy as np
+
+# Transpose matrix
+A=np.array([[1,5],[3,4],[6,2]])
+At=np.transpose(A)
+At=A.T
+
+# Symmetric matrix
+B=np.array([[1,0,2],
+            [0,2,1],
+            [2,1,1]])
+B==B.T            
+# B^n 도 대칭행렬
+Bn=B
+for i in range(4):
+  Bn=np.matmul(Bn,B)
+  
+# A*A^T => A^T*A  
+
+# Diagonal matrix (D)
+diag_B=np.diag(B)
+
+# Identity matrix (I)
+I=np.identity(3)
+
+# Zero matrix(0)
+Z=np.zeros((3,2))
+
+# Triangular matrix (L,U)
+U=np.triu(B) # upper tri
+L=np.tril(B) # lower tri
+
+# Singular matrix (S)
+detB=np.linalg.det(B) # linear algebra function
+```
+
+
+
+
+
+
+
+
+
