@@ -313,6 +313,7 @@ for which there exists some positive **real constant c** and **some non\-negativ
   - Omega와 Big O의 교집합
   - θ(f(n))은 f(n)의 최고 차수
   - c\*f(n) <= g(n) <= d\*f(n), for all n>=N
+  - 상수배 관계
 
 <img width="600" alt="스크린샷 2022-03-01 오후 4 08 55" src="https://user-images.githubusercontent.com/59719632/156121659-209c88ed-74b0-432f-902e-306d88a03013.png">
 
@@ -330,13 +331,13 @@ for which there exists some positive **real constant c** and **some non\-negativ
   
   ![스크린샷 2022-03-10 오전 11 39 01](https://user-images.githubusercontent.com/59719632/157577546-afb1421a-1b5f-4768-8c12-ce5b37a428c9.png)
 
-  - Exponential이 Factorial보다 느리게 증가함 증명
+  - by contradiction을 이용한 반례 증명
+
+  ![스크린샷 2022-03-10 오전 11 42 04](https://user-images.githubusercontent.com/59719632/157577846-745bbe82-c190-4cea-b780-17cdd2423564.png)
   
-  <img width="586" alt="스크린샷 2022-03-01 오후 4 25 48" src="https://user-images.githubusercontent.com/59719632/156123933-49408f0e-6155-4486-a2a2-8b7447a960f0.png">
-
-   - 로피탈 정리 이용한 **small o** 증명
-
-  <img width="493" alt="스크린샷 2022-03-01 오후 4 25 56" src="https://user-images.githubusercontent.com/59719632/156123950-7ec6d0bc-55ac-4116-bd85-684ee07bfff8.png">
+  - 배수인 경우 상수를 1 이하로 만드는 c로 반례 증명
+  
+  ![스크린샷 2022-03-10 오전 11 44 25](https://user-images.githubusercontent.com/59719632/157578106-80591ae3-23fc-46c5-a0e5-d24b096db6d5.png)
 
 
 * Properties of Order
@@ -345,6 +346,13 @@ for which there exists some positive **real constant c** and **some non\-negativ
 
 * Using a Limit to Determine Order
 
-<img width="454" alt="스크린샷 2022-03-01 오후 4 23 32" src="https://user-images.githubusercontent.com/59719632/156123545-358a3bf5-21b1-4ca1-b608-a467cb8cb868.png">
+  <img width="454" alt="스크린샷 2022-03-01 오후 4 23 32" src="https://user-images.githubusercontent.com/59719632/156123545-358a3bf5-21b1-4ca1-b608-a467cb8cb868.png">
 
+  - **Exponential이 Factorial보다 느리게 증가함 증명**
+  
+  <img width="586" alt="스크린샷 2022-03-01 오후 4 25 48" src="https://user-images.githubusercontent.com/59719632/156123933-49408f0e-6155-4486-a2a2-8b7447a960f0.png">
+
+   - 로피탈 정리 이용한 **small o** 증명
+
+  <img width="493" alt="스크린샷 2022-03-01 오후 4 25 56" src="https://user-images.githubusercontent.com/59719632/156123950-7ec6d0bc-55ac-4116-bd85-684ee07bfff8.png">
 
