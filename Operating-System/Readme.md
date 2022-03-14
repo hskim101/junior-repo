@@ -246,6 +246,17 @@ Operating System
 
 * boot block 안에 OS를 선택할 수 있는 기능이 있다. (멀티 부팅)
 
- 
 ![스크린샷 2022-03-10 오전 12 44 31](https://user-images.githubusercontent.com/59719632/157476663-2a7244b0-0040-458b-8788-abf159a06565.png)
+
+# Chap 3. Process
+## 3-1. Process Concept
+* What exactly is an UNIX process
+  - 실행되는 프로그램
+  - 자신만의 resource, program count를 가진다.
+  - 자신만의 메모리 공간, control information을 가진다.
+
+![스크린샷 2022-03-14 오후 5 28 32](https://user-images.githubusercontent.com/59719632/158133611-19a711a9-ae89-4ede-aa8e-8d9fa95ac711.png)
+
+
+
 
