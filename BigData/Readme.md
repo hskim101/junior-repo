@@ -4,7 +4,7 @@
 시험 자료 정리
 -----------
 
-# Chap1. Introduction to Python
+# Chap 1. Introduction to Python
 * Interpreted Languages
   - 기계어 변환 과정 없이 바로 명령어를 실행
    
@@ -28,3 +28,30 @@
 * Expression
   
 ![스크린샷 2022-03-10 오후 3 23 19](https://user-images.githubusercontent.com/59719632/157601787-058dcbc2-d6c5-4902-bd12-3d8c977aaa8e.png)
+
+# Chap 2. Basic Operators and Control Statement
+* CLI : 사용자 인터페이스
+  - GUI (Graphical User Interface)
+  - CLI (Command Line Interface)
+* Input()
+  - 항상 string type을 return한다.
+  - ex) name=input("What is your name?")
+* print()
+* Type casting with input()
+```python3
+age = int(input("How old are you? "))
+print("Your age is", age)
+print(65 - age, "years to retirement")
+```
+
+* Basic Operator
+  - Arithmetic Operators
+    + \+
+    + \-
+    + \*
+    + \/
+    + \%
+    + \*\*
+    + \/\/
+
+
