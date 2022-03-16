@@ -257,7 +257,81 @@ Operating System
 
 ![스크린샷 2022-03-14 오후 5 28 32](https://user-images.githubusercontent.com/59719632/158133611-19a711a9-ae89-4ede-aa8e-8d9fa95ac711.png)
 
+* Process in Memory
+  - 초기화된 전역변수 : initialized data 영역에 저장된다.
+  - 초기화되지 않은 전역변수 : uninitialized data 영역에 저장된다.
+  - 전체적인 코드는 text 영역에 저장된다. 
+  - header 영역에는 실행파일의 정보를 담고 있다.
+  - 로딩이 되면 text, initialized data, bss 영역이 메모리에 올라온다. 
+  - malloc (동적할당)의 메모리 공간은 heap 영역에 올라온다.
+  - 호출된 함수는 user stack 영역에 잡힌다.
+  - 스택은 위에서 밑으로 주소가 감소하는 방향, heap은 밑에서 위로 주소가 증가하는 방향으로 잡힌다.
+  - process 하나별로 메모리 공간이 잡힌다.
 
+![image](https://user-images.githubusercontent.com/59719632/158584371-4d8de53f-37e9-4b4e-a1a7-07caf086402d.png)
 
+* Process state
+  - new : 프로세스가 만들어지기 전 단계
+  - running : ready 상태의 프로세스를 CPU에 올린 상태, 자신의 time slice를 모두 소비하면 ready 상태로 이동한다.(cpu 독점을 막기 위함)
+  - waiting : sleep(10) 또는 read(fd, pBuf) 같은 함수를 호출하면 다른 event가 생기는 것을 기다리는 상태가 된다. disk에서 파일을 모두 읽어오면 ready상태로 간다.
+    + waiting에서 ready로 이동하는 이유는 waiting 상태에서 깨어난 프로세스가 갑자기 running 상태로 올라오게 되면 현재 실행되고 있는 프로세스가 자신에게 할당된 time slice를 소비할 수 없는 상황이 발생된다. 이를 막기 위해 ready 상태로 이동한다.
+    + waiting 상태의 process를 CPU에 올려도 실행되지는 않는다. 조건(I/O, sleep, read)이 만족될 때까지 실행되지 않는다.
+  - ready : 프로세스가 만들어진 단계, 자신의 실행 순서가 올 때까지 기다린다. ready 상태의 process를 CPU에 올리면 실행된다.
+  - terminated : return 또는 exit(0) 을 하게되면 terminated 상태가 된다.
+    + Zombie 상태라고도 한다.
+    + 자기가 사용하고 있는 resouce들을 깨끗하게 없앤다.
+    + 몇 가지 찌꺼기가 남는데 청소(crop)를 하지 않으면 시스템 상에서 문제가 발생할 수 있다.
+    + waitpid(), wait() 함수를 사용하면 zombie 상태의 프로세스를 깨끗하게 청소할 수 있다.
+
+  ![image](https://user-images.githubusercontent.com/59719632/158587549-f1e9b43c-97fd-4b90-b314-c8f860c7bbb4.png)
+  
+* Process Control Block (PCB) : 프로세스의 정보를 담아두고 있는 일종의 구조체
+  - Process state
+  - Program Counter : 다음에 실행할 명령어를 가리킴
+  - CPU registers
+  - CPU scheduling information 
+  - Memory\-management information
+  - Accounting information
+  - I/O status information : 대표적으로 file descriptor table
+
+* Process Scheduling
+  - Multiprogramming : 프로세스를 동시에 실행하는 동작, CPU 효율을 최대화함
+  - Time\-Sharing : 여러 사용자가 컴퓨터를 동시에 사용하게 하는 동작, 각 사용자가 해당하는 컴퓨터를 자신만의 컴퓨터로 느끼게 해주는 기능
+  - Process scheduler : Multiprogramming과 Time\-Sharing을 지원해주는 역할
+  
+* CPU Switch
+
+![image](https://user-images.githubusercontent.com/59719632/158590816-719d5eff-f366-4601-85bd-e12e6a31eb01.png)
+
+* Process Scheduling Queues
+  - Job queue : 모든 프로세스를 관리하는 queue
+  - Ready queue : ready 상태의 프로세스를 관리하는 queue
+  - Waiting queue
+    + Device queue : I/O device
+    + Waiting queue per resorce (message queue, socket, semaphore)
+
+![image](https://user-images.githubusercontent.com/59719632/158592149-7e8ae003-be1c-4e0b-a479-d7561031410b.png)
+
+* Schedulers
+  - Short\-term scheduler : process scheduler
+
+* Context Switch
+  - context : CPU registers, process state를 가리킴, PCB 안에 저장된다.
+p0 가 실행 중인데 p1로 context swtich 한다고 가정.   
+context switch가 발생하면 cpu는 p0를 정지시킴, cpu 안에 들어있는 register 값들과 state를 메모리(PCB) 상에 저장함(각 프로세스마다 메모리 공간이 있음)   
+p0의 context가 p0의 PCB 안으로 저장된다. 정지했다가 다시 시작할 p1의 context를 cpu 상으로 로드한다. 로드가 완료되면 p1은 이전에 정지된 시점부터 다시 실행된다.   
+p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0가 이전에 정지된 시점부터 자동으로 다시 실행된다.
+
+![image](https://user-images.githubusercontent.com/59719632/158593772-f944a14d-ac37-4553-86a4-781ffc7c4213.png)
+
+* Process Creation
+  - Parent process가 children process를 생성하는 과정
+  - 프로세스는 자신만의 고유한 pid를 가지고 있다.
+  - fork() 함수로 프로세스 생성 가능
+  - pageout, fsflush 프로세스는 kernel 프로세스이다.
+  - **child와 parent간에 서로 변경한 데이터 내용은 서로 볼 수 없다.**
+  - 변경된 데이터는 각 프로세스만 볼 수 있다.
+  - child를 생성할 때 parent의 resource가 child에게 그대로 물려받는다.
+![image](https://user-images.githubusercontent.com/59719632/158595873-19aae371-2e73-4cbb-a7c2-e67fa60beb5a.png)
 
 
