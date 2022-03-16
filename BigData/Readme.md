@@ -68,6 +68,8 @@ print(65 - age, "years to retirement")
   - 괄호를 이용해서 연산자 우선순위 원하는대로 사용 가능
 
 * Control Statement
+  ![image](https://user-images.githubusercontent.com/59719632/158604945-50150616-3c07-46ca-b424-efc8f6e457f5.png)
+  
   - Sequential structure : 순차적 구조
   - Selection structure : 선택적 구조
     + if
@@ -82,12 +84,10 @@ print(65 - age, "years to retirement")
   else:
       print("윤년이 아닙니다.")
   ```
-  - Repetition structure : 반복적 구조, while, for
-
-  ![image](https://user-images.githubusercontent.com/59719632/158604945-50150616-3c07-46ca-b424-efc8f6e457f5.png)
 
   ![image](https://user-images.githubusercontent.com/59719632/158605034-0f644ef8-582a-4e9c-bbba-a63a36335aee.png)
   
 
-  
-  
+  - Repetition structure : 반복적 구조, while, for
+    + while : 조건에 의한 반복
+    + for : 횟수에 의한 반복
