@@ -49,9 +49,45 @@ print(65 - age, "years to retirement")
     + \+
     + \-
     + \*
-    + \/
-    + \%
-    + \*\*
-    + \/\/
+    + \/ : Division
+    + \% : Modulus (나머지)
+    + \*\* : power
+    + \/\/ : Floor Division (몫)
+  - Comparison Operator : True, False 값 반환
+    + ==
+    + !=
+    + <> == !=
+    + >
+    + <
+    + <=
+    + >=
+  - Other Basic Operator
+    + Bitwise Operator : 많이 사용하지 않음, 이런게 있다라는 것만 알아두면 됨, &, |, ~, <<, >>
+    + Logical Operator : and, or, not
+    + Membership Operator : in, not in
+  - 괄호를 이용해서 연산자 우선순위 원하는대로 사용 가능
 
+* Control Statement
+  - Sequential structure : 순차적 구조
+  - Selection structure : 선택적 구조
+    + if
+    + if else : 둘 중 하나를 반드시 선택한다.
+    + if elif else : 여러 조건 중 하나를 선택한다.
+    + 조건문을 사용하게 되면 콜론과 들여쓰기를 사용해야한다.
 
+  ```python3
+  # 윤년 판단
+  if (year%4==0 and year%100!=0) or year%400==0:
+      print("윤년입니다.")
+  else:
+      print("윤년이 아닙니다.")
+  ```
+  - Repetition structure : 반복적 구조, while, for
+
+  ![image](https://user-images.githubusercontent.com/59719632/158604945-50150616-3c07-46ca-b424-efc8f6e457f5.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/158605034-0f644ef8-582a-4e9c-bbba-a63a36335aee.png)
+  
+
+  
+  
