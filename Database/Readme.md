@@ -251,3 +251,83 @@ CREATE TABLE instructor(
 ##3-4. Basic Query Structure
 
 ![스크린샷 2022-03-09 오전 11 52 05](https://user-images.githubusercontent.com/59719632/157363443-94807920-a9f5-4e7b-8c8b-de36266e48d2.png)
+
+* SELECT Clause (Projection)
+```mysql
+SELECT name
+FROM instructor;
+```
+```mysql
+# 중복되지 않은 값만 SELECT
+SELECT DISTINCT dept_name
+FROM instructor;
+```
+```mysql
+SELECT '437' ;# 열 이름이 '437' 이고 값이 437인 행 하나 반환
+```
+```mysql
+SELECT 'A'
+FROM instructor; # 'A'로 이루어진 행을 instructors 행 갯수만큼 반환
+```
+
+* WHERE Clause (Selection)
+```mysql
+SELECT name
+FROM instructor
+WHERE dept_name='Comp. Sci';
+```
+```mysql
+SELECT name
+FROM instructor
+WHERE dept_name = 'Comp. Sci.'
+AND salary > 70000;
+```
+
+```mysql
+# Cartesian product
+SELECT *
+FROM instructor, teaches;
+
+# 쓸데 없는 튜플들이 생긴다.
+# Attribute 이름이 겹치면 이름이 바뀐다. ex) instructor.name, teaches.name
+SELECT name, course_id
+FROM instructor , teaches
+WHERE instructor.ID = teaches.ID
+AND instructor. dept_name = 'Art';
+```
+
+* Rename Operation
+```mysql
+SELECT DISTINCT T.name
+FROM instructor AS T, instructor AS S
+WHERE T.salary > S.salary AND S.dept_name = 'Comp. Sci.';
+```
+* Self Join
+```mysql
+SELECT S.supervisor
+FROM emp-super AS T, emp-super AS S
+WHERE T.person='Bob' AND T.supervisor=S.person;
+```
+
+* String Operations
+  - \% : 모든 문자와 substring과 매칭
+  - \_ : 모든 문자와 매칭
+    + '___' : 정확히 3
+
+```mysql
+SELECT name
+FROM instructor
+WHERE name LIKE '%dar%;  # dar 앞뒤로 어떤 문자나 문자열이 와도 매칭
+```
+
+
+
+
+
+
+
+
+
+
+
+
