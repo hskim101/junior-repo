@@ -91,3 +91,29 @@ print(65 - age, "years to retirement")
   - Repetition structure : 반복적 구조, while, for
     + while : 조건에 의한 반복
     + for : 횟수에 의한 반복
+
+  ```python3
+  # 최대공약수 계산하기
+  x=int(input()) # 큰수
+  y=int(input()) # 작은수
+  
+  while y!=0: # 일종의 그리디 알고리즘
+    r=x%y # 나머지
+    x,y=y,r
+  print("최대 공약수 = " , x) # + 로 concat 하려면 str로 casting 해줘야한다.
+  ```
+  ```python3
+  # factorial
+  n=int(input())
+  
+  fact=1
+  for i in range(1,n+1):
+    fact=fact*i
+  print(f'{n}! = {fact}')
+  ```
+  
+  - break statement
+  - continue statement
+ 
+  
+  
