@@ -312,7 +312,8 @@ WHERE T.person='Bob' AND T.supervisor=S.person;
 * String Operations
   - \% : 모든 문자와 substring과 매칭
   - \_ : 모든 문자와 매칭
-    + '___' : 정확히 3
+    + '_ _ _' : 정확히 3개의 문자
+    + '_ _ _ %' : 3개의 문자 뒤에 어떠한 문자열
 
 ```mysql
 SELECT name
@@ -320,14 +321,45 @@ FROM instructor
 WHERE name LIKE '%dar%;  # dar 앞뒤로 어떤 문자나 문자열이 와도 매칭
 ```
 
+* Ordering the Display of Tuples
+```mysql
+SELECT DISTINCT name
+FROM instructor
+ORDER BY name ASC;
+```
 
+* WHERE Clause
+```mysql
+SELECT name, course_id
+FROM instructor, teaches
+WHERE (instructor.ID, dept_name) = (teaches.ID, 'Biology'); # 튜플로 한번에 비교해도 된다.
+```
 
+* Set Operations
+  - 기본적으로 중복되지 않은 값들로만 이루어져 있다.
+  - 중복된 값 포함시키려면 all을 붙이면 된다. (UNION ALL)
+  
+```mysql
+(SELECT course_id FROM section WHERE sem = 'Fall' AND year = 2017)
+UNION
+(SELECT course_id FROM section WHERE sem = 'Spring' AND year = 2018); # 합집합
 
+# 교집합 : INTERSECT
+# 차집합 : EXCEPT
+```
 
+* Null Values
+  - 5 + null = null
+  - null 인지 확인하려면 IS NULL 또는 IS NOT NULL 을 써야한다. True or False로 반환
+ - 5<null, null<>null, null=null 다 unknown으로 나오고 unknown은 false로 판단한다.
+```mysql
+SELECT name
+FROM instructor
+WHERE salary IS NULL; # salary=null 이렇게 쓰면 안된다.
+```
 
+![sql퀴즈](https://user-images.githubusercontent.com/59719632/158791036-8b44a270-5ecb-4fa9-98a4-0c56a2fdc46a.PNG)
 
+![sql2](https://user-images.githubusercontent.com/59719632/158791060-910d2e4e-938b-4768-8c9d-bfa73ee9311d.PNG)
 
-
-
-
-
+![sql3](https://user-images.githubusercontent.com/59719632/158791069-17711dca-897b-4daf-94f7-0fb659cd80d9.PNG)
