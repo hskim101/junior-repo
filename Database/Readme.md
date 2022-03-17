@@ -313,7 +313,7 @@ WHERE T.person='Bob' AND T.supervisor=S.person;
   - \% : 모든 문자와 substring과 매칭
   - \_ : 모든 문자와 매칭
     + '_ _ _' : 정확히 3개의 문자
-    + '_ _ _ %' : 3개의 문자 뒤에 어떠한 문자열
+    + '_ _ _ %' : 3개의 문자 뒤에 어떠한 문자열 (최소 3개의 문자열이 있어야한다.)
 
 ```mysql
 SELECT name
