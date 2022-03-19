@@ -334,4 +334,96 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
   - child를 생성할 때 parent의 resource가 child에게 그대로 물려받는다.
 ![image](https://user-images.githubusercontent.com/59719632/158595873-19aae371-2e73-4cbb-a7c2-e67fa60beb5a.png)
 
+## 3-2. Process Scheduling
+* CPU I/O
+  - CPU execution에 대한 구간 => CPU burst
+    + CPU가 명령어를 실행하는 구간
+  - I/O wait에 대한 구간 => I/O burst
+    + I/O 가 완료될 때 까지 CPU가 기다리는 시간
+  - 프로그램이 실행될 때 CPU burst, I/O burst가 번갈아가면서 실행된다.
+  - I/O burst가 많을 수록 프로세스가 I/O가 많다.
+    + I/O가 많은 프로세스를 I/O bound process라고 한다.
+    + I/O burst가 많을수록 CPU burst 시간이 짧다.
+  - CPU burst가 많을수록 I/O burst 시간이 짧다
+    + CPU burst가 많은 process를 CPU bound process라고 한다.  
+  <img width="425" alt="스크린샷 2022-03-19 오후 4 56 49" src="https://user-images.githubusercontent.com/59719632/159112974-5f1dd358-9b65-42bf-b5ca-1f98a3ae71bf.png">
+
+  <img width="464" alt="스크린샷 2022-03-19 오후 5 00 20" src="https://user-images.githubusercontent.com/59719632/159113567-9a1bd6fb-7b28-4a14-81d2-517505bf0761.png">
+
+* Process Scheduler  
+  - ready queue에 대기 중인 프로세스를 선택하는 역할
+  - Dispatcher : 프로세스를 CPU에 할당하는 역할
+  - Process scheling decisions may take place when a process
+    + 1. Switches from running to waiting
+    + 2. Switches from running to ready state due to the expiration of time slice or quantum.
+    + 3. Terminates
+  
+  1. running 상태의 프로세스에 I/O를 하면 waiting 상태로 간다. 이 프로세스는 waiting queue에 추가된다. 이 때 cpu가 노는데 process scheduler가 ready queue에서 임의의 프로세스를 선택해서 cpu에 할당하고 이 프로세스는 running 상태가 된다.   
+  2. 프로세스가 cpu에서 실행될 때 cpu 독점을 막기 위해 time slice만큼 실행되는데 이 때 process scheduler가 실행 중인 process를 ready 상태로 쫒아내고 ready queue에 있는 임의의 프로세스를 선택해서 running 상태로 할당한다.
+  3. 프로세스가 실행되다가 갑자기 종료될 때, ready 상태의 프로세스를 running 상태로 할당한다.
+ 
+  <img width="516" alt="스크린샷 2022-03-19 오후 5 34 13" src="https://user-images.githubusercontent.com/59719632/159114000-68417ad1-e103-4c88-8fa0-069804678abb.png">
+
+  - non\-preemptive scheduling
+    + process가 cpu를 자발적으로 놓지 않는 이상 계속 cpu를 사용하는 것을 허락해주는 방식
+    + 자발적으로 놓는다 => 프로세스가 종료되는 경우, I/O를 하는 경우
+  <img width="499" alt="스크린샷 2022-03-19 오후 5 37 57" src="https://user-images.githubusercontent.com/59719632/159114109-5c2edf6d-a8e2-4163-9f8c-959c6d6c9e1b.png">
+
+  - Preemptive scheduling
+    + 강제적으로 실행되고 있는 프로세스를 일시적으로 정지시키는 방법의 스케쥴링
+    + 정지시킨 프로세스는 ready queue로 보낸다.
+  
+  - Dispatcher
+    + ready queue에서 cpu에 할당할 프로세스를 선택하는 것이 스케쥴러, 선택된 프로세스를 cpu에 할당하는 것이 dispatcher
+    + cpu에 할당한다 => context switching, 이전에 정지되었던 부분부터 시작 (program count), user mode로 switching 
+
+* Scheduling Criteria 
+  - CPU utilization : CPU가 멈추지 않고 얼마나 바쁘게 움직이는지
+    <img width="481" alt="스크린샷 2022-03-19 오후 5 48 21" src="https://user-images.githubusercontent.com/59719632/159114403-7cf9d961-3e6a-44b1-84ed-c6520a554b2e.png">
+
+  - Throughput : 주어진 시간에 몇 개의 프로세스 실행을 완료했는지
+  - Turnaround time : 프로세스가 시작했을 때부터 끝날 때까지의 사용한 시간
+  - Waiting time : ready queue에서 대기하고 있는 시간. (waiting queue에 있는 시간이 아님!!)
+  - Response time : 프로세스가 event를 받은 후 event의 결과를 출력할 때까지 걸리는 시간
+
+* Optimization Criteria
+  - Max
+    + CPU utilization
+    + throughput
+  - Min
+    + turnaround time
+    + waiting time
+    + response time
+
+* Scheduling Algorithms
+  - cpu에 할당할 ready queue에 있는 process를 선택하는 것
+  - Frist]-Come, First\-Served (FIFO)
+    + 먼저 들어온 것을 먼저 보냄
+    + non\-preemptive 방식
+    + scheduler는 ready queue의 head를 선택
+    + Process가 여러 개가 동시에 ready queue에 들어왔을 때 waiting time과 average waiting time이 실행되는 순서에 따라 달라진다. 이 문제를 해결하기 위해 나온 알고리즘이 Shortest\-Job\-First (SJF) 이다.
+    <img width="446" alt="스크린샷 2022-03-19 오후 5 59 03" src="https://user-images.githubusercontent.com/59719632/159114732-adf6b844-2c8c-4f94-9ed9-99368af5cbab.png">
+    
+    + Gantt Chart를 사용하면 프로세스 실행을 쉽게 볼 수 있다.
+
+    <img width="415" alt="스크린샷 2022-03-19 오후 6 08 09" src="https://user-images.githubusercontent.com/59719632/159115044-01e78b57-1208-4999-b4f1-0a9485d1063a.png">
+
+  - Shortest\-Job\-First (SJR) Scheduling
+    + CPU burst time이 가장 작은 프로세스를 우선적으로 실행하는 방법
+    + Non\-Preemptive SJF
+    + 이론적인 방법이다. 실제 구현하기는 불가능 (cpu burst time을 예측하는 것이 불가능하기 때문이다.)
+
+    <img width="510" alt="스크린샷 2022-03-19 오후 6 11 41" src="https://user-images.githubusercontent.com/59719632/159115139-1873830d-c2dc-44cb-a9db-4ef7312b9b87.png">
+
+  - Priority Scheduling
+    + 각 process에 priority에 해당하는 점수가 할당된다.
+    + OS별로 priority 점수가 작은 것을 우선 시 할 수도, 높은 것을 우선 시 할 수도있다.
+    + Preemptive VS non\-Preemptive priority scheduling
+      - Preemptive는 현재 실행 중인 프로세스보다 우선순위가 높은 프로세스가 들어오면 현재 실행 중인 프로세스를 ready queue의 head로 보내고 우선순위가 높은 프로세스를 먼저 실행 시킨다.
+      - Preemptive priority scheduling은 Realtime OS에 사용되고 있다.
+    <img width="479" alt="스크린샷 2022-03-19 오후 6 20 42" src="https://user-images.githubusercontent.com/59719632/159115418-1d8ddf7d-ce66-45f3-acaf-b8e2f062c0d6.png">
+   
+    + Problem = Starvation \- 낮은 우선순위를 가진 프로세스는 계속 실행이 안될 수 있는 문제가 있다.
+    + Solution = Aging \- CPU를 오랫동안 사용하지 못한 프로세스의 priority를 증가시킨다.
+
 
