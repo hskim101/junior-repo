@@ -363,3 +363,136 @@ WHERE salary IS NULL; # salary=null 이렇게 쓰면 안된다.
 ![sql2](https://user-images.githubusercontent.com/59719632/158791060-910d2e4e-938b-4768-8c9d-bfa73ee9311d.PNG)
 
 ![sql3](https://user-images.githubusercontent.com/59719632/158791069-17711dca-897b-4daf-94f7-0fb659cd80d9.PNG)
+
+* Aggregate Functions
+  - avg
+  - min
+  - max
+  - sum
+  - count
+
+  ```mysql
+  SELECT AVG(salary)
+  FROM instructor
+  WHERE dept_name= 'Comp. Sci.';
+  ```
+
+  ```mysql
+  SELECT COUNT(distinct ID)
+  FROM teaches
+  WHERE semester = 'Spring' AND year = 2018;
+  ```
+
+  - Group By
+    + 집계 함수를 사용할 때 SELECT 부분에서 집계 함수가 쓰이지 않은 Attributes는 모두 GROUP BY 항목에 들어가 있어야한다.
+  ```mysql
+  # 집계를 할 때 어떤 그룹 단위로 집계를 할지 정함
+  SELECT dept_name, AVG(salary) AS avt_salary
+  FROM instructor
+  GROUP BY dept_name; # ID가 없으므로 에러
+  ```
+
+  - Having Clause
+    + where와 having의 차이는 having은 집계함수를 먼저 실행한 후 조건을 적용한다.
+    + where는 집계함수 이전에 적용이 된다.
+    + where와 having은 다르다.
+  ```mysql
+  SELECT dept_name, AVG(salary) AS avg_salary
+  FROM instructor
+  GROUP BY dept_name
+  HAVING AVG(salary) > 42000;
+  ```
+
+* Nested Subqueries
+```mysql
+SELECT A1, A2, ..., An
+FROM r1, r2, ..., rm
+WHERRE P;
+```
+
+* Set Membership
+```mysql
+SELECT DISTINCT course_id
+FROM section
+WHERE semester = 'Fall' AND year= 2017 AND
+      course_id IN (SELECT course_id
+                    FROM section
+                    WHERE semester = 'Spring' AND year= 2018);
+```
+
+```mysql
+SELECT DISTINCT name
+FROM instructor
+WHERE name NOT IN ('Mozart', 'Einstein') # 튜플 형태로 명시
+
+SELECT COUNT(distinct ID)
+FROM takes
+WHERE (course_id, sec_id, semester, year) IN # 여러개의 membership을 튜플 형태로 걸러낼 수 있다.
+                   (SELECT course_id, sec_id, semester, year
+                    FROM teaches
+                    WHERE teaches.ID= 10101);
+```
+
+* Set Comparison
+  - SOME Clause
+    + =some = in
+    + !=some != not in
+  ```mysql
+  # 하나하나 비교
+  SELECT DISTINCT T.name
+  FROM instructor AS T, instructor AS S
+  WHERE T.salary > S.salary AND S.dept name = 'Biology';
+  
+  # 한 사람과 전체 비교, 그 다음사람과 전체 비교
+  SELECT name
+  FROM instructor
+  WHERE salary > SOME(SELECT salary # salary > some => 가장 낮은 값보다 크면 참
+                      FROM instructor
+                      WHERE dept_name='Biology');
+  ```
+  
+  ![image](https://user-images.githubusercontent.com/59719632/159105051-766c4be3-c02a-4d66-b96a-de78887397bb.png)
+
+  - ALL Clause
+    + !=all = not in
+    + =all != in
+  ```mysql
+  # 가장 큰 값과 비교
+  SELECt name
+  FROM instructor
+  WHERE salary > ALL(SELECT salary
+                     FROM instructor
+                     WHERE dept name = 'Biology');
+  ```
+  
+  ![image](https://user-images.githubusercontent.com/59719632/159105117-bfe85075-888e-495a-9120-6d03d5b7380b.png)
+
+* EXISTS Clause
+  - 공집합이 아닌 경우만 만족
+  - exists => 공집합인 아닌 경우
+  - not exists => 공집합인 경우
+```mysql
+# Find all students who have taken all courses offered in the Biology department.
+# 문제에 all이 있다고 위의 all과 같다고 생각하며 안된다.
+SELECt course_id
+FROM section AS S
+WHERE semester = 'Fall' AND year = 2017 AND
+      EXISTS (SELECT *
+              FROM section AS T
+              WHERE semester = 'Spring' ANd year= 2018
+                    ANd S.course_id = T.course_id);
+```
+
+* UNIQIE
+  - subquery에 만족하는 값이 최대 하나의 값만 있는 경우만 만족
+  - 중복이 있는지 없는지만 체크, subquery 조건에 아에 해당하지 않는 경우도 만족
+  
+```mysql
+SELECT T.course_id
+FROM course AS T
+WHERE UNIQUE (SELECT R.course_id
+              FROM section AS R
+              WHERE T.course_id= R.course_id
+                    AND R.year = 2017);
+```
+  
