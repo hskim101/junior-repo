@@ -496,3 +496,11 @@ WHERE UNIQUE (SELECT R.course_id
                     AND R.year = 2017);
 ```
   
+![dsafasdfasdf](https://user-images.githubusercontent.com/59719632/159105683-e3bc3083-f638-47a1-bb66-4edafb3b0c42.PNG)
+
+![2](https://user-images.githubusercontent.com/59719632/159105688-f0e21c0e-556c-430b-bf99-6a4f31c5ec0b.PNG)
+
+![3](https://user-images.githubusercontent.com/59719632/159105691-ead5f250-d836-4b28-a09f-fc42d33e84f5.PNG)
+
+
+
