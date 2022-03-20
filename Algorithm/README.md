@@ -356,3 +356,97 @@ for which there exists some positive **real constant c** and **some non\-negativ
 
   <img width="493" alt="스크린샷 2022-03-01 오후 4 25 56" src="https://user-images.githubusercontent.com/59719632/156123950-7ec6d0bc-55ac-4116-bd85-684ee07bfff8.png">
 
+# Chap 2. Divide and Conquer
+* Divide and Conquer
+  - Step 1: Divide
+    + 원래 문제의 instance를 작은 instance로 분할
+  - Step 2: Conquer
+    + 작아진 instance를 풀 수 있으면 풀거나 재귀적으로 더 작게 분할
+  - Step 3: (If necessary) Combine
+    + 작은 문제들의 해를 얻고 이 해들을 큰 문제의 해로 결합해주는 과정
+
+## 2-1. Binary Search
+* Step
+  - step 0: If x=S[mid], quit
+  - step 1: Divide
+    + If x>S[mid], 오른쪽 서브배열에서 찾음
+    + If x<S[mid], 왼쪽 서브배열에서 찾음
+  - step 2: Conquer
+    + 서브 배열에서 x를 찾았는지 검사
+  - Worst\-Case Time Complexity of Binary Search
+    + Basic Operation : x와 S[mid]의 비교 연산
+    + Input Size : 배열의 item 수
+    + Assumption : n=2^k, 어떤 입력을 반 분을 했을 때 정수로 나옴
+    + W(n) = W(n/2) + 1 for n>1, W(1)=1
+    
+   <img width="500" alt="스크린샷 2022-03-20 오전 10 48 52" src="https://user-images.githubusercontent.com/59719632/159144591-9cf1c6cb-992a-4636-8f7f-7b58b1c26882.png">
+
+  ```java
+    // Java
+    public static index BinarySearch(int n, keyType[] S, keyType x){
+        index location, low, high, mid;
+
+      low = 1;
+      high = n;
+      location = 0;
+
+      while(low <= high && location == 0){
+          mid=(low+high)/2;
+          if(x==S[mid])
+              location = mid;
+          else if(x < S[mid])
+              high = mid - 1;
+          else
+              low = mid + 1;
+      }
+      return location;
+  }
+  ```
+
+  ```python3
+  # python3
+  def binary_search(lst,target): # Iterative
+      start=0
+      end=len(lst)-1
+
+      while start<=end:
+          mid=(start+end)//2
+
+          if lst[mid]==target:
+              return mid
+          elif lst[mid]>target:
+              end=mid-1
+          else:
+              start=mid+1
+
+  lst=[1,2,3,4,5,6]
+  print(binary_search(lst,4))    
+  ```
+
+  ```python3
+  # python3
+  def binary_search(lst,target,start,end): # Recursive
+      while start<=end:
+          mid=(start+end)//2
+
+          if lst[mid]==target:
+              return mid
+          elif lst[mid]>target:
+              return binary_search(lst,target,start,mid-1)
+          else:
+              return binary_search(lst,target,mid+1,end)
+
+  lst=[1,2,3,4,5,6]
+  print(binary_search(lst,4,0,len(lst)-1))
+  ```
+## 2-2. Merge Sort
+* Step
+  - Step 1: Divide
+    + 두 개의 서브배열로 반 분한다.
+  - Step 2: Conquer
+    + 서브배열이 충분히 작으면 정렬한다
+    + 더 분할이 가능하면 재귀적으로 분할한다.
+  - Step 3: Combine
+    + 정렬된 서브배열을 Merge한다.
+  
+
