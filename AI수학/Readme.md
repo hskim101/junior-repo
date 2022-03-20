@@ -284,11 +284,55 @@ L=np.tril(B) # lower tri
 detB=np.linalg.det(B) # linear algebra function
 ```
 
+## 2-10. 역행렬
+* 역행렬
+  - 행렬 A의 역행렬이란 AB = I를 만족하는 행렬 B
+* 가역행렬
+  - 행렬식이 0이 아니라는 조건이 필요
+  - 가역행렬의 역행렬은 유일하다.
+  - 역행렬이 존재하지 않는다면 행렬 A를 특이행렬이라 한다.
+* 2x2 행렬의 역행렬 연산
 
+<p align="center">
+<img width="400" alt="스크린샷 2022-03-20 오전 9 18 50" src="https://user-images.githubusercontent.com/59719632/159142777-45696f4b-dab3-444b-8b10-ff7bd0eaa2af.png"> <img width="504" alt="스크린샷 2022-03-20 오전 9 20 07" src="https://user-images.githubusercontent.com/59719632/159142818-49747c85-4d56-4bf9-9ad5-af8b8c35f078.png">
+</p>
 
+* mxn 행렬의 역행렬 연산
+  - 수반행렬(여인수행렬의 전치 행렬)을 통해 역행렬 연산이 가능
 
+<p align="center">
+<img width="350" alt="스크린샷 2022-03-20 오전 9 22 12" src="https://user-images.githubusercontent.com/59719632/159142890-644d6e91-e325-40d1-bdbd-f4f80844856c.png">
+<img width="350" alt="스크린샷 2022-03-20 오전 9 22 54" src="https://user-images.githubusercontent.com/59719632/159142898-996f1601-4a3c-49eb-962f-dc8bce636512.png">
+<img width="350" alt="스크린샷 2022-03-20 오전 9 23 26" src="https://user-images.githubusercontent.com/59719632/159142899-dcfceba6-5979-4cef-9e5d-48f3678fccb2.png">
+</p>
 
+* 역행렬의 성질
+  - 정사각행렬(A)의 거듭 제곱
+  - 역행렬의 거듭 제곱  
+  - 역행렬과 전치행렬
+    + 행렬 A가 가역행렬이면 A의 전치행렬도 가역행렬이다
+    + 행렬 A가 가역행렬이면 A(A^T), (A^T)A도 가역행렬이다
+    + A의 역행렬의 행렬식은 A의 행렬식의 역수이다. 
 
+<p align="center">
+<img width="400" alt="스크린샷 2022-03-20 오전 9 26 06" src="https://user-images.githubusercontent.com/59719632/159142985-a8bdb012-bedf-4f21-bd0e-172badcf1d65.png">
+<img width="400" alt="스크린샷 2022-03-20 오전 9 27 44" src="https://user-images.githubusercontent.com/59719632/159142986-4b0ef86d-fbd7-4af9-9451-e6c516bfff46.png">
+</p>
 
+Chap 3. 선형시스템 Linear Systems
+## 3-1. 선형방정식
+* 선형방정식의 정의
+  - 변수(x1,x2,...,xn)에 대한 1차 방정식
+  - 최고차항의 차수가 1임
+  - 선형방정식이 아닌 경우
+    
+<img width="400" alt="스크린샷 2022-03-20 오전 9 35 06" src="https://user-images.githubusercontent.com/59719632/159143110-c6f8fa18-015f-47e6-a98e-6490d9c9bf15.png">
 
+* 선형시스템의 정의
+  - 선형방정식의 집합
+  - 연립1차방정식 (system of linear equation)
+
+  <p align="center">
+  <img width="400" alt="스크린샷 2022-03-20 오전 9 37 59" src="https://user-images.githubusercontent.com/59719632/159143163-e3f2af16-80f5-42c9-95c7-77ab522a559e.png"> <img width="400" alt="스크린샷 2022-03-20 오전 9 39 24" src="https://user-images.githubusercontent.com/59719632/159143189-86faf090-b782-4a85-959c-6d44d72c26d3.png">
+</p>
 
