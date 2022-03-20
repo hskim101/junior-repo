@@ -371,3 +371,45 @@ import numpy as py
 invA=np.linalg.inv(A)
 sol=np.linalg.solve(A,y) # A는 행렬, y는 값 => Ax=y
 ```
+
+## 3-2. 벡터공간
+* 벡터공간
+  - 벡터의 덧셈과 스칼라 곱이 정의된 공간
+  - 선형공간
+  - 차원의 개념
+    + 1차원 : 숫자 하나로 표현
+    + 2차원 : 각 벡터의 원소가 2개로 구성
+    + 3차원 : 각 벡터의 원소가 3개로 구성
+  - 유닛벡터 (unit vector)
+    + 어떤 공간의 좌표 축의 기본 벡터
+    + ex) 3차원 공간에서 i,j,k
+    + n차원 벡터는 유닛벡터의 선형결합으로 나타낼 수 있다.
+* 부분공간 (subspace)
+  - 공간 R^n의 부분집합 V가 아래의 2가지 조건을 만족하면 V를 부분공간이라 함
+    + 부분공간 V에 속하는 벡터 u,v에 대해 두 벡터의 합인 u+v도 공간 V에 속한다
+    + a가 임의의 스칼라이고 벡터 u가 공간 V에 속할 때, a\*u도 공간 V에 속한다.
+## 3-3. 선형결합 (Linear Combinations)
+  
+  <p align="center">
+  <img width="400" alt="스크린샷 2022-03-20 오전 10 08 09" src="https://user-images.githubusercontent.com/59719632/159143723-68bf4823-9f39-4842-987a-cfe577ec3640.png">
+  <img width="409" alt="스크린샷 2022-03-20 오전 10 10 32" src="https://user-images.githubusercontent.com/59719632/159143772-b645982e-be36-4033-8d2f-c73bc24e3cf4.png">
+  </p>
+
+  <img width="480" alt="스크린샷 2022-03-20 오전 10 11 14" src="https://user-images.githubusercontent.com/59719632/159143783-1d94e59c-be32-4f66-9c78-43d059bfdaf8.png">
+
+* 선형결합의 의미
+     
+  <img width="539" alt="스크린샷 2022-03-20 오전 10 17 09" src="https://user-images.githubusercontent.com/59719632/159143877-34236ff9-222a-497a-a6dc-d486c593ae7b.png">
+
+## 3-4. Span 
+* Span{v1,...,vn}
+  - 주어진 v1,...,vn에 대하여 이 벡터들의 모든 선형 결합에 대한 집합
+  - 2개의 벡터(2차원) : 두 벡터가 포함되어 있는 평면
+  - 1개의 벡터(1차원) : 직선
+  - 3개의 벡터(3차원) : 3차원에 해당하는 모든 공간의 점
+* 선형시스템 (Ax=b)의 해가 존재하는 경우
+  - Span 안에 b 벡터가 포함되어 있을 때
+  
+  <img width="509" alt="스크린샷 2022-03-20 오전 10 29 23" src="https://user-images.githubusercontent.com/59719632/159144215-8c25ad4f-be28-4400-9a00-f62d962d1275.png">
+
+## 3-5. 선형독립
