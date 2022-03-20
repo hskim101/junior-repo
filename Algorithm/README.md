@@ -448,5 +448,83 @@ for which there exists some positive **real constant c** and **some non\-negativ
     + 더 분할이 가능하면 재귀적으로 분할한다.
   - Step 3: Combine
     + 정렬된 서브배열을 Merge한다.
-  
+  - Best Case Time Complexity of Merge
+    + Basic Operation : U[i] 와 V[j]의 비교연산
+    + Input size : 각 서브 배열의 길이
+    + U 와 V가 모두 오름차순 정렬되어있고, len(U) < len(V) 이고, V의 최소값이 U의 최대값보다 큰 경우가 Best Case이다.
+    + B(h,m) = min(h,m)
+  - Worst Case Time Complexity of Merge
+    + 제일 마지막 cell을 제외하고 나머지 값들이 모두 비교를 한 후 채워지는 경우
+    + W(h,m) = h+m-1
+    + W(n) = W(h) + W(m) + W(h,m) = W(h) + W(m) + h + m - 1
 
+  <img width="622" alt="스크린샷 2022-03-20 오후 1 52 38" src="https://user-images.githubusercontent.com/59719632/159148768-19ccbe30-5062-4632-bb78-3903fcc666a7.png">
+
+
+```python3  
+def merge(U, V):
+    S = []
+    i = j = 0
+    while (i < len(U) and j < len(V)):
+        if (U[i] < V[j]):
+            S.append(U[i])
+            i += 1
+        else:
+            S.append(V[j])
+            j += 1
+    # 카피되지 않고 남아있는 나머지 배열을 뒤에 concat
+    if (i < len(U)):
+        S = S + U[i : len(U)]
+    else:
+        S = S + V[j : len(V)]
+    return S
+
+def mergesort (S):
+    n = len(S)
+    if (n <= 1):
+        return S
+    else:
+        mid = n // 2
+        U = mergesort(S[0 : mid])
+        V = mergesort(S[mid : n])
+        print("U =", U, end=" ")
+        print("V =", V)
+        return merge(U, V)
+
+S = [27, 10, 12, 20, 25, 13, 15, 22]
+print('Before: ', S)
+X = mergesort(S)
+print(' After: ', X)
+```
+```python3
+def merge2 (S, low, mid, high):
+    U = []
+    i = low
+    j = mid + 1
+    while (i <= mid and j <= high):
+        if (S[i] < S[j]):
+            U.append(S[i])
+            i += 1
+        else:
+            U.append(S[j])
+            j += 1
+    if (i <= mid):
+        U += S[i : mid + 1]
+    else:
+        U += S[j : high + 1]
+    for k in range(low, high + 1):
+        S[k] = U[k - low]
+    
+def mergesort2 (S, low, high):
+    if (low < high):
+        mid = (low + high) // 2
+        mergesort2(S, low, mid)
+        mergesort2(S, mid + 1, high)
+        print(S[low:high + 1])
+        merge2(S, low, mid, high)
+
+S = [27, 10, 12, 20, 25, 13, 15, 22]
+print('Before: ', S)
+mergesort2(S, 0, len(S) - 1)
+print(' After: ', S)
+```
