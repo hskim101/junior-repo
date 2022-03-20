@@ -336,3 +336,38 @@ Chap 3. 선형시스템 Linear Systems
   <img width="400" alt="스크린샷 2022-03-20 오전 9 37 59" src="https://user-images.githubusercontent.com/59719632/159143163-e3f2af16-80f5-42c9-95c7-77ab522a559e.png"> <img width="400" alt="스크린샷 2022-03-20 오전 9 39 24" src="https://user-images.githubusercontent.com/59719632/159143189-86faf090-b782-4a85-959c-6d44d72c26d3.png">
 </p>
 
+* 기본행 연산(elementary row operation)
+  - 한 행에 영이 아닌 상수를 모두 곱함
+  - 두 행을 교환
+  - 한 행의 배수를 다른 행에 더함
+
+* 가우스 조르단 소거법
+  - 선형 시스템의 해를 구하는 방법
+  - 첨사 행렬을 기본행 연산을 이용해 가우스 행렬 혹은 기약가우스행렬 형태로 변환
+  - 가우스 행렬 : 각 행의 0이 아닌 첫 원소는 1이고 1아래에 위치하는 원소는 모두 0인 행렬
+  - 기약가우스행렬 : 가장 첫 원소가 1인 열에 대해 1을 제외한 나머지 행 원소가 모두 0인 행렬
+  <p align="center">
+  <img width="400" alt="스크린샷 2022-03-20 오전 9 44 14" src="https://user-images.githubusercontent.com/59719632/159143313-e07d35d3-c1ab-43f0-8ee6-eb27a6964a26.png">
+  <img width="400" alt="스크린샷 2022-03-20 오전 9 45 47" src="https://user-images.githubusercontent.com/59719632/159143317-b06e6f1f-ba22-43b8-834f-5d333d2c5c46.png">
+  </p>
+
+  - 첨가행렬 형태로 정리
+  - 기본행연산 수행
+  
+  <img width="448" alt="스크린샷 2022-03-20 오전 9 48 02" src="https://user-images.githubusercontent.com/59719632/159143374-55bfac79-7b7b-490e-936a-a366bd652a71.png">
+
+  - 가우스 소거법
+    + 가우스 행렬로 변환 후 첨가 행렬을 선형시스템으로 표현해서 해 찾기
+  <img width="498" alt="스크린샷 2022-03-20 오전 9 49 41" src="https://user-images.githubusercontent.com/59719632/159143406-8b044bf7-b225-45eb-aa32-0e29dc966cc4.png">
+
+* 동차선형시스템 (homogeneous linear system)
+  - 우변이 0인 선형시스템
+  - 오직 하나의 해 또는 무한개의 해
+
+  <img width="437" alt="스크린샷 2022-03-20 오전 9 51 02" src="https://user-images.githubusercontent.com/59719632/159143421-75bc914f-a177-44bb-b3de-711c235951b4.png">
+
+```python3
+import numpy as py
+invA=np.linalg.inv(A)
+sol=np.linalg.solve(A,y) # A는 행렬, y는 값 => Ax=y
+```
