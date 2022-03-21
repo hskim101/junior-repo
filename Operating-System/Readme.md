@@ -425,5 +425,10 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
    
     + Problem = Starvation \- 낮은 우선순위를 가진 프로세스는 계속 실행이 안될 수 있는 문제가 있다.
     + Solution = Aging \- CPU를 오랫동안 사용하지 못한 프로세스의 priority를 증가시킨다.
-
-
+  - Round Robin Scheduling
+    + 대부분의 OS에서 사용
+    + FIFO 방식
+    + Time quantum or Time slice 개념이 추가됨
+    + 모든 프로세스가 동일한 priority를 가지고 있다고 생각
+    + ready queue의 process들이 공평하게 cpu를 사용할 수 있게 함
+    + Time slice의 시간이 끝나면 강제로 ready queue의 tail로 프로세스를 보냄 => Preemptive
