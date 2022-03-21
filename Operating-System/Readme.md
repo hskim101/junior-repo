@@ -441,3 +441,5 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
 
     + Round Robin에서 quantum이 작을 수록 Context switching 횟수가 늘어난다. => Context swtich 횟수가 늘어나면 CPU 부하가 증가할 수 있음
     + 대부분의 OS에서 quantum 범위를 10~100msec로 
+    
+    <img width="576" alt="스크린샷 2022-03-21 오후 6 10 27" src="https://user-images.githubusercontent.com/59719632/159232109-96c3a5d5-4dbf-4beb-bbec-8a30178e244b.png">
