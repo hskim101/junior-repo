@@ -448,10 +448,14 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
     + Ready Queue를 여러 개 사용
     + 각 Ready Queue별로 서로 다른 Scheduling 알고리즘을 사용
     + 각 queue는 priority가 있다. 
-
+    + Starvation 문제가 있음
     <img width="600" alt="스크린샷 2022-03-21 오후 7 39 34" src="https://user-images.githubusercontent.com/59719632/159245232-73056b2d-cc30-4641-9f34-f95a2b6d70fa.png">
 
-
+  - Multilevel Queue Starvation 문제 해결
+    + Aging: 오랫동안 CPU를 사용하지 못한 프로세스의 우선순위를 올림
+    + CPU를 많이 사용한 프로세스는 우선순위를 낮춰줌
+    + 우선순위가 높은 프로세스에 많은 Time Quantum을 주고 우선순위가 낮은 프로세스에는 적은 Time Quantum을 준다.
+    
 
 
 
