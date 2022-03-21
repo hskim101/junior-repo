@@ -467,7 +467,26 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
 
     <img width="600" alt="스크린샷 2022-03-21 오후 7 51 36" src="https://user-images.githubusercontent.com/59719632/159246907-c651443e-b0f4-4571-8068-1b76dc44cc25.png">
 
-
-
+  - Linux Scheduling
+    + Priority\-based, Preemptive, Multilevel feedback\-queue scheduling
+    + Real\-time range 0 ~ 99, 0 이 가장 큰 우선순위를 가진다.
+    + Nice (value) range 100 ~ 140
+    + Priority가 높은 프로세스는 많은 Time quantum을 주고 Priority가 낮은 프로세스는 적은 Time quantum을 준다.
+    
+# Chap 4. Thread
+* Problems of processes
+  - Large context switching overhead
+  - Large process creation time
+  - Large synchronization overhead
+  
+## 4-1. Multithreading
+* 한 process는 multiple threads로 구성될 수 있다.
+* Thread는 CPU 실행의 기본 단위이다.
+* Thread context의 구성
+  - thread ID
+  - Program counter
+  - register set
+  - stack
+* Scheduling 단위도 Thread가 된다.
 
 
