@@ -438,3 +438,6 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
     + 각 프로세스가 느끼는 CPU 속도는 CPUspeed / n 이다.
     
     <img width="600" alt="스크린샷 2022-03-21 오후 6 05 11" src="https://user-images.githubusercontent.com/59719632/159231351-76e4d100-dc0d-46f0-b6be-c6289442a1cf.png">
+
+    + Round Robin에서 quantum이 작을 수록 Context switching 횟수가 늘어난다. => Context swtich 횟수가 늘어나면 CPU 부하가 증가할 수 있음
+    + 대부분의 OS에서 quantum 범위를 10~100msec로 
