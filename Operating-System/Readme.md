@@ -458,7 +458,12 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
     
   <img width="600" alt="스크린샷 2022-03-21 오후 7 45 49" src="https://user-images.githubusercontent.com/59719632/159246132-603066f3-45a6-4b5d-b71e-975a8a3e1530.png">
 
-
+  - Window XP Scheduling
+    + Priority\-based, Preemptive, Multilevel feedback\-queue scheduling
+    + Real\-time classes 범위 16 ~ 31, 31이 우선순위 가장 높음
+    + Variable classes 범위 1 ~ 15
+    + 초기에 nomal 행에 해당하는 우선순위를 받음
+    + CPU를 많이 사용하게 되면 우선순위가 낮아지고, CPU를 적게 사용하면 우선순위가 높아진다.
 
 
 
