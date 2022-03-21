@@ -486,15 +486,174 @@ namespace Example7 {
       }
   }
   ```
+* Class
+  - 객체 지향 프로그래밍의 핵심
+  - 객체의 변수와 메소드 등을 정의하는 일종의 틀
+  - 클래스 멤버
+    + 멤버의 순서는 의믜가 없지만 같은 종류 별로 모으는 것이 관리하기 쉬움
+    + 같은 이름의 멤버 여러 개를 사용할 수 없음
+    + 멤버의 종류
+      - 필드 (Field): 클래스의 멤버 변수, staic redonly const 등 사용
+      - 메소드 (Method): 일련의 문장을 포함하는 코드 블록
+      - 상수 (Constant): 값을 바꿀 수 없는 정적 필드, const, readonly(초기화 필요없음, 초기값 한 번 입력 가능)
+      - 생성자 (Constructor): 클래스의 인스턴스를 초기화 하는 함수
+     
+  ![image](https://user-images.githubusercontent.com/59719632/159194463-127a8aa0-8451-4995-8af4-32754b6d4cb9.png)
 
+  - this 키워드
+    + 객체 자신을 참조하는 변수
+    + 복잡한 코드에서 멤버 변수와 지역 변수를 구분할 때 유용함
+  - 상속
+    + 부모 클래스의 모든 멤버와 메소드를 파생 클래스가 가짐
+  - 추상 클래스 (Abstract Class)
+    + 미완성 설계도
+    + 미완성 메소드 포함할 수 있음
+    + 추상 클래스는 인스턴스 생성할 수 없음
+    + 상속을 통한 파생 클래스에 의해 완성됨
+    + 추상 메소드는 반드시 오버라이드 (override) 해서 사용해야 함
+    + 클래스 앞에 abstract 키워드를 붙여서 만듦
+  - 인터페이스
+    + 클래스에 대한 설계도
+    + 상속 받을 클래스가 구현해야 할 기능을 나열함
+    + 인스턴스로써 사용할 수 없음
+    + interface 키워드를 사용함
+  - 추상 클래스와 인터페이스
+    + 공통점
+      - 스스로 인스턴스를 생성할 수없음
+      - 업캐스팅이 가능함
+      - 상속 받은 클래스는 모든 메소드를 구현해야 함
+  - 봉인 클래스 (Sealed Class)
+    + 클래스를 봉인해서 어떤 클래스도 상속을 받을 수 없게 함
+    + 클래스 정의 앞에 sealed 키워드를 붙여 선언
+    + 자신이 만든 클래스가 더 이상 상속받아서 변경되어 사용되는 것을 방지하기 위함
+  - 정적 클래스 (Static Class)
+    + 비정적 클래스와 동일하지만, 인스턴스화 할 수 없다는 한 가지 차이점이 있음
+    + 인스턴스 변수가 없기 때문에, 클래스 이름 자체를 사용하여 정적 클래스의 멤버에 접근함
+    + 정적 멤버만 포함함
+    + 봉인되어있음
+    + 인스턴스 생성자를 포함할 수 없음
 
+* 속성
+  - 속성 (Property)
+    + 필드처럼 보이지만 실제로는 메소드임
+    + get, set 접근자에 의해 표현
+    + 메소드이므로 virtual, static, abstract, override 키워드를 사용할 수 있음
+  ```c#
+  using System;
+  
+  namespace Example8{
+    public class Date{
+      private int month=7;
+      public int Month{
+        get{ 
+          return month; 
+        }
+        set { 
+          if ((value > 0) && (value<13)) 
+            month=value;
+        }
+      }
+    }
+    
+    class Program{
+      static void Main(string[] args){
+        Date d1=new Date();
+        Console.WriteLine("Default month: {0}\n", d1.Month);
+        
+        while (true){
+          Console.Write("Enter month: ");
+          int inputMonth=int.Parse((Console.ReadLine()));
+          
+          if (inputMonth==-1){
+            break;
+          }
+          d1.Month=inputMonth;
+          
+          Console.WriteLine("Now month: {0}\n",d1.Month);
+        }
+      }
+    }
+  }
+  ```
+  
+  ![image](https://user-images.githubusercontent.com/59719632/159195554-e60f9967-17e1-449c-9cbe-e2f5e17f86fe.png)
 
+  ```c#
+  using System;
+  
+  abstract class Shape{
+    public abstract double Area{
+      get;
+      set;
+    }
+  }
+  
+  class Square : Shape{
+    public double side;
+    
+    public Square(double s){
+      side=s;
+    }
+    
+    public override double Area{
+      get{
+        return side*side;
+      }
+      set{
+        side=Math.Sqrt(value);
+      }
+    }
+  }  
+  class Cube : Shape{
+    public double side;
+    
+    public Cube(double s){
+      side=s;
+    }
+    public override double Area{
+      get{
+        return 6*side*side;
+      }
+      set{
+        side=Math.Squre(value/6);
+      }
+      
+    }
+  }
+  
+  class Program{
+    static void Main(string[] args){
+      // Input the side:
+      Console.Write("Enter the side : ");
+      double side = double.Parse(Console.ReadLine());
+      // Compute the areas:
+      Square s = new Square(side);
+      Cube c = new Cube(side);
+      // Display the results:
+      Console.WriteLine("Area of the square = {0:F2}", s.Area);
+      Console.WriteLine("Area of the cube = {0:F2}", c.Area);
+      // Input the area:
+      Console.Write("Enter the area: ");
+      double area = double.Parse(Console.ReadLine());
+      // Compute the sides:
+      s.Area = area;
+      c.Area = area;
+      
+      Console.WriteLine("Side of the square = {0:F2}", s.side);
+      Console.WriteLine("Side of the cube = {0:F2}", c.side);
+    }
+  }
+  ```
+  
+  ![image](https://user-images.githubusercontent.com/59719632/159195521-be4eada8-a097-485c-830d-5bb89b35ea8d.png)
 
-
-
-
-
-
+* 인덱서
+  - 인덱서 (Indexer)
+    + 클래스나 구조체의 인스턴스를 배열처럼 인덱스를 써서 접근할 수 있게 함
+  - 인덱서의 특징
+    + get, set 접근자로 표현
+    + this 키워드를 사용
+    + 배열에 접근하는 방식처럼 사용
 
 
 
