@@ -443,3 +443,19 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
     + 대부분의 OS에서 quantum 범위를 10~100msec로 
     
     <img width="576" alt="스크린샷 2022-03-21 오후 6 10 27" src="https://user-images.githubusercontent.com/59719632/159232109-96c3a5d5-4dbf-4beb-bbec-8a30178e244b.png">
+
+  - Multilevel Queue Scheduling
+    + Ready Queue를 여러 개 사용
+    + 각 Ready Queue별로 서로 다른 Scheduling 알고리즘을 사용
+    + 각 queue는 priority가 있다. 
+
+
+
+
+
+
+
+
+
+
+
