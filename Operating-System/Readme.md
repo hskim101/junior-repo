@@ -449,6 +449,7 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
     + 각 Ready Queue별로 서로 다른 Scheduling 알고리즘을 사용
     + 각 queue는 priority가 있다. 
 
+    <img width="600" alt="스크린샷 2022-03-21 오후 7 39 34" src="https://user-images.githubusercontent.com/59719632/159245232-73056b2d-cc30-4641-9f34-f95a2b6d70fa.png">
 
 
 
