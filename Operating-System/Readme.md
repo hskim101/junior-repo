@@ -432,3 +432,6 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
     + 모든 프로세스가 동일한 priority를 가지고 있다고 생각
     + ready queue의 process들이 공평하게 cpu를 사용할 수 있게 함
     + Time slice의 시간이 끝나면 강제로 ready queue의 tail로 프로세스를 보냄 => Preemptive
+
+  <img width="600" alt="스크린샷 2022-03-21 오후 5 39 34" src="https://user-images.githubusercontent.com/59719632/159228017-6aaf4527-ea7f-4def-8c89-e5fd1071336f.png">
+
