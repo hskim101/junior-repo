@@ -302,4 +302,205 @@ namespace Example7 {
 
 <img width="284" alt="스크린샷 2022-03-14 오후 3 29 40" src="https://user-images.githubusercontent.com/59719632/158117114-afc22092-db57-467f-a0d8-b29fe4c2cd7e.png">
 
+## C\#프로그래밍 2
+
+* 반복문
+  - foreach
+    + 배열이나 collection 객체를 위한 반복문
+    + 파이썬 for와 유사
+    + for 보다 연산속도가 느리다.
+    + for 사용을 더 지향한다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/159192220-e286a68e-502f-48c8-82cf-d1505c59f401.png)
+    
+    ```c#
+    using System;
+    using System.Collections;
+    namespace Example1
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                ArrayList myAL = new ArrayList(); // 배열 객체 생성
+                myAL.Add("Hello"); // 배열에 문자열 append
+                myAL.Add("World");
+                myAL.Add("!");
+                Console.Write("Values : ");
+                PrintValues(myAL);
+            }
+            public static void PrintValues(ArrayList myList)
+            {
+                foreach(string text in myList)
+                {
+                    Console.Write("\t{0}", text);
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+    ```
+    
+    ![image](https://user-images.githubusercontent.com/59719632/159192421-8af6b60b-504a-4e61-8498-dde6286844fc.png)
+
+* 예외 및 예외처리
+  - 예외: 프로그램 실행 중 발생하는 오류
+    + 컴파일 오류 (Compile error): 오타, 문법에 맞지 않는 코드로 인한 오류
+    + 실행 중 오류 (Run\-Time error): 디버깅 모드를 통해 해결, 프로그램의 비정상적인 동작
+    + 로직 에러
+  - 예외 처리
+    + try, catch, throw, finally 키워드를 규칙에 따라 조합하여 사용
+    + try와 catch는 반드시 함께 사용
+    + try: 예외가 발생할 가능성이 있는 코드의 영역을 지정, 예외를 감시하는 부분
+    + catch: try에서 발생한 예외나 throw 명령으로 전달한 예외를 처리
+    + throw: 예외를 저낟ㄹ하는 키워드
+    + finally: 예외 발생과 상관없이 실행하는 부분
+    
+    
+    ```c#
+    using System;
+    namespace NullError
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                String str = null;
+                try
+                {
+                Console.WriteLine(str.ToString());
+                Console.WriteLine("Program Terminated");
+                }
+                catch(NullReferenceException e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+            }
+        }
+    }
+    ```
+  - 다중 catch: try 부분에서 하나 이상의 예외가 발생하는 경우 여러 개의 catch를 이용하여 예외를 처리함
+  - 다중 catch 규칙:
+    + 각각의 catch는 반드시 서로 다른 종류의 예외를 처리함
+    + 상속관계에 있는 여러 예외객체를 처리하는 경우 세부적인 예외 처리부를 앞에 두고 일반적인 객체를 나중에 처리함
+  ```c#
+  using System;
+  
+  namespace Example3
+  {
+    class Program
+    {
+      static void Main(string[] args)
+      {
+        int[] arr1={1,11,22,33};
+        int[] arr2={0,1,2};
+        for(int i=0; i<arr1.Length;i++)
+        {
+          try{
+            Console.WriteLine(arr1[i]+"/"+arr2[i]+"="+arr1[i]/arr2[i]);
+          } catch(DivideByZeroException e){
+            Console.WriteLine("Can't divide");
+          } catch(Exception e){
+            Console.WriteLine(e.Message);
+          }
+        }
+      }
+    }
+  }
+  ```
+  
+  ![image](https://user-images.githubusercontent.com/59719632/159192866-efcb1c15-82f7-4ed0-8b72-bd02bb2a97df.png)
+
+  - try ~ catch ~ finally
+    + try 블록에서 예외가 발생한 코드의 다음 코드부터는 실행하지 않음
+    + finally: 예외 발생 여부에 관계없이 실행할 코드를 입력, finally 부분은 생략할 수 있음
+    
+* 배열
+  - 배열
+    + 형식이 같은 변수들의 집합
+    + 인덱스를 통해 접근
+  - C\#에서 배열 선언 시 주의사항
+    + 배열 크기를 지정할 수 없음 == 정적 배열을 사용할 수 없음
+  - 다차원배열
+    + 2차원 이상의 배열을 의미
+    + 정사각형이 아닌 가변 배열을 생성할 수 있음  (Jagged Array)
+    
+  ![image](https://user-images.githubusercontent.com/59719632/159193047-b023c232-016c-4a39-ba1d-4145172120cc.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/159193073-dcdfe174-2fc3-4809-89b4-065608ddbc6a.png)
+
+  - 배열의 주요 메소드 및 속성
+  
+  ![image](https://user-images.githubusercontent.com/59719632/159193134-01fe4009-3ec7-4188-ba98-197f68d2bbbb.png)
+
+  ```c#
+  using System;
+
+  namespace Example4 {
+      class Program {
+          static void Main(string[] args) {
+              int[] arr1 = new int[5] { 3, 5, 7, 4, 1 };
+              int[] arr2 = (int[])arr1.Clone();
+              foreach (int item in arr2) {
+                  Console.WriteLine("{0}", item);
+              }
+          }
+      }
+  }
+  ```
+  
+  ```c#
+  using System;
+
+  namespace Example5 {
+      class Program {
+          static void Main(string[] args) {
+              int[] arr1 = new int[5] { 3, 5, 7, 4, 1 };
+              int[] arr2 = new int[5] { 9, 3, 6, 5, 2 };
+              int[] arr3 = new int[10];
+
+              arr1.CopyTo(arr3, 0);
+              arr2.CopyTo(arr3, 5);
+
+              foreach (int item in arr3) {
+                  Console.Write("{0} ", item);
+              }
+          }
+      }
+  }
+  ```
+  
+  ```c#
+  using System;
+
+  namespace Example6 {
+      class Program {
+          static void Main(string[] args) {
+              int[,] arr1 = new int[2, 5] { { 3, 5, 7, 4, 1 }, { 4, 5, 7, 8, 9 } };
+
+              Console.WriteLine("{0}", arr1.GetLength(0));
+              Console.WriteLine("{0}", arr1.GetLength(1));
+              Console.WriteLine("{0}", arr1.Length);
+              Console.WriteLine("{0}" + "차원", arr1.Rank);
+          }
+      }
+  }
+  ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
