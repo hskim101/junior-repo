@@ -456,6 +456,7 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
     + CPU를 많이 사용한 프로세스는 우선순위를 낮춰줌
     + 우선순위가 높은 프로세스에 많은 Time Quantum을 주고 우선순위가 낮은 프로세스에는 적은 Time Quantum을 준다.
     
+  <img width="600" alt="스크린샷 2022-03-21 오후 7 45 49" src="https://user-images.githubusercontent.com/59719632/159246132-603066f3-45a6-4b5d-b71e-975a8a3e1530.png">
 
 
 
