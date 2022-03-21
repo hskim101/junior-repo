@@ -465,6 +465,7 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
     + 초기에 nomal 행에 해당하는 우선순위를 받음
     + CPU를 많이 사용하게 되면 우선순위가 낮아지고, CPU를 적게 사용하면 우선순위가 높아진다.
 
+    <img width="600" alt="스크린샷 2022-03-21 오후 7 51 36" src="https://user-images.githubusercontent.com/59719632/159246907-c651443e-b0f4-4571-8068-1b76dc44cc25.png">
 
 
 
