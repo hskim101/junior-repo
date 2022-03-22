@@ -502,7 +502,7 @@ WHERE semester = 'Fall' AND year = 2017 AND
                     ANd S.course_id = T.course_id);
 ```
 
-* UNIQIE
+* UNIQUE
   - subquery에 만족하는 값이 최대 하나의 값만 있는 경우만 만족
   - 중복이 있는지 없는지만 체크, subquery 조건에 아에 해당하지 않는 경우도 만족
   
