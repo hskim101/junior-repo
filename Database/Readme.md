@@ -403,6 +403,25 @@ WHERE salary IS NULL; # salary=null 이렇게 쓰면 안된다.
   HAVING AVG(salary) > 42000;
   ```
 
+ - 다음의 두 질의문 모두 dept_name: 학과 이름과 avg_salary: 평균 연봉을 출력합니다.
+ ```mysql
+ SELECT dept_name, AVG(salary)
+ FROM instructor
+ GROUP BY dept_name
+ HAVING AVG(salary) > 42000
+ ```
+ 
+ - HAVING은 GROUP BY 이후에 실행되므로 학과별 평균 연봉을 구한 후 평균 연봉이 42000보다 큰 학과 이름과 평균 연봉을 출력합니다.
+ 
+ ```mysql
+ SELECT dept_name, avg(salary)
+ FROM instructor
+ WHERE salary > 42000
+ GROUP BY dept_name
+ ```
+
+ - WHERE는 GROUP BY로 평균을 내기 전에 실행하므로 연봉이 42000보다 큰 교원들만 추려낸 후 학과별 평균을 구해 학과 이름과 평균 연봉을 출력합니다.
+
 * Nested Subqueries
 ```mysql
 SELECT A1, A2, ..., An
