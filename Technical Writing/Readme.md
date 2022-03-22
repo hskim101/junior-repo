@@ -101,11 +101,70 @@ Technical Writing
 * 추상적인 명사보다는 능동적인 동사 위주로 써라
 * 개인적인 style보다는 객관적인 style로 써라
 
+# Chap 2. Short Story Writing
+* 나만의 이야기 (나, 다른사람 이야기, 다른 이야기)
+* 짧게
+* 영어 (번역기x)
 
+## 2-1. The Writing Process
+* Step 1: re\-writing / Planning
+  - Topic 선정
+  - 아웃라인 잡기
+  - mind map, graphic 등 눈에 보이는 것들로 표현할 수 있음
+* Step 2: Drafting (막쓰기)
+  - 간단히, 정리가 안된 글을 막 써봄
+  - 실수하는 것에 걱정하지 말아라
+  - 나중에 고치면 된다
+* Step 3: Revising (확인하기)
+  - 우리가 적어놓은 것들에 대한 다른 사람들의 반응을 확인
+  - Rough Drafting 을 improve 해라
+* Step 4: Proofreading / Editing (첨삭/수정)
+  - 문법과 스펠링과 대소문자, 맞춤법 확인
+  - 실수한게 있다면 고치고
+  - 수정 후 다른사람에게 다시 확인
+* Step 5: Publishing / Presenting (제출/출간/발표)
+  - 발표나 출간해서 다른사람과 공유
 
+## 2-2. Short Story Writing Guiding (TMI해도 상관 없다)
+* Characters (등장 인물, 아래 내용이 모두 포함될 필요는 없음)
+  - main character
+  - where is this person from?
+  - how old is this person?
+  - 직업? 학생? 어른? 결혼? 싱글? 이혼? 은퇴?
+  - 어떻게 생겼나?
+  - 가족 구성원이 어떻게 되니?
+  - 친구?
+  - 독특한점이 무엇인가? 무엇이 이사람을 행복하게, 화나게, 슬프게, 놀라게 할 수 있니?
+  - 다른 characters는 누가 있나?
+* Setting (백그라운드)
+  - 시간적 배경
+  - 위치적 배경
+  - 위치적 배경은 어떤 곳인가
+  - 왜 이 배경을 선택했는가
+  - 시간에 따라 이 배경이 바뀌는가, 어디로 바뀌고, 어떤 시점으로 이동하나
+* Plot (스토리)
+  - 주인공이 겪는 문제, 갈등
+  - 이 주인공과 다른 등장인물들이 무엇을 했기에 문제가 생겼는가
+  - 이 문제를 해결하기 위해 어떻게 하는가
+  - 등장인물들이 일어나는 사건이나 경험을 통해 어떤 영향을 받는가
+  - 주인공이 마지막에 어떻게 되는가 (ending)
 
+## 2-3. Mapping the Narrative (Assignment \#1)
 
+![image](https://user-images.githubusercontent.com/59719632/159446431-9d38c42d-6919-417a-9398-9f6310ec1ce8.png)
 
+![image](https://user-images.githubusercontent.com/59719632/159446678-155eb90e-b42d-462e-aa08-1f4ffad8f606.png)
+
+## 2-4. Mapping the Plot Structure (Assignment \#2)
+
+![image](https://user-images.githubusercontent.com/59719632/159447296-5e2a0e79-e393-42af-849c-4ea0adc901fc.png)
+
+* 참고 단어
+
+![image](https://user-images.githubusercontent.com/59719632/159448003-0100064d-5493-4fd3-a20d-b483c33c46d8.png)
+
+* 수업시간에 작성하는데 미리 작성해가면 좋음
+![image](https://user-images.githubusercontent.com/59719632/159448387-665477b5-1711-4433-856e-3b371663e86d.png)
 
 
 
