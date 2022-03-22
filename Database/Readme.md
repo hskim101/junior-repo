@@ -426,7 +426,7 @@ WHERE salary IS NULL; # salary=null 이렇게 쓰면 안된다.
 ```mysql
 SELECT A1, A2, ..., An
 FROM r1, r2, ..., rm
-WHERRE P;
+WHERE P;
 ```
 
 * Set Membership
