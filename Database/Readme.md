@@ -521,5 +521,79 @@ WHERE UNIQUE (SELECT R.course_id
 
 ![3](https://user-images.githubusercontent.com/59719632/159105691-ead5f250-d836-4b28-a09f-fc42d33e84f5.PNG)
 
+* Subqueries in the Form Clause
+```mysql
+SELECT dept_name, avg_salary
+FROM (SELECT dept_name, AVG(salary) AS avg_salary
+      FROM insturctor
+      GROUP BY dept_name)
+WHERE avg_salary > 42000;      
+```
 
+```mysql
+# subqueriy의 결과를 AS로 rename해줌
 
+SELECT dept_name, avg_salary
+FROM (SELECT dept_name, AVG(salary)
+      FROM instructor
+      GROUP BY dept_name)
+      AS dept_avg(dept_name, avg_salary)
+WHERE avg_salary > 42000;
+```
+* With Clause
+ - with 절은 쿼리에서 사용될 임시 relation을 만들어준다.
+ - 주어진 Table로부터 바로 정보를 추출하기 힘든 경우 중간 단계의 table을 만들어서 계산을 할 수 있게 도와주는 역할
+```mysql
+WITH max_budget(value) AS
+     (SELECT MAX(budget)
+      FROM department)
+SELECT department_name
+FROM department, max_budget
+WHERE department.budget = max_budget.value;
+```      
+
+* Complex Queries using With Clause
+```mysql
+
+WITH dept_total(dept_name, value) AS
+     (SELECT dept_name, SUM(salary)
+      FROM insturctor
+      GROUP BY dept_name),
+dept_total_avg(value) AS
+    (SELECT AVG(value)
+     FROM dept_total)
+SELECT dept_name
+FROM dept_total, dept_total_avg
+WHERE dept_total.value > dept_total_avg.value;
+```
+
+* Scalar Subquery
+ - Select 문에서 쓸 수 있는 Scalar subquery
+ - Table 형태가 아닌 하나의 값으로 결과가 나옴
+ - 1 tuple보다 많은 결과가 나오면 Runtime Error가 발생한다.
+```mysql
+SELECT dept_name,
+       (SELECT COUNT(*)
+        FROM insturctor
+        WHERE department.dept_name = instructor.dept_name)
+      AS num_insturctors
+FROM department
+```
+
+* Modification ofr the Database
+ - Deletion
+ ```mysql
+ # Where 안쓰면 instructor table 삭제
+ DELETE FROM insturctor
+ WHERE dept_name='Finance';
+ ```
+
+ ```mysql
+ # Problem : tuple이 삭제될 때마다 평균값이 달라진다.
+ # Solution : 평균을 구한 후 평균보다 낮은 tuple들을 체크한다음에 avg를 다시 구하지 않고 한번에 삭제
+ DELETE FROM insturctor
+ WHERE salary < (SELECT AVG(salary)
+                 FROM instructor);
+ ```
+
+- Insertion
