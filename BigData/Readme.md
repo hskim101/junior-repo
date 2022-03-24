@@ -182,6 +182,19 @@ for i in range(3):
 
 ![image](https://user-images.githubusercontent.com/59719632/159866422-89b70730-fcd8-47a3-a380-70fe413a1415.png)
 
+* Scope Rules
+  - Local Scope
+  
+  ![image](https://user-images.githubusercontent.com/59719632/159868973-8822e1fc-87c4-46c1-b5ac-8186b8f0cfbe.png)
+
+  - Global Scope
+    + global keyword 추가
+  ![image](https://user-images.githubusercontent.com/59719632/159869326-aad6e285-ed9f-4cec-bf43-97c38f163b4a.png)
+
+* Returning Multiple Values
+  - 파이썬의 중요한 장점 중 하나
+  
+  ![image](https://user-images.githubusercontent.com/59719632/159870498-c306fdc1-a25c-4bd7-bbb3-a78854bf7edb.png)
 
 
 
