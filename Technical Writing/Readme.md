@@ -166,8 +166,40 @@ Technical Writing
 * 수업시간에 작성하는데 미리 작성해가면 좋음
 ![image](https://user-images.githubusercontent.com/59719632/159448387-665477b5-1711-4433-856e-3b371663e86d.png)
 
-
-
+# Chap 3. E\-mail
+## 3-1. Common
+  * 적절한 인사
+    - 받는 사람이 여성일 경우 결혼 여부를 모르기 때문에 Mrs. 가 아닌 Ms.로 할 것
+    - 만약 남성인지 여성인지 모를 경우 Dear Sam Jones (이름만 적음)
+    - Dear Ms. ~~ (외부), Hi 사람이름 (내부) 
+  * 명확하고 짧으면서도 세부적인 제목 달기
+    - 메시지의 본질
+    - "proposal attached" "your question of 10/25"
+    - 업무적으로 제목을 지을 경우 실용적으로 적으면 된다.
+  * 서명으로 마무리 하기
+    - 마무리 서명 (명함의 정보)
+  * 약자를 피하기
+    - 이메일은 문자가 아님
+    - 줄여서 쓰지말고 풀어서 쓸 것
+  * 간략하게 쓰기
+    - 불필요한 단어 빼기
+  * 포맷을 잘 활용하기
+    - 일기 쉽도록 하기위해 문단 나누기
+    - 3문단 이내로 마무리
+  * 읽고, 수정하고, 리뷰하기
+    - 스펠링, 문법 체크 후 보내기
+  * 즉시 답장하기
+    - 될 수 있으면 24시간 내 답장 해주기
+  * 예시
+    - subject
+    - greeting
+      + "To whom it may concern"
+    - state your purpose
+    - closing remarks
+    - closing with your name (~~ 드림)
+      + "Best Regards, insert name"
+      + "Sincerely, insert name"
+## 3-2. 
 
 
 
