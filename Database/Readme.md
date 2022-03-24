@@ -541,8 +541,8 @@ FROM (SELECT dept_name, AVG(salary)
 WHERE avg_salary > 42000;
 ```
 * With Clause
- - with 절은 쿼리에서 사용될 임시 relation을 만들어준다.
- - 주어진 Table로부터 바로 정보를 추출하기 힘든 경우 중간 단계의 table을 만들어서 계산을 할 수 있게 도와주는 역할
+  - with 절은 쿼리에서 사용될 임시 relation을 만들어준다.
+  - 주어진 Table로부터 바로 정보를 추출하기 힘든 경우 중간 단계의 table을 만들어서 계산을 할 수 있게 도와주는 역할
 ```mysql
 WITH max_budget(value) AS
      (SELECT MAX(budget)
@@ -568,9 +568,9 @@ WHERE dept_total.value > dept_total_avg.value;
 ```
 
 * Scalar Subquery
- - Select 문에서 쓸 수 있는 Scalar subquery
- - Table 형태가 아닌 하나의 값으로 결과가 나옴
- - 1 tuple보다 많은 결과가 나오면 Runtime Error가 발생한다.
+  - Select 문에서 쓸 수 있는 Scalar subquery
+  - Table 형태가 아닌 하나의 값으로 결과가 나옴
+  - 1 tuple보다 많은 결과가 나오면 Runtime Error가 발생한다.
 ```mysql
 SELECT dept_name,
        (SELECT COUNT(*)
@@ -581,19 +581,71 @@ FROM department
 ```
 
 * Modification ofr the Database
- - Deletion
- ```mysql
- # Where 안쓰면 instructor table 삭제
- DELETE FROM insturctor
- WHERE dept_name='Finance';
- ```
+  - Deletion
+  ```mysql
+  # Where 안쓰면 instructor table 삭제
+  DELETE FROM insturctor
+  WHERE dept_name='Finance';
+  ```
 
- ```mysql
- # Problem : tuple이 삭제될 때마다 평균값이 달라진다.
- # Solution : 평균을 구한 후 평균보다 낮은 tuple들을 체크한다음에 avg를 다시 구하지 않고 한번에 삭제
- DELETE FROM insturctor
- WHERE salary < (SELECT AVG(salary)
-                 FROM instructor);
- ```
+  ```mysql
+  # Problem : tuple이 삭제될 때마다 평균값이 달라진다.
+  # Solution : 평균을 구한 후 평균보다 낮은 tuple들을 체크한다음에 avg를 다시 구하지 않고 한번에 삭제
+  DELETE FROM insturctor
+  WHERE salary < (SELECT AVG(salary)
+                  FROM instructor);
+  ```
 
-- Insertion
+  - Insertion
+    + Attribute에 대한 정보를 안쓰면 values에 모든 값들을 다 넣어야한다.
+    + 원하는 열만 값을 넣고 싶으면 원하는 열만 쓰면 된다. 나머지 열의 값은 null로 채워진다.
+  ![image](https://user-images.githubusercontent.com/59719632/159903391-a01f8d5f-53f8-458d-8f0b-c7520dcfd58a.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/159904102-51d8c431-69a8-4308-8f7a-54b3596fc4f6.png)
+
+ 
+  - Updates
+    + 값을 수정
+    + update set
+    + update를 연속으로 할 때는 순서가 중요하다.
+    + case statement를 쓰면 더 좋다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/159915177-b018598a-f174-4e9a-aadf-fc2915ffaf81.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/159915391-b0255805-39bc-449b-b244-8dae2311745d.png)
+
+  - Updates with Scalar Subqueries
+  
+   ![image](https://user-images.githubusercontent.com/59719632/159915952-78b29ce7-ec40-4183-a9d9-eb235427b968.png)
+
+
+## Chap 4. Intermediate SQL
+* Join Operation
+  - Cartesian Product
+    + 가능한 모든 경우의 수를 출력
+    + 엉뚱한 조합까지 다 이어 붙이는 단점이 있다.
+  - Join은 가능한 모든 조합을 구한 후 조건식에 만족하는 경우만 뽑아낸다.
+  - 콤마(Cartesian) 대신 NATURAL JOIN 사용
+  ![image](https://user-images.githubusercontent.com/59719632/159916947-a74b5685-c3a0-4d8e-bda5-0786c1cf34e9.png)
+
+  ```mysql
+  # ID가 같은 것 끼리 조합
+  # Natural join은 공통된 attribute가 일치하는 경우만 이어 붙인다.
+  SELECT *
+  FROM instructor NATURAL JOIN teaches; 
+  ```
+  - 앞에 2개 table에서 natural join된 결과 table과 뒤 table과 순차적으로 natural join
+  
+  ![image](https://user-images.githubusercontent.com/59719632/159918016-e9ea2250-f506-4faa-b2fb-9edb85a8bfb4.png)
+
+  - Natural Join의 위험성
+    ![image](https://user-images.githubusercontent.com/59719632/159919017-bb8a8f2b-d893-4b3f-a626-9dd4128f93e7.png)
+
+  - 공통인 부분이 일치하는 경우만 natural join => natural inner join
+  - natural은 자연스럽게 공통인 attribute만 사용해라
+  - inner는 공통인 attribute가 매칭될 때만 사용해라
+
+
+
+
+
