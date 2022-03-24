@@ -115,5 +115,74 @@ print(65 - age, "years to retirement")
   - break statement
   - continue statement
  
+# Chap 3. Function
+## 3-1. Function Definition
+* 함수는 입력을 받는 reusable code 이다.
+  - ex) Max / Min
   
-  
+* Random\-Number Generation
+```python3
+# Rolling a Six\-sided Die
+import random
+
+for roll in range(10):
+  print(random.randrange(1,7),end=' ')
+```
+
+## 3-2. Defining Functions
+
+![image](https://user-images.githubusercontent.com/59719632/159862268-f3974188-984b-4f22-98e0-32f09ccad9d3.png)
+
+* Arguments (함수의 입력값) f(2)
+* Parameters (변수) f(x)
+
+![image](https://user-images.githubusercontent.com/59719632/159863082-24373642-5d3b-48e8-8b1c-d8600b495c5f.png)
+
+* Return Values
+
+![image](https://user-images.githubusercontent.com/59719632/159863418-e6600f77-d3ac-4019-8f06-50853ab42ab1.png)
+
+* 함수 작성 시 주의할 점
+  - 파이썬 인터프리터는 함수가 정의되면 함수 안의 문장들은 즉시 실행하지 않는다.
+  - 함수 정의가 아닌 문장들은 즉시 실행하게 된다.
+
+```python3
+# 패스워드 생성기
+import random
+
+def genPass():
+    alphabet='abcdefghijklmnopqrstuvwxyz0123456789'
+    password=""
+    
+    for i in range(6):
+        index=random.randrange(len(alphabet))
+        password=password+alphabet[index]  
+    return password
+for i in range(3):
+    print(genPass())
+```
+
+* Passing Arguments to Functions
+  - Call\-by\-value
+    + 함수가 argument 값의 복사본을 전달 받는다. (원본은 바뀌지 않는다.)
+    + 변수를 쓸 때는 Call by value를 쓴다.
+  - Call\-by\-reference
+    + 함수가 argument 값을 직접적으로 전달받는다. (원본이 바뀐다.)
+    + 리스트, 딕셔너리, 튜플 같은 자료구조 값들은 Call by reference를 쓴다.
+
+  ![image](https://user-images.githubusercontent.com/59719632/159865391-c20649b0-1f12-41a1-939d-df2998b41479.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/159865741-c040c525-4048-4ca2-ac22-0b2bf709df17.png)
+
+* Default Parameter Values
+
+![image](https://user-images.githubusercontent.com/59719632/159866120-8980e2d3-84b6-48c8-aa4f-e4446ed438d6.png)
+
+* Keywrod Argument
+
+![image](https://user-images.githubusercontent.com/59719632/159866422-89b70730-fcd8-47a3-a380-70fe413a1415.png)
+
+
+
+
+
