@@ -654,7 +654,33 @@ FROM department
     
     ![image](https://user-images.githubusercontent.com/59719632/160062573-e7f5499f-cd74-42e5-9c47-f5f997c6f34a.png)
 
+  - Examples
+    + inner join을 하면 cs 315와 cs 347은 사라진다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160122587-d72648f4-21c1-4fb7-8de8-8ae169787ccb.png)
+    
+    + Outer join을 하면 정보 손실이 발생하지 않는다. natural을 사용하면 공통된 attribute는 한번만 나타난다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160123053-5ef2eb2e-3245-4023-93d3-3039ac46cb12.png)
 
 
+    ![image](https://user-images.githubusercontent.com/59719632/160123009-c5b7ce3c-75ae-462f-9629-1934d8866ce2.png)
+
+    + Full outer join
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160123650-c8649f44-d11e-4170-a5ae-264a3227124c.png)
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160123267-ce4792e0-9fae-4923-890d-62934adca9c6.png)
+   
+    ![image](https://user-images.githubusercontent.com/59719632/160123393-952c1119-0bff-4717-a64a-c365c5c023b1.png)
 
 
+    + sqlite는 left outer만 구현했다. 테이블의 순서를 바꿔서 right를 left로 표현할 수 있다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160123550-a07c67eb-5ecc-4220-95aa-4abe089910a0.png)
+
+* Joined Types and Conditions
+
+  ![image](https://user-images.githubusercontent.com/59719632/160123896-088c6f28-011f-440d-a1d7-c8a15309f6a0.png)
+
+   
