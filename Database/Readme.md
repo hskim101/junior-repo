@@ -644,6 +644,15 @@ FROM department
   - 공통인 부분이 일치하는 경우만 natural join => natural inner join
   - natural은 자연스럽게 공통인 attribute만 사용해라
   - inner는 공통인 attribute가 매칭될 때만 사용해라
+* Outer Join
+  - 정보 손실을 피하면서 join
+  - inner join에서는 정보 손실이 생김
+  - Three forms of outer join
+    + left outer join : 왼쪽 테이블의 정보손실을 없앰
+    + right outer join : 오른쪽 테이블의 정보손실을 없앰
+    + full outer join : 양쪽 모두 정보 손실을 없앰
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160062573-e7f5499f-cd74-42e5-9c47-f5f997c6f34a.png)
 
 
 
