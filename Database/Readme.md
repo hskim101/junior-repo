@@ -683,4 +683,39 @@ FROM department
 
   ![image](https://user-images.githubusercontent.com/59719632/160123896-088c6f28-011f-440d-a1d7-c8a15309f6a0.png)
 
-   
+  - using
+    + using 안에는 어떤 attribute 를 사용해서 join을 하겠다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160217379-f208a94c-ebe3-4db7-9dfe-dffef0c39180.png)
+
+
+  - on
+    + 조건이 만족되면 inner join
+    + natural과 수행하는 것은 비슷하지만 natural은 중복되는 열을 한번만 쓰지만 on은 중복되게 표시한다.
+
+    ![image](https://user-images.githubusercontent.com/59719632/160217094-28d6165b-7187-4f7f-a7f0-d24ee5e6d5f1.png)
+
+    + 조건식에 서로 다른 attribute를 비교하면 뒤에 나오는 attribute에 대한 정보가 자세하게 표현이 된다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160217142-9d1ab7ed-5eee-4612-9697-03ad5beaef04.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/160217195-a2addc25-c777-4020-800a-8f491dddec0e.png)
+    
+* Views
+  - 모든 사용자들에게 모든 데이터베이스 정보를 보여줄 필요가 없다.
+  - Virutual Relation (가상 테이블)
+  - 뷰는 새로운 테이블을 만들어서 disk에 저장하는 것이 아니다.
+  - 프로그래밍에서 inline function과 비슷
+  - 뷰를 정의할 때 뷰를 써도 된다 => 테이블 처럼 사용해도 된다. 
+  - 실체화된 뷰를 사용할 수도 있지만 이 경우 원본 테이블이 변하면 뷰도 업데이트 시켜줘야한다. 
+  - 실체화를 시키지 않고 뷰를 사용하면 뷰는 자동으로 업데이트 된다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/160217475-392f8ff5-e310-4f19-801d-4ab7ebc5a1ed.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/160217550-09043eea-68ec-4f68-98a3-1ac42bdb982d.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/160218592-db35b563-907f-4142-8fd8-cbd0e872a745.png)
+
+ 
+
+
