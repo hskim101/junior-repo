@@ -615,7 +615,7 @@ namespace Example7 {
         return 6*side*side;
       }
       set{
-        side=Math.Squre(value/6);
+        side=Math.Sqrt(value/6);
       }
       
     }
