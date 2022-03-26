@@ -489,4 +489,24 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
   - stack
 * Scheduling 단위도 Thread가 된다.
 
+* Procedure Calls vs Multithreading
+  - procedure calls
+    + 함수가 호출되면 stack에 쌓이고 함수가 종료되면 stack에서 삭제된다.
+  
+    ![image](https://user-images.githubusercontent.com/59719632/160218862-6ae422a7-d1d9-425d-b75b-d2a60d73ad80.png)
+
+  - Multithreading
+    + Thread0Func은 함수에 대한 포인터이다.
+    
+
+
+
+
+
+
+
+
+
+
+
 
