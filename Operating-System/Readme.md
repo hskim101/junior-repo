@@ -496,9 +496,118 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
     ![image](https://user-images.githubusercontent.com/59719632/160218862-6ae422a7-d1d9-425d-b75b-d2a60d73ad80.png)
 
   - Multithreading
-    + Thread0Func은 함수에 대한 포인터이다.
-    
+    + Thread0Func은 Thread가 실행할 함수에 대한 포인터이다.
+    + CreateThread => windows API
+    + Thread Control Block (TCB) => PCB와 동일
+    + Thread가 실행되면 두 함수가 concurrent하게 실행된다
+    + 전역변수는 두 함수에서 동시에 공유할 수 있다.
+    + malloc은 heap 영역에 할당된다.
+    + heap 공간에 할당된 메모리를 두 thread가 동시에 공유한다.
+    + 파일을 open 하면 여러 thread가 파일을 공유한다.
+    + 이러한 수행이 가능한 이유는 Thread의 형태가 procedure call의 함수 형태와 동일하기 때문이다.
 
+  ![image](https://user-images.githubusercontent.com/59719632/160283407-28409b7e-c5ea-4df0-a519-7e1b04443502.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/160283417-6258883a-1647-4424-b9fd-faca4230a415.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/160283429-1a8445a5-f382-4bef-94d3-cb0257b792c9.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/160283446-03091330-7db0-4915-b24d-7c32ed801c0b.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/160283458-cc1ff1a5-1ecd-4401-9455-4848edf0f74f.png)
+
+  - Similarities
+    + 서로 다른 함수 (thread)의 지역 변수에 접근할 수 없다.
+    + 전역 변수와 heap 영역을 thread가 공유할 수 있다.
+  - Distinction
+    + Thread가 실행되는 도중에는 각자 자신만의 Stack을 가진다.
+    + Thread는 동시에 실행된다.
+  
+* Single and Multithreaded Processes
+  - Thread는 자신만의 register와 stack을 가진다.
+  - Multithread에서 code, data, files을 공유한다.
+
+  ![image](https://user-images.githubusercontent.com/59719632/160283683-410687e3-444d-456f-ab0b-c4f4d0b93959.png)
+
+* Thread의 장점 (암기)
+  - Thread가 사용하는 메모리 공간은 작다
+  - Thread 생성 시간이 짧다
+  - context switch overhead가 적다.
+  - 동기화 부하가 적다.
+  
+* Relationship between Process and Thread
+  - Process는 두 개의 component로 구성된다 (thread 집합, resource 집합)
+  - Process는 덩치가 큰 반면에 thread는 작은 덩치라서 메모리를 적게 사용하고 생성 시간이 짧다.
+  - Process는 thread가 실행될 수 있는 환경을 제공한다.
+  ![image](https://user-images.githubusercontent.com/59719632/160283906-be253d6a-58fa-44ac-9eec-ff84788257b8.png)
+
+* Thread Library
+  - User\-level library: code, data 모두 user level에서 수정, system call을 절대 사용하지 않는다.
+  - Kernel\-level library: System call의 도움을 받아서 thread를 생성하고 제어를 한다. code와 data 모두 kernel level에 존재한다.
+  - Pthread library, java thread는 모두 kernel level library 이다.
+  - kernel level library가 생기고 나서부터는 user level library를 사용하지 않는다
+
+* User\-level Threads
+  - user\-level library를 통해서 관리되는 Thread
+  - kernel은 user level에서 process가 thread를 실행시키는 것을 인지하지 못한다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/160284254-6d2e9da8-eac5-418f-9e4d-bc1d2ba7a223.png)
+
+* Kernel\-level Threads
+  - Thread를 생성할 때마다 system call을 호출함 => kernel level에서 내부적으로 thread에 대한 TCB를 ready queue 형태로 관리함
+  - Thread가 종료되면 Scheduler가 각 Thread를 공평하게 실행함
+  - Thread의 생성과 삭제가 kernel 내부에서 된다.
+  - Thread에 대한 모든 정보는 kernel 에서 관리된다.
+  - Thread는 kernel scheduler에 의해 scheduling 된다.
+  - Thread간의 동기화를 위해서 kernel의 메커니즘이 사용된다.
+
+* Multithreading Models
+  - Many\-to\-One
+    + kernel의 한 thread 위에 user level thread를 여러 개를 번갈아가면서 실행
+    + kernel thread에 mapping 된 user thread 중 하나가 blocking (wait)되면 kernel thread에 연결된 모든 thread가 blocking되는 문제가 있다. (I/O, sleep(), wait())
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160284618-932024e8-e5a0-4753-b9d5-c9279f4f1f2f.png)
+
+  - **One\-to\One**
+    + 각 user thread 당 하나의 kernel thread mapping
+    + 한 user thread가 blocking 되면 그 thread에 mapping 된 kernel thread만 blocking 된다.
+    + kernel level library를 사용하는 대부분의 OS는 이 Model을 사용한다.
+    + 단점은 user thread 당 kernel thread가 mapping되므로 thread가 늘어날 수 록 CPU에 부하가 갈 수 있지만 요즘은 성능이 좋아서 괜찮다.
+
+    ![image](https://user-images.githubusercontent.com/59719632/160284827-90aa4721-447f-427d-9726-4214a406bcdf.png)
+
+  - Many\-to\-Many
+    + M개의 user thread, N개의 kerenl thread (M > N)
+    + kernel thread를 가능한 적게 생성하고 많은 user thread를 생성하기 위한 Model
+    + user thread에서 kernel thread 수만큼 blocking을 하면 남아있는 user thread 실행할 kernel thread가 없기 때문에 남아있는 user thread도 blocking될 수 있다.
+    + 많이 사용되진 않는다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160284972-546db376-cdaf-49e2-a2a3-5fc3e0f0f29d.png)
+
+
+  - Two\-level Model
+    + 이 방법도 거의 쓰진 않는다.
+    + one to one 과 many to many를 결합한 방법
+    + 공부 안하고 넘어가도 된다.
+
+* Thread Cancellation
+  - Thread Cancellation : Thread가 끝나기 전에 종료되는 것
+  - main thread는 process가 생성되고 가장 처음 만들어지는 thread, main thread가 종료되면 process에서 실행되는 모든 thread가 종료된다.
+  - 실행되는 thread들을 종료하고 싶지 않으면 main thread에서 sleep을 하는 방식으로 main thread가 종료되지 않게 해야한다.
+  - Thread를 잘못 종료하면 Resource Leak이 생긴다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/160285210-3183cf16-440e-4fe2-8f9a-dd9abe6836ba.png)
+
+  - Windows는 내부적으로 thread 0의 lock을 해제해줘서 thread 1을 깨운다.
+  - Linux에서는 thread 1을 계속 sleep 상태로 둬서 개발자가 수정할 수 있게 한다.
+  - Two general approaches
+    + Asynchronous cancellation : OS가 Thread를 즉시 종료
+    + Deferred cancellation : Thread가 종료되는 시간을 Delay 시킴. Resource leak이 발생하지 않는 안전할 때 Thread 종료시키기 위함
+    
+  - 여기서 중요한 점은 Thread가 Resource를 lock 하고 종료되지 않도록 방어 코드를 넣어주는 것이다.
+
+
+  
 
 
 
