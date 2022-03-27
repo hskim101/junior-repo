@@ -479,3 +479,43 @@ sol=np.linalg.solve(A,y) # A는 행렬, y는 값 => Ax=y
     ![image](https://user-images.githubusercontent.com/59719632/160268422-49fef584-c319-4513-ae3b-b3220b7549c4.png)
  
  
+## 3-8. 선형변환 (Linear Transformation)
+* 변환
+  - 입력과 출력이 모두 벡터인 함수
+   
+  ![image](https://user-images.githubusercontent.com/59719632/160277622-f4166956-aeed-48e4-886b-50eb159195c2.png)
+  
+  - 행렬변환
+  
+  ![image](https://user-images.githubusercontent.com/59719632/160277691-db8d0f83-3355-431e-90a2-e12f2011e9be.png)
+
+  - 선형변환
+    + T(x+y) = T(x) + T(y), T(ax)= aT(x) 를 만족
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160277738-29c63dc9-54de-4c73-b0d9-96bf7c51be28.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/160277870-51cfdb87-0218-445e-9fe6-cc23267227a3.png)
+     
+    ![image](https://user-images.githubusercontent.com/59719632/160277877-41094c0b-a6ae-496a-b5df-0d710a6cabb9.png)
+ 
+    ![image](https://user-images.githubusercontent.com/59719632/160278007-ea911efd-4dd2-4b59-8995-656c7544f686.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/160278074-ac0cf7d6-af8a-4119-8502-4d5f17b5650c.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/160278094-1d17ddf7-d3a4-4ccd-8307-81604c15fd56.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/160278150-9bae2c8e-b5d1-49a4-9379-090408cd58e9.png)
+
+* 선형변환의 기하학적 의미
+  - 축을 움직이면서 자연스럽게 input 벡터가 바뀌는 것 
+ 
+  ![image](https://user-images.githubusercontent.com/59719632/160278281-da1d743e-7a95-46ad-b9ec-f00667b5a2b5.png)
+  
+* 선형변환
+  - 변환 중에서도 선형성을 가지는 변환
+    + 직선 형태를 띄던 벡터가 변환 이후에도 직선형태여야 함
+    + 원점이 고정된 채로 유지
+    
+  ![image](https://user-images.githubusercontent.com/59719632/160278617-5dfd4435-efe4-40e7-93ea-e04f9cde5a8d.png)
+
+ 
