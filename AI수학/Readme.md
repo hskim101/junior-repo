@@ -413,3 +413,69 @@ sol=np.linalg.solve(A,y) # A는 행렬, y는 값 => Ax=y
   <img width="509" alt="스크린샷 2022-03-20 오전 10 29 23" src="https://user-images.githubusercontent.com/59719632/159144215-8c25ad4f-be28-4400-9a00-f62d962d1275.png">
 
 ## 3-5. 선형독립
+
+![image](https://user-images.githubusercontent.com/59719632/160266157-5ebd866f-3ea4-4cdb-9b19-c47dc34a41c3.png)
+
+* 선형독립
+  - span 안의 한 벡터가 다른 벡터들의 선형 결합으로 표현이 되지 않는 경우
+  - 표현이 된다면 선형종속이다.
+  - 특정한 벡터가 추가되었을 때, 새로운 Span을 생성할 수 있어야 함
+  
+  ![image](https://user-images.githubusercontent.com/59719632/160266209-cf53e343-d5c6-4cd6-aca5-e33099e056d4.png)
+  
+  ![image](https://user-images.githubusercontent.com/59719632/160266302-c369c898-3a17-4dd2-b037-b1c7a2a0aa44.png)
+
+  - 선형독립 판정
+    + 행렬식 != 0
+    * n차원 벡터공간에 n개 보다 많은 벡터가 있는 경우 선형 종속이다.
+    * n차원 벡터공간에 n개보다 적은 벡터가 있는 경우 독립 일수도 종속일 수도 있다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160268098-4476bed9-0588-422b-984d-077e6a40aa5c.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/160268147-29cc1c53-2361-459a-bce6-9917b348e467.png)
+
+
+* 선형종속
+  - 특정한 벡터를 다른 벡터의 선형결합으로 표현 가능
+  
+  
+  
+## 3-6. 기저
+* 부분공간 (Subspace)
+  - 두 개의 벡터에 대해 어떠한 스칼라 곱 및 벡터 덧셈을 하더라도 부분공간 안에 존재해야 함
+  - 닫힌 선형결합 조건을 만족하는 벡터의 subset으로 정의
+  - Span은 항상 부분공간이다.
+
+* 기저벡터 (Basis)
+  - 부분 집합 S가 주어질 때 아래 두 조건을 만족하면 S를 R^n의 기저벡터라 한다.
+    + S가 선형독립
+    + Span(S) = R^n
+  - 선형독립으로만 이루어진 벡터
+
+  ![image](https://user-images.githubusercontent.com/59719632/160268243-3abc397e-1afa-4d56-a570-0ff18c3aea82.png)
+  
+  - 하나의 subspace에 관한 기저 벡터는 유일한가? NO!
+
+  - 벡터 공간의 성질
+    + n개가 넘는 벡터가 만드는 집합은 선형종속
+    + n개 미만의 벡터가 만드는 집합은 벡터공간 S를 생성할 수 없음
+    + 벡터 공간의 모든 기저벡터의 개수는 동일
+
+  ![image](https://user-images.githubusercontent.com/59719632/160268328-86e7fe19-18fd-4a37-9732-c3d1be7b2612.png)
+
+## 3-7. 차원
+* 차원 (Dimension)
+  - 해당 공간을 구성하는 기저 벡터의 개수
+    + 1차원 : 1개
+    + 2차원 : 2개
+    + 3차원 : 3개
+
+* 행공간 / 열공간 / 영공간
+  - 행공간: 행벡터로 Span할 수 있는 공간
+  - 열공간 (rank): 열벡터로 Span할 수 있는 공간
+  - 영공간 (null space): 행렬 A가 주어질 때 Ax=0을 만족하는 모든 x의 집합
+  - 행공간과 열공간의 차원은 항상 같다.
+  
+    ![image](https://user-images.githubusercontent.com/59719632/160268422-49fef584-c319-4513-ae3b-b3220b7549c4.png)
+ 
+ 
