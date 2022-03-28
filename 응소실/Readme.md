@@ -655,11 +655,100 @@ namespace Example7 {
     + this 키워드를 사용
     + 배열에 접근하는 방식처럼 사용
 
+## WinFormsProgramming #1
+* Winform의 대표적인 구성 요소
+  - Form
+    + 프로그램이 표시되는 창
+    + Form 클래스를 이용하여 구현
+  - Control
+    + Button이나 Text Box 등 Form에 추가되는 구성 요소들
+  - Event
+    + 버튼을 클릭하거나 스크롤 바를 움직이는 등 컨트롤에 변화가 생길 때 발생하는 상황
+    + 이벤트가 발생했을 때, 그 이벤트에 맞는 처리를 해주는 것이 WinForms의 핵심
 
+* Form 클래스
+  - Form 클래스는 상속 관계를 통해 이루어짐
+  
+  ![image](https://user-images.githubusercontent.com/59719632/160334062-4f45af3f-026c-41f8-a4fe-17a241e897e5.png)
 
+  - Form 클래스 메소드
+    + Activate() : 주어진 Form을 활성화시키고, 그 포커스를 Form에 맞춤
+    + Close() : Form을 닫음
+    + CenterToScreen() : Form을 스크린 부동 중심점에 위치시킴 (화면의 정 중앙에 위치 시킴)
+    + LayoutMdi() : 부모 Form 안의 자식 Form들을 모두 정렬함
+    + OnResize() : Resize 이벤트에 반응함
+    + ShowDialog() : Form을 Modal 대화상자로 나타냄
 
+  ![image](https://user-images.githubusercontent.com/59719632/160335610-006676b6-c0e9-4665-835f-e83393820cad.png)
 
+* Control 클래스
+  - 대부분의 Control은 System.Windows.Forms.Control 클래스로부터 파생
+  - Control 클래스 속성
+    + Anchor : Control이 그려지는 위치를 폼의 어느 가장자리에 고정 시킬 것인지 결정함, 거의 사용하지 않음
+    + Dock : Control을 Form의 크기와 상관없이 Form의 지정된 부분을 모두 차지함
+    + Label : 텍스트 또는 이미지를 표시할 수 있는 Control, 사용자에게 제목이나 짧은 힌트, 설명을 표시하는 용도로 쓰임
+    + TextBox : 사용자로부터 값을 입력 받을 수 있는 Control, 텍스트 선택, 잘라내기, 복사, 붙여넣기 등의 다양한 이벤트 기능을 제공
+    + TextBox 사용 예시 : Multiline (여러 줄 입력), WordWrap (자동 줄바꿈 여부), 등
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160336431-13a11704-edfc-4790-93f7-6a6c1093a0f5.png)
 
+* Button 클래스
+  - 이벤트 (Event)
+    + 키를 누르거나 마우스로 클릭하는 등의 사용자가 프로그램에 하는 행동
+  - 이벤트 핸들러
+    + 이벤트가 발생했을 때 호출되는 일종의 함수
+  - Button
+    + 생성된 Button을 더블 클릭하여 Click 이벤트 핸들러를 만들거나, 속성 뷰에 표시된 이벤트들 중 하나를 명시하면 자동으로 관련 코드가 생성됨
+   
+  ![image](https://user-images.githubusercontent.com/59719632/160336903-d2cec2ab-2839-4907-847e-9751ecb2e8a4.png)
 
+* RadioButton 클래스와 CheckBox 클래스
+  - RadioButton
+    + 하나의 label 왼쪽에 작은 원이 나타나 있는 형태
+    + 여러 개의 button 중 하나만 선택할 수있음
+  - CheckBox
+    + 그룹으로 묶이지 않으며, 여러 개의 선택사항을 동시에 선택할 수 있음
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160348136-bd4e5ee8-f5d0-45f2-98e9-8215e018201d.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/160351383-881f29a6-72e0-4982-903a-51a9a51e4790.png)
+
+* ListBox 클래스와 CheckedListBox 클래스
+  - ListBox
+    + 항목의 목록을 나열하는 클래스
+    + 목록이 많을 경우, 스크롤바를 사용할 수 있음
+  - CheckedListBox
+    + 목록에 체크를 할 수 있음
+    + 선택할 항목이 많을 경우에, CheckBox 클래스를 사용하는 것보다 유용함
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160352761-2f584607-b45b-47cf-8e31-3e69cce11cc0.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/160352706-717708fa-25fd-4bff-8067-d6449dd00110.png)
+
+* ComboBox 클래스
+  - ComboBox
+    + 많은 아이템 중에서 하나의 아이템을 선택할 경우에 사용함
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160353244-39cb9fad-5cda-4f09-b502-5522e47d1d7c.png)
+
+* ListView 클래스
+  - ListView
+    + Windows 탐색기에서 폴더와 파일들을 보여주는 뷰와 유사함
+    + 사용자가 표시 방식을 여러가지로 바꿀 수 있는 기능을 제공함
+    + View 속성 : LargeIcon, Details, SmallIcon, Lisk, Tile
+
+  ![image](https://user-images.githubusercontent.com/59719632/160353444-7fad9287-ab38-44e9-afaa-575d1d654fc1.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/160353493-9e51edf9-bffe-406a-a78a-8f040b929a7f.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/160353984-fb4e5be8-ba72-4467-a73b-54d3cea57936.png)
+
+* Timer 클래스
+  - 어떤 주어진 시간마다 이벤트를 실행시키고 싶을 때 사용함
+  - 0.1초에 한번씩 1을 증가시키고 화면에 출력, interval을 1000으로 하면 1초에 1번
+  
+  ![image](https://user-images.githubusercontent.com/59719632/160354083-d587eadd-3541-4b9a-834f-1626f7c1af8f.png)
+  
+  
 
 
