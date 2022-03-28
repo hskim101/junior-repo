@@ -528,3 +528,105 @@ print('Before: ', S)
 mergesort2(S, 0, len(S) - 1)
 print(' After: ', S)
 ```
+
+## 2-3. Quick Sort (Partition Exchange Sort)
+* Similar to MergeSort
+  - dividing the array into two partitions
+  - sorting each partition recursively
+* Different from MergeSort
+  - Pivot item을 선택해서 pivot 보다 작은 것들을 왼쪽, 큰 것들을 오른쪽에 오도록 분할
+  - Combine 단계가 필요없다.
+
+* 과정
+  - Array에 있는 첫 번째 아이템을 pivot으로 정한다
+  - pivot 보다 작은 것들을 왼쪽, 큰 것들을 오른쪽에 오도록 partition 한다.
+  - 각각의 partition을 재귀적으로 정렬한다.
+  
+  ```java
+  // low: partition의 가작 작은 index
+  // high: partition의 가장 큰 index
+  publicv static void quickSort(index low, index high){
+      index pivotPoint;
+      
+      if(high > low){
+          pivotPoint=partition(low,high);
+          quickSort(low,pivotPoint-1); // 왼쪽 partition 정렬
+          quickSort(pivotPoint+1,high); // 오른쪽 partition 정렬
+      }
+  }
+  
+  // Partition Algorithm 
+  // 1. local array를 하나 사용하는 방식
+  //    i: S의 loop index
+  //    j: pivot보다 작은 값부터 시작하는 index, 왼쪽부터 채운다.(j++)
+  //    k: pivot보다 큰 값부터 시작하는 index, 오른쪽부터 채운다.(k--)
+  //    j==k 일때 더 이상 비교할 값이 없으므로 pivot을 이 위치에 넣어준다.
+  //    이 방식의 단점은 local array 만큼의 메모리가 더 필요하다. local array의 값을 S에 다시 copy해야 한다.
+  
+  // 2. In-Place Partition
+  //    i: S의 loop index
+  //    j: 현재까지 저장한 pivot보다 작은 값 위치
+  //    pivot보다 작은 값을 찾으면 j 다음 인덱스 값과 자리 바꿈
+  //    마지막까지 search 끝나면 j 위치 값과 pivot을 자리 바꿈
+  //    1번 방식보다 공간 메모리적인 관점에서 효율적인 방식이다.
+  
+  public static index partition(index low, index high){
+      index i,j,pivotPoint;
+      keytype pivotItem;
+      
+      pivotItem=S[low];
+      j=low;
+      // pivot보다 작은 값을 찾으면 j 다음 인덱스 값과 자리 바꿈
+      for(i=low+1; i<=high; i++){
+          if(S[i]<pivotItem)
+              exchange S[i] and S[++j];
+      }
+      // 마지막까지 search 끝나면 j 위치 값과 pivot을 자리 바꿈
+      pivotPoint=j;
+      exchange S[low] and S[pivotPoint];
+      
+      // pivot의 현 위치
+      return pivotPoint;
+  }
+  ```
+  
+  ![image](https://user-images.githubusercontent.com/59719632/160317070-bd14af04-9026-49de-9069-dacc1f32cd0b.png)
+
+  - Every Case Time Complexity of Partition
+    + Basic Operation: pivot과 다른 값의 비교 연산
+    + Input Size: high-low+1 => subarray의 item 갯수
+  - Worst Case Time Complexity of QuickSort
+    + Basic Operation: 동일한 입력 크기를 받아도 비교 횟수가 다를 수 있다. partition의 비교 연산
+    + Input Size: 정렬해야하는 전체 array의 크기
+    + Worst case는 우리가 원하는 정렬로 이미 정렬되어 있을 때 발생한다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160325585-5820d5fd-07e1-4323-b532-fc2985833a06.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/160325934-66bde161-1971-467e-8eff-f9a22c4ec2cc.png)
+
+  - 오름차순이 최악이라는 것에 대한 엄밀한 증명 (수학적 귀납법) W(n) <= n(n-1)/2
+    + Induction Base: n=0 일때, W(0) = 0 <= 0(0-1)/2    
+    + Induction Hypothesis: W(k) <= k(k-1)/2, 0<=k\<n 이라 가정
+    + Induction Step: From the algorithm, W(n)=W(p-1)+W(n-p)+n-1, p가 pivotPoint
+    + Induction Hypothesis로부터 W(n) <= (p-1)(p-2)/2 + (n-p)(n-p-1)/2 + n - 1
+    + n(n-1)/2 - (p-1)(p-2)/2 + (n-p)(n-p-1)/2 + n - 1 = (n-p)(p-1) >= 0
+    + 따라서 W(n) <= n(n-1)/2
+    
+  - Average Case Time Complexity of QuickSort
+    + Basic Operation: 비교 연산
+    + Input Size: Array의 크기
+    + pivotPoint의 위치 i의 확률 p_i (1<=i<=n)
+    + p_i = 1/n
+    
+    ![image](https://user-images.githubusercontent.com/59719632/160326983-cf56bf07-d7e4-4060-a85a-8d6d4ea0e653.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/160328091-7e56f4cd-f54e-4302-a49c-82c75c03e5a7.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/160329201-571e6b1c-51d3-401b-83ed-af64f87d48c0.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/160329464-50893669-f9e1-4078-8adc-fff05ca196dc.png)
+
+ 
+
+
+
