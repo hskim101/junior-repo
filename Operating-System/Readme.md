@@ -607,7 +607,9 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
   - 여기서 중요한 점은 Thread가 Resource를 lock 하고 종료되지 않도록 방어 코드를 넣어주는 것이다.
 
 
-  
+# Chap 5. Secondary Storage Structure
+## 5-1. Disk Structure
+* 
 
 
 
