@@ -197,5 +197,66 @@ for i in range(3):
   ![image](https://user-images.githubusercontent.com/59719632/159870498-c306fdc1-a25c-4bd7-bbb3-a78854bf7edb.png)
 
 
+# Chap 4. List and Dictionary
+## 4-1. List
+  - 리스트는 Ordered 객체이다
+  - 리스트는 모든 타입의 객체를 담을 수 있다
+  - 리스트는 하나의 이름을 공유한다
+  - 리스트는 mutable이다
+  - \+ 연산자 : concat
+  - \* 연산자 : 반복
+
+  ![image](https://user-images.githubusercontent.com/59719632/160813665-d8d7a913-2101-475b-ba4f-0b3bbb1d5abe.png)
+
+  - len, in
+  - append : list 끝에 추가
+  - insert(index, value)
+  - remove(value) : 삭제할 원소를 알 때
+  - del lst[index] : 삭제할 원소의 index를 알 때
+  - sort : 오름차순으로 정렬
+
+## 4-2. 문자열
+  - 문자열은 문자들의 시퀀스로 정의된다.
+  - split() 으로 단어 분리
+  - immutable
+  
+## 4-3. Tuples
+  - immutable
+  - Item을 추가하거나 삭제하려면 다시 선언해야한다
+  - 소괄호() 사용
+  
+  ![image](https://user-images.githubusercontent.com/59719632/160822768-d53639df-fb8f-4d96-9d95-1404aefca0fc.png)
+
+## 4-4. Set
+* 집합은 중복되지 않은 항목들이 모인 것
+* 집합의 항목 간에는 순서가 없다
+* 중괄호{} 사용
+* | 합집합
+* & 교집합
+* \- 차집합
+
+## 4-5. Dictionary
+* key, value 집합
+* 순서가 없다
+* key로 value 접근
+* mutable
+* key는 immutable 이다, hashing 구조이기 때문
+* 중괄호{} 사용
+* key는 집합안에 있기 때문에 순서가 없다
+  
+  ![image](https://user-images.githubusercontent.com/59719632/160825428-4efaeb27-6016-4d09-b0b6-d9fd08320d6f.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/160825474-28928107-5e3c-4891-a77d-392cfa42bfa4.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/160825367-e550325e-5384-49c9-a793-67193a315094.png)
+
+  * keys(): 모든 key를 리스트형태로 출력
+  * values(): 모든 value를 리스트 형태로 출력
+
+## 4-6. Deep Copy
+
+![image](https://user-images.githubusercontent.com/59719632/160825914-d4c13ff5-6c39-448e-91ba-1edfe12c6c1a.png)
 
 
+  
+  
