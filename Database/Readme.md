@@ -716,6 +716,94 @@ FROM department
 
   ![image](https://user-images.githubusercontent.com/59719632/160218592-db35b563-907f-4142-8fd8-cbd0e872a745.png)
 
- 
+  - 뷰를 업데이트할 때 삽입하려는 tuple에 모든 attribute에 대한 값이 순서쌍으로 있어야한다. 없는 경우 null로 채워야함
+  
+  - 두 개의 relation에 기반한 뷰를 만들 때 이 뷰에 tuple을 삽입할 때 어떤 attribute에 해당하는 값인지 모름
+   
+    ![image](https://user-images.githubusercontent.com/59719632/160756324-9d11e9e1-a3c3-49be-a3c7-3d37afffb005.png)
+
+  - 뷰에 직접 업데이트는 굉장히 제한적인 상황에서만 허용한다.
+  - 뷰 조건에 해당하지 않는 튜플을 insert한 경우 뷰에서 그 튜플을 볼 수 없다.
+
+    ![image](https://user-images.githubusercontent.com/59719632/160767397-98cdc864-e5a3-448f-8556-f74adbae60b2.png)
+
+  - 대부분의 SQL은 오직 simple views 만 업데이트를 허용한다.
+    + FROM 절에 relation이 하나만 있어야함
+    + SELECT 절에 오직 original column만 사용 가능 (distinct 같은 거 사용하면 안됨)
+    + SELECT 절에서 등장하지 않은 attribute들은 null로 값이 세팅될 수 있어야 한다.
+    + Query는 group by나 having이 없어야한다. (집계함수를 못 쓰기 때문)
+* Transactions
+  - 여러 작업을 하나의 작업으로 여겨지게하는 작업
+  - Transaction은 반드시 두 명령 중 하나로 끝나야한다.
+    + Commit work: transaction의 시작부터 끝날 때까지 수행된 모든 쿼리를 데이터베이스에 영구적으로 업데이트함
+    + Rollback work: transaction의 시작부터 끝날 때까지 수행된 모든 쿼리를 취소함
+* Integrity Constraints
+  - 데이터베이스에 어떠한 잘못된 값이 들어와서 데이터베이스를 망가뜨리는 일을 방지하는 역할
+  - 하나의 Relation 제약 조건에 넣을 수 있는 제약
+    + not null
+    + primary key
+    + unique: attribute들에 대해서 똑같은 튜플이 존재하지 않는다.
+    + check (P): 조건 p에 부합하는지 체크
+  - 두 개의 Relation 제약 조건에 넣을 수 있는 제약
+    + foreign key
+    + cascade: 참조 무결성 제한 조건이 깨지는 것을 허용하고, 제한 조건이 깨지는 튜플들에 대해서도 명령이 실행
+
+    ![image](https://user-images.githubusercontent.com/59719632/160782179-01075788-252d-4d96-bb29-c32b2493c49f.png)
+
+* Complex check contidion (시험에 안나옴)
+  - check문 괄호 안에 쿼리가 들어가 있음
+
+  ![image](https://user-images.githubusercontent.com/59719632/160783224-8b3de894-42a6-463e-b43c-028e6ab12abf.png)
+
+  - Assertions (시험에 안나옴)
+    
+* Built\-in Data Types in SQL
+  ![image](https://user-images.githubusercontent.com/59719632/160783602-00867ed4-6bb8-41f4-ba4a-e619205b14f6.png)
+
+  - interval : 시간에서 시간을 빼줌
+  
+* Large\-Object Types
+  - blob: binary large object, binary로 저장된 파일
+  - clob: character large object, 굉장히 긴 text 문서
+  - 쿼리가 large object를 return할 때 데이터를 전부 넘겨주는 것이 아닌 pointer를 넘겨준다.
+
+* Domains, User\-Defined Types (시험에 안나옴)
+* Index Creation
+  - 특정 데이터를 빠르게 찾아오기 위해 존재함
+  - 쿼리에서 요청이 있을 때, 테이블 전체를 스캔해서 찾으면 너무 비효율적임
+  - 처음 만들 때 index를 생성해서 사용해야하고, 데이터가 업데이트되면 index를 업데이트 해줘야한다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/160788149-a4daf652-34f0-4498-b91e-cbb755ef6a6a.png)
+  
+  ![image](https://user-images.githubusercontent.com/59719632/160788429-e3c8997c-f08e-462a-9db5-926801aab0a9.png)
+
+* Authorization
+  - Read: 읽기는 가능하지만 수정할 수는 없다
+  - Insert: 새로운 데이터를 삽입하지만 이미 있는 데이터를 수정할 수는 없다
+  - Update: 수정이 가능하지만 삭제는 못 한다
+  - Delete: 삭제를 할 수 있다
+  - 이러한 권한을 privilege라고 한다.
+  - 어떤 테이블, 뷰에 대해서 이러한 권한을 부여할 수 있다
+  - SQL에서 권한을 설정하는 방법
+    + GRANT 명령어
+    + GRANT \<privilege list> on \<relation or view> to \<user list>
+    + user list에 public을 사용하면 권한을 부여할 수 있는 모든 user
+    + GRANT SELECT ON department TO Amit, Satoshi
+  - 권한을 뺏을 때는 GRANT 대신 REVOKKE 사용, 형식은 grant 와 동일
+
+* Roles
+  - 그룹을 만들어 줌
+  ![image](https://user-images.githubusercontent.com/59719632/160789915-1a165ad2-d9e2-4aa4-93a9-bf78a62f330a.png)
+
+* 뷰에 대한 권한 (강의 다시 봐야함)
+
+
+
+
+
+
+
+
+
 
 
