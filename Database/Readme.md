@@ -619,7 +619,7 @@ FROM department
    ![image](https://user-images.githubusercontent.com/59719632/159915952-78b29ce7-ec40-4183-a9d9-eb235427b968.png)
 
 
-## Chap 4. Intermediate SQL
+# Chap 4. Intermediate SQL
 * Join Operation
   - Cartesian Product
     + 가능한 모든 경우의 수를 출력
@@ -797,9 +797,30 @@ FROM department
 
 * 뷰에 대한 권한 (강의 다시 봐야함)
 
+# Chap 5. Advanced SQL
+## 5-1. Accessing SQL from a programming language
+* SQL의 표현력에 한계가 있다.
+* SQL을 통한 입출력이 힘들다.
+* 일반적인 프로그래밍 언어에서 SQL을 사용하는 방법
+  - Embedded SQL
+    + 컴파일 할 때 SQL 명령어가 번역된다.
+    + 런타임이 되면 이미 번역된 function을 API를 사용해서 SQL 명령을 실행된다.
+  - Dynamic SQL
+    + 대부분의 쿼리를 string 형태로 저장
+    + 컴파일 타임에는 어떠한 쿼리가 실행되는지 확인하지 않는다
+    
+## 5-2. JDBC (API)
+* JDBC는 Java API 이다.
+* 데이터의 수정을 할 수 있다
+* JDBC 사용
+  - connection을 open
+  - Create a "statement" object
+  - 쿼리를 실행하고, 쿼리를 데이터베이스에 보내고 받아오는 작업
+  - 에러 exception mechanism
 
+  ![image](https://user-images.githubusercontent.com/59719632/160839967-ad414288-6d41-4de1-bf36-a112b0b472c5.png)
 
-
+  ![image](https://user-images.githubusercontent.com/59719632/160841351-5fa1449d-644a-4dd0-92d7-b235205b1aca.png)
 
 
 
