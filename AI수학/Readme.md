@@ -518,4 +518,60 @@ sol=np.linalg.solve(A,y) # A는 행렬, y는 값 => Ax=y
     
   ![image](https://user-images.githubusercontent.com/59719632/160278617-5dfd4435-efe4-40e7-93ea-e04f9cde5a8d.png)
 
+ # Chap 4. 최소제곱해
+ ## 4-1. 내적 (Inner Product)
+ 
+ ![image](https://user-images.githubusercontent.com/59719632/160842542-8d391dee-1bb9-4e54-8e57-eb209e3b9f62.png)
+
+ ![image](https://user-images.githubusercontent.com/59719632/160842609-e825de93-3e9e-4254-8a93-03d473f1fbae.png)
+
+ ![image](https://user-images.githubusercontent.com/59719632/160843154-94db38ca-3725-44f9-9699-bbffabb45b7d.png)
+
+ ![image](https://user-images.githubusercontent.com/59719632/160843424-7d47230c-495a-4d23-a188-7a5af6a48a8f.png)
+
+ ![image](https://user-images.githubusercontent.com/59719632/160843668-8fa355f4-cc88-451a-9a60-52fe58b157df.png)
+
+ ![image](https://user-images.githubusercontent.com/59719632/160843950-2ad0b27e-3c42-4311-b097-c098b029bec8.png)
+
+ ![image](https://user-images.githubusercontent.com/59719632/160844106-01609929-6331-4c8e-88de-b3563906e770.png)
+
+ ![image](https://user-images.githubusercontent.com/59719632/160844462-5c78229b-9f11-4cf8-942a-cb994a828ca1.png)
+
+ ![image](https://user-images.githubusercontent.com/59719632/160844739-4af4c8eb-0340-469d-bcec-2d9764cdce6f.png)
+
+ ![image](https://user-images.githubusercontent.com/59719632/160845281-d8cf3db5-b4c3-42c5-b3c5-c4eecf65b670.png)
+
+## 4-2. 직교벡터와 정규직교벡터
+* 직교벡터: 두 벡터의 내적 = 0
+* 정규 직교벡터: 두 벡터가 직교벡터일 때 각 벡터의 길이가 1이면 정규직교함
+
+![image](https://user-images.githubusercontent.com/59719632/160845901-b1cb6c73-d7ce-463c-9de1-97a7f6c6c20b.png)
+
+![image](https://user-images.githubusercontent.com/59719632/160846113-5399d422-0db7-4ca6-87a0-db4712f75440.png)
+ 
+* 정규직교벡터가 구성하는 공간이 정규직교공간인지 확인해라 => 두 벡터가 정규 직교하는지 확인
+  - 내적 0인지 확인, 벡터 길이 1인지 확인
+
+  ![image](https://user-images.githubusercontent.com/59719632/160846463-3a9ecb53-1bec-451b-b28c-6b3c24d858f5.png)
+
+  - 정규직교벡터를 활용한 좌표표현
+    + 임의의 벡터 a를 정규직교기저의 선형 결합으로 표현하면 각각 정규직교기저벡터 방향에 대한 가중치로 표현할 수 있다.
+ 
+  ![image](https://user-images.githubusercontent.com/59719632/160847392-c950d59d-cf63-40e3-b0ec-625357bee12c.png)
+
+  - 직교벡터를 활용한 좌표표현
+    + 직교벡터를 정규직교벡터로 바꾸면 위와 같음
+
+  ![image](https://user-images.githubusercontent.com/59719632/160847555-cb499b99-b9f0-40e7-bf7b-0fe5bfacffa2.png)
+
+```python3
+np.inner(a,b) # 벡터의 내적
+```
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
