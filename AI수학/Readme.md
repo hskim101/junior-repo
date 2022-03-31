@@ -568,10 +568,39 @@ sol=np.linalg.solve(A,y) # A는 행렬, y는 값 => Ax=y
 np.inner(a,b) # 벡터의 내적
 ```
  
+## 4-3. 선형시스템
+
+![image](https://user-images.githubusercontent.com/59719632/161013938-53ba29ae-10c1-4b7e-966d-0397966c06e7.png)
+
+![image](https://user-images.githubusercontent.com/59719632/161014288-e00f5845-e37e-44e8-abc5-bd393c63d59b.png)
+
+![image](https://user-images.githubusercontent.com/59719632/161014574-8e9e8bd9-799b-4326-9da7-ab86b2563dfc.png)
+
+
+## 4-4. 최소제곱해
+
+* b-Ax의 크기가 0에 가까울 수록 해에 가깝다라고 할 수 있다.
+
+![image](https://user-images.githubusercontent.com/59719632/161015062-dc313873-97b5-4a45-a78d-a9586dc5ae00.png)
  
+![image](https://user-images.githubusercontent.com/59719632/161015493-80cc319e-59db-44cd-b62b-8e8c0040f245.png)
+
+![image](https://user-images.githubusercontent.com/59719632/161015877-f9ea1478-a43a-4354-9e30-228234d806c7.png)
  
+![image](https://user-images.githubusercontent.com/59719632/161016127-c62e7c26-7894-44b9-8d7e-98b5bfba576a.png)
  
+## 4-5. 정규방정식
  
+![image](https://user-images.githubusercontent.com/59719632/161016376-a86bf406-da0e-4952-a418-7ec3afaa9280.png)
  
+![image](https://user-images.githubusercontent.com/59719632/161017406-1a3e1109-d330-497f-b73f-2da5df939428.png)
  
- 
+![image](https://user-images.githubusercontent.com/59719632/161017798-5facc7b0-eb17-48b8-a00b-02b3432c8488.png)
+
+![image](https://user-images.githubusercontent.com/59719632/161018284-d2a36b75-fe83-45c7-ba2a-0e814e1f2b28.png)
+
+
+
+
+
+
