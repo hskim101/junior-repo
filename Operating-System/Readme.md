@@ -609,14 +609,30 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
 
 # Chap 5. Secondary Storage Structure
 ## 5-1. Disk Structure
-* 
+* 시침 같이 생긴게 arm assembly
+* 원처럼 돌아가는게 platter
+* 많은 arm과 platter 들이 여러 장 겹쳐 있는 구조
+* spindle을 기준으로 platter가 회전하는데 이 회전하는 속도가 RPM이다.
+* 동일 반경에 존재하는 sector의 묶음을 track 이라고 한다.
+* 동일 반경 상의 존재하는 track들의 묶음을 cylinder 라고 한다.
+* 그림에서 cylinder c에 존재하는 track은 3개이다.
+* arm이 platter 아래 위로 존재, arm 끝에 있는 작은 침을 통해 데이터를 읽어오게된다. 
 
+![image](https://user-images.githubusercontent.com/59719632/161217596-5b9f4145-a78a-4bac-b385-3eb34f209f9b.png)
 
+* 아래는 3개의 track으로 구성된 하나의 platter
+* 한 platter의 top, bottom 각각 3개의 track으로 구성
+* 동일한 반경의 반대편 track에 차례대로 sector가 배정
+* 위아래가 다 차면 안쪽 track으로 차례로 쌓임
 
+![image](https://user-images.githubusercontent.com/59719632/161218420-f7617c4e-31a5-4490-a5d2-d55a485c0294.png)
 
+* platter가 2개가 되면 안쪽 track으로 채워지기 전에 동일한 반경의 다른 platter에 쌓이기 시작한다.
+* 동일한 반경부터 top bottom top bottom 순으로 채워짐
 
-
-
+## 5-2. Disk time
+* Disk access time
+  
 
 
 
