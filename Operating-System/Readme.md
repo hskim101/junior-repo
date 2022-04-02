@@ -658,6 +658,12 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
   - Disk controller는 해당하는 sector를 찾아서 DRAM에 먼저 저장하고 메인 메모리로 저장한다. CPU는 메인메모리 상에 저장된 sector에 접근한다. cpu는 중간에 DRAM을 거치지 않고는 sector에 접근할 수 없다. cpu안에는 sector를 저장할 수 있는 메모리 공간이 없기 때문.
   - 전에 요청했던 sector를 요청하는 경우 DRAM에 먼저 저장된 sector가 있는지 검사한다. (Disk cache)
 
+* Disk platter 안의 Data 밀도
+  - 하드디스크 : Track마다 저장하는 sector의 갯수는 동일한데 바깥쪽 Track 일 수록 면적이 넓기 때문에 Data를 저장하는 밀도가 낮아진다. 
+  - CD-ROM, DVD\-ROM : 각 단위 면적 당 bit의 밀도가 동일하다. 안쪽으로 들어갈 수록 저장할 수 있는 data의 양이 적어진다. 
 
+## 5-3. Disk Scheduling
+* Application에서 Disk를 접근하려면 read 또는 write 라는 system call을 호출해야한다. 
 
+![image](https://user-images.githubusercontent.com/59719632/161384926-c5a326c7-b89c-4347-98f3-a31af16a205c.png)
 
