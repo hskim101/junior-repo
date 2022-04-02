@@ -651,7 +651,12 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
 * Disk sector or block
   - sector 번호는 cylinder 번호, track 번호, sector 번호로 나뉘어서 sector의 위치를 표현한다.
 * Disk controller
-  - 
+  - CPU가 Disk 안의 특정 sector에 접근하고 싶을 때 Disk controller에 요청을 한다.
+  - Disk controller는 disk 내의 sector를 읽어서 CPU에 전달한다.
+  - Disk controller는 Disk와 CPU를 서로 통신하게 해주는 회로이다.
+  - motherboard 상에 존재한다.
+  - Disk controller는 해당하는 sector를 찾아서 DRAM에 먼저 저장하고 메인 메모리로 저장한다. CPU는 메인메모리 상에 저장된 sector에 접근한다. cpu는 중간에 DRAM을 거치지 않고는 sector에 접근할 수 없다. cpu안에는 sector를 저장할 수 있는 메모리 공간이 없기 때문.
+  - 전에 요청했던 sector를 요청하는 경우 DRAM에 먼저 저장된 sector가 있는지 검사한다. (Disk cache)
 
 
 
