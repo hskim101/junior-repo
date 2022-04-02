@@ -632,7 +632,26 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
 
 ## 5-2. Disk time
 * Disk access time
-  
+  - Positioning time + transfer time
+  - Positioning time : arm을 sector가 위치한 곳으로 이동시키는 시간
+  - Transfer time : sector를 읽어서 DRAM으로 이동하는 시간, Positioning time보다 아주 짧다
+  - Track 간에 arm을 이동하는 동작을 Seek 이라고 하고, seek 하는데 걸리는 시간을 seek time이라고 한다
+  - sector가 arm의 바늘 밑으로 이동하는데까지 걸리는 시간을 Rotational time이라고 한다
+  - seek time이 길다
+  - platter 밑을 자세히 보면 홈들이 있는데 이 홈 안에 arm을 넣고, 이 홈 간격이 매우 짧다. platter의 면적은 일정한데 데이터를 많이 저장해야되니까 홈 간격이 점점 짧아졌다. 이 홈 간격이 짧아지면 짧아질 수록 arm이 바늘을 놓는데 조심해야하는데 이에따라 놓는 시간이 길어진다.
+  - RPM이 빠르기 때문에 Seek time이 Rotational time보다 아주 크다.
+  - 하드디스크의 용량이 늘어나면 늘어날 수록 seek time과 rotatinal time 차이가 점점 커진다.
+  - Positioning time = Seek time + Rotational time
+
+  <img width="523" alt="스크린샷 2022-04-02 오후 6 22 37" src="https://user-images.githubusercontent.com/59719632/161376731-ec02cd12-99bf-419d-8bb9-74c4be0b0c30.png">  
+
+* Head crash
+  - platter가 arm에 의해 손상되는 것을 방지하기위해 platter 위에 얇은 막으로 코팅되어있다.
+
+* Disk sector or block
+  - sector 번호는 cylinder 번호, track 번호, sector 번호로 나뉘어서 sector의 위치를 표현한다.
+* Disk controller
+  - 
 
 
 
