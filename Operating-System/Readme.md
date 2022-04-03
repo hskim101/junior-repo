@@ -665,5 +665,41 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
 ## 5-3. Disk Scheduling
 * Application에서 Disk를 접근하려면 read 또는 write 라는 system call을 호출해야한다. 
 
-![image](https://user-images.githubusercontent.com/59719632/161384926-c5a326c7-b89c-4347-98f3-a31af16a205c.png)
+  ![image](https://user-images.githubusercontent.com/59719632/161384926-c5a326c7-b89c-4347-98f3-a31af16a205c.png)
+
+  - Disk의 b5 라는 sector를 읽고 있는 시간 동안 request를 disk 안의 request queue라는 곳에서 관리한다. 이 queue에 있는 request를 어떤 순서로 서비스하냐에 따라 전체 평균 disk access time이 좌우 될 수 있다. request queue에 있는 request를 어떤 순서로 서비스하냐를 결정하는 방법을 Disk Scheduling 이라고 한다.
+  - Disk scheduling algorithm은 Seek time을 최소화하는 것에 초점을 맞추고 있다. (seek time이 rotational time 보다 훨씬 크기 때문)
+  - Scheduling Algorithms
+    + 지그재그로 스케쥴링을 할 수록 효율이 안좋다.
+    + First come, First service (FCFS), 가장 안좋은 알고리즘
+    + Shortest Seek Time First (SSTF), Seek time이 짧은 순서대로 서비스, head에서 가까운 순서대로
+    
+    <img width="490" alt="스크린샷 2022-04-03 오후 6 47 40" src="https://user-images.githubusercontent.com/59719632/161421780-e34303e4-519b-4a3c-bf0a-b4fac20c75de.png">
+    
+    + SSTF는 starvation 문제가 발생한다. => 어떤 서비스가 실행이 되지 않는 문제
+    + SCAN : elevator algorithm, head가 한쪽 방향으로 이동하면서 request를 서비스, 끝에 도달하면 방향을 전환해서 끝까지 이동하면서 request를 서비스한다.
+
+    <img width="512" alt="스크린샷 2022-04-03 오후 6 51 58" src="https://user-images.githubusercontent.com/59719632/161421906-c377bea2-6bde-4222-af7b-385885feb1e0.png">
+    
+    + C\-SCAN : 한쪽 방향으로 이동하다가 끝에 도달하면 반대편 끝으로 점프해서 다시 한쪽 방향으로 이동하면서 서비스. 이동하는 방향이 한 방향이다.
+
+    <img width="496" alt="스크린샷 2022-04-03 오후 6 53 41" src="https://user-images.githubusercontent.com/59719632/161421957-a856c9b1-c990-43d4-8e79-faa7f43ceef8.png">
+    
+    + LOOK and C\-LOOK : SCAN을 구현할 때 LOOK으로 구현, C\-SCAN을 구현할 때 C\-LOOK으로 구현, request 번호가 제일 큰 번호까지만 갔다가 방향 전환 또는 점프 (끝까지 가지 않음)
+    
+    <img width="502" alt="스크린샷 2022-04-03 오후 6 56 17" src="https://user-images.githubusercontent.com/59719632/161422045-345bff89-bc97-4b71-88f6-327584fcbc38.png">
+
+## 5-3. Disk Formatting
+* Low\-level formatting
+  - 모든 sector들을 0이라는 값으로 채움
+  - Data 앞뒤에 header와 tailer가 있다. 여기에는 sector number, error\-correcting code 정보가 담겨 있다.
+  - 데이터를 저장할 때 error\-correcting code 알고리즘을 통해 특정한 코드 값을 만든다. 이 코드 값을 tail이나 head에 저장하게 되는데, 저장된 데이터를 읽을 때 ecc코드를 생성해서 기존에 저장된 ecc코드와 비교해서 동일하면 정상적인 데이터고 다르면 저장된 데이터가 깨졌다는 의미.
+  - ㅔ
+  - 데이터를 저장할 때 error\-correcting code 알고리즘을 통해 특정한 코드 값을 만든다. 이 코드 값을 tail이나 head에 저장하게 되는데, 저장된 데이터를 읽을 때 ecc코드를 생성해서 기존에 저장된 ecc코드와 비교해서 동일하면 정상적인 데이터고 다르면 저장된 데이터가 깨졌다는 의미.
+
+* Partition: cylinder의 묶음을 여러 개를 만드는 것
+* Logical formatting : 파일 시스템이 가지고 있는 data를 초기화시킴
+* Disk Cache : Data를 읽을 때 data가 disk cache 부분에 있으면 platter까지 내려가지 않고 data를 불러옴
+  - Disk는 내부적으로 disk cache를 주기적으로 platter로 저장한다. (sync), 데이터 손실을 방지하기 위함
+  - Disk cache 용량이 클 수록 Disk access time이 작아질 수 있는 장점을 가지고 있다.
 
