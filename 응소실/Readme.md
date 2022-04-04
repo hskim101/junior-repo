@@ -750,5 +750,105 @@ namespace Example7 {
   ![image](https://user-images.githubusercontent.com/59719632/160354083-d587eadd-3541-4b9a-834f-1626f7c1af8f.png)
   
   
+* Form 클래스
+  - 폼의 외형을 설정하는 속성
+  - 폼의 동작을 정의하는 메소드
+  - Component 클래스
+    + 화면에 표시되지 않는 요소도 Component로 표현함
+  - Control 클래스
+  - ScrollableControl
+    + 스크롤 개념이 필요한 Control을 정의하기 위해서 사용되는 Base 클래스
+  - ContainerControl
+    + Control, Component를 포함할 수 잇는 포커스를 관리하기 위한 Base 클래스
+  - 주요 이벤트
+    + Closing 먼저 발생 후 Closed 발생함
+* 이벤트
+  - 프로그램에 의해 감지되고, 처리될 수 있는 동작이나 사건
+  - 메시지 루프
+    + 메시지 큐에서 발생하는 메시지를 메시지 핸들러로 전달하여 처리함
+    ![image](https://user-images.githubusercontent.com/59719632/161455603-9c43ffec-631b-4f81-8b36-7bcf500fab01.png)
+  - 주요 이벤트
+    + 키보드 이벤트
+    + 마우스 이벤트
+* Control 클래스
+  - 주요 이벤트
 
 
+  ![image](https://user-images.githubusercontent.com/59719632/161455673-b066ae91-6820-4d49-898c-f81207a6650d.png)
+
+  - GroupBox 클래스
+    + 다른 Control을 포함하는 Container로 사용함
+    + 사용자에 대한 이해를 쉽게 함
+
+  - CheckBox 클래스와 RadioButton 클래스
+  - PictureBox 클래스
+
+```c#
+private void rdoOption_CheckedChanged(object sender, EventArgs e)
+        {
+            var rdoOption = sender as RadioButton;
+
+            if (null != rdoOption)
+            {
+                PictureBoxSizeMode SizeMode;
+
+                if (rdoOption == rdoNormal)
+                    SizeMode = PictureBoxSizeMode.Normal;
+                else if (rdoOption == rdoStretchImage)
+                    SizeMode = PictureBoxSizeMode.StretchImage;
+                else if (rdoOption == rdoAutoSize)
+                    SizeMode = PictureBoxSizeMode.AutoSize;
+                else if (rdoOption == rdoCenterImage)
+                    SizeMode = PictureBoxSizeMode.CenterImage;
+                else
+                    SizeMode=PictureBoxSizeMode.Zoom;
+
+                picProfile.SizeMode = SizeMode;
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            picProfile.Visible = !checkBox1.Checked;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            picProfile.ImageLocation = textBox1.Text;
+        }
+```
+* 이벤트 핸들러의 통합과 재사용
+  - 동일한 이벤트 핸들러를 사용하면, 작성해야 하는 코드의 양이 줄어듦
+  - 기존 동작 이벤트에서 CheckedChanged 속성의 함수를 지우고 새로 작성한 통합 함수를 넣어줌
+ 
+ ```c#
+ private void txtNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back))
+                return;
+            e.Handled = true;
+        }
+
+        private void btnSummit_Click(object sender, EventArgs e)
+        {
+            string messageString = string.Format("사과 {0}개, 바나나 {1}개",
+                txtApple.Text, txtBanana.Text);
+            MessageBox.Show(messageString + " 입력받았습니다.");
+            var result = MessageBox.Show(
+                messageString + " 입력받았습니다.\r\n계속 하시겠습니까?",
+                "Caption",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.OK)
+                MessageBox.Show("OK를 눌렀습니다.");
+        }
+ ```
+
+* 메뉴
+  - MenuStrip 클래스
+    + 메뉴를 포함하는 메뉴바로 구성되어 있음
+    + 각 메뉴는 메뉴 항목을 Drop\-down 형식으로 표시됨
+    + 메소드를 활성화 하기 위해, 버튼의 추가기능 또는 버튼 대신에 메뉴 항목을 사용할 수 있음
+  - ToolStripMenuItem 클래스
+    + MenuStrip이나 ContextMenuStrip에 표시되는 선택 가능한 옶ㄴ을 나타냄
