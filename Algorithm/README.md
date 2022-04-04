@@ -630,8 +630,43 @@ print(' After: ', S)
 
 * Homogeneous Linear Recurrence Relations
   - 각 벡테의 계수를 r^k 꼴로 표현
+  - 먼저 선형 식에 대한 characteristic equation을 만든다.
   - k개의 서로 다른 근이 있는 경우
-    + 
+    + 일반 식에 대한 일반항 t_n은 r_i에 상수 곱한 꼴로 표현된다.
+    + 조합론에서 이미 보여진 결과를 우리는 가져다 사용한다.
+
+    ![image](https://user-images.githubusercontent.com/59719632/161502993-c2451d96-a241-4a1f-a919-79d817996d1f.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/161503613-58c9e8b2-3629-40d7-9ec6-d42e061b3fb2.png)
 
 
 
+  - 중근이 몇개 있는 경우
+    + k개의 근이 모두가 서로 다르지는 않은 경우
+    + t_n은 위 식과 같이 표현되는데 중간에 빨간색으로 중근에 대한 표현이 추가된다.
+    + 중복 개수에 따라 앞에 n을 곱해준다.
+
+    ![image](https://user-images.githubusercontent.com/59719632/161503115-d8990cf5-5f76-4fe0-831c-a6314cde4148.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/161505168-67beaba6-60b5-4ac8-b51c-ad3252b37120.png)
+
+* Nonhomogeneous Linear Recurrence Relations
+  - 특정한 모양일 때 푸는 방법
+  
+    ![image](https://user-images.githubusercontent.com/59719632/161505521-344b14c5-c03f-4acb-9386-b66ccd7028af.png)
+
+    + 여기서 d는 p(n)이 n에 대한 다항식인데 n의 최고차항의 차수 (degree)이다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/161506040-073daf51-13fa-479c-8c9a-7eba27c7637e.png)
+
+    + b와 c가 서로 다르다고 가정
+    + 특성 방정식을 먼저 구한다.
+    + t3는 c로부터 얻을 수 있는 일반해이다.
+
+  - MergeSort Worst Case
+    
+    ![image](https://user-images.githubusercontent.com/59719632/161509318-62b3e623-526a-44c5-b0cb-67a4c8593f7f.png)
+    
+    + T_k의 일반항을 구한 후 n에 1부터 대입하면서 연립 방정식을 풀어준다.
+
+    ![image](https://user-images.githubusercontent.com/59719632/161510291-daeb4bca-2e46-4c6b-be13-9ee485395a0d.png)
