@@ -626,7 +626,12 @@ print(' After: ', S)
 
     ![image](https://user-images.githubusercontent.com/59719632/160329464-50893669-f9e1-4078-8adc-fff05ca196dc.png)
 
- 
+## 2-4. Solving Recurrence Relations
+
+* Homogeneous Linear Recurrence Relations
+  - 각 벡테의 계수를 r^k 꼴로 표현
+  - k개의 서로 다른 근이 있는 경우
+    + 
 
 
 
