@@ -851,4 +851,4 @@ private void rdoOption_CheckedChanged(object sender, EventArgs e)
     + 각 메뉴는 메뉴 항목을 Drop\-down 형식으로 표시됨
     + 메소드를 활성화 하기 위해, 버튼의 추가기능 또는 버튼 대신에 메뉴 항목을 사용할 수 있음
   - ToolStripMenuItem 클래스
-    + MenuStrip이나 ContextMenuStrip에 표시되는 선택 가능한 옶ㄴ을 나타냄
+    + MenuStrip이나 ContextMenuStrip에 표시되는 선택 가능한 을 나타냄
