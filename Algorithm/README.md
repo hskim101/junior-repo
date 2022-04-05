@@ -713,6 +713,96 @@ print(' After: ', S)
   - 이 경우 Divide and Conquer로 하면 비효율적인 알고리즘이 됨
   
   
+# Chap 3. Dynamic Programming
+## 3. Dynamic Programming
+* Similar to Divide and Conquer
+  - 작은 instances로 분할
+* Different from Divide and Conquer
+  - 작은 instances를 먼저 해결하고 나중에 필요할 때 꺼내서 씀
+  - Iterative Fibonacci
+* Dynamic Programming 은 Bottom\-Up 방식이다
+  - Divide and Conquer은 Top\-Down 방식이다.
+
+* Step
+  - Step 1:
+    + 문제 instance의 해가 큰 문제의 해에 어떻게 활용이 되는지 파악
+    + 알고리즘을 작성하기 전에 먼저 수행되어야 한다.
+
+  - Step 2:
+    + 작은 문제에 대한 해를 구하고 이를 통해 큰 문제의 해를 구한다.
+    + bottom up
+
+## 3-1. The Binomial Coefficient (이항 계수)
+* nCk
+
+![image](https://user-images.githubusercontent.com/59719632/161737853-0548bb0e-e15b-4cf4-be4d-9b50061d1c8d.png)
+
+* Divide and Conquer를 이용한 Binomial Coefficient (재귀 호출 과정에서 연산 수가 굉장히 많아짐)
+
+![image](https://user-images.githubusercontent.com/59719632/161738228-6ef7da82-cc61-484b-b539-ce3bbecc254f.png)
+
+* Dynamic Programming을 이용한 Binomial Coefficient
+  - 필요한 값에 대한 부분만 채워져있으면 됌
   
+  ![image](https://user-images.githubusercontent.com/59719632/161739136-55222466-1ea1-47ec-aebd-a7ad23111553.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/161739535-d581f069-b9b6-4c41-98f9-bbcb48d12621.png)
+
+  - i<=k 까지는 연산 횟수가 i+1이고 i>k이면 min(i,k)가 k로 고정되기 때문에 연산 횟수가 k+1로 고정된다.
   
+  ![image](https://user-images.githubusercontent.com/59719632/161740100-984f1009-60e6-4a2e-8d18-0b7f377dddfd.png)
+
+  - 연산 횟수를 모두 더함
   
+  ![image](https://user-images.githubusercontent.com/59719632/161740585-c10eb270-3303-4ce9-bf9e-d2383d0471f7.png)
+
+## 3-2. Floyd's Algorithm for Shortest Paths
+* The Shortest Paths Problem
+  - 그래프의 모든 vertices 사이의 Shortest Paths를 찾는 것
+  - 최단 경로가 여러 개라면 이 중 하나를 찾는 것
+  - An exhaustive algorithm (전수조사, 매우 비효율적)
+    + 시간복잡도를 구해보면 최소한 O(n!) 이다.
+    + P(n-2,k), k는 v_i, v_j 사이에 거치는 vertices 개수 
+    
+    ![image](https://user-images.githubusercontent.com/59719632/161742929-b371288a-9686-45fd-bdbe-a13d39e489e8.png)
+
+* Floyd's Algorithm
+  - 가중치 nxn table W 을 n nodes graph에 적용
+  - edge가 없는 것은 infinite 값으로 적용해서 없는 값으로 표현
+  
+  ![image](https://user-images.githubusercontent.com/59719632/161743400-ff96a266-bbe2-4f57-9fac-8f9a72446ae5.png)
+
+  - 관계식 수립
+    + vertex를 하나 더 늘려줬을 때와 안 늘렸을 때의 관계
+    + D^(k)[i]\[j] 의미는 v_i에서 v_j를 가는데 v_1,v_2,..,v_k 까지만 거쳐서 얻을 수 있는 최단 경로의 길이
+    
+    ![image](https://user-images.githubusercontent.com/59719632/161746749-710bdb11-b65c-4ff6-b38c-9ea3ef2f1b2e.png)
+
+    + Case 1: v_i에서 v_j로 가는데 v_k를 사용하지 않고도 최단 경로 방법이 있는 경우
+
+    ![image](https://user-images.githubusercontent.com/59719632/161747400-12dd77c0-9782-4836-84a9-37a67857d8b2.png)
+
+    + Case 2: v_k를 반드시 포함해야 최단 경로가 되는 경우
+
+    ![image](https://user-images.githubusercontent.com/59719632/161747695-e2152576-b536-4a26-8ac5-9fc97fec1221.png)
+
+    + 사실 Case를 따로 구분할 필요가 없다. 어떠한 경우든 짧은 쪽을 선택하면 된다.
+
+    ![image](https://user-images.githubusercontent.com/59719632/161748021-fb83098c-6e36-43d3-88a9-7d4cdfd45404.png)
+
+    + 3차원 배열로 구현, 굳이 3차원을 사용할 필요는 없다. 바로 전 층만 기억하게 하면 됀다. => 2차원 배열로 표현 할 수 있음 (계속 업데이트 하는 방식)
+    
+    ![image](https://user-images.githubusercontent.com/59719632/161748513-cd46e6d8-fda1-448b-929e-049ddbce9c04.png)
+  
+    ![image](https://user-images.githubusercontent.com/59719632/161749166-c2c3f369-94d7-43b9-8af6-9fd97ff166c1.png)
+
+    + 최단 경로의 길이를 통해 노드의 순서를 구하는 과정, 위의 min 부분을 if문으로 바꾼 다음 if문 안에 조건을 만족하는 가장 큰 k 값을 기억시켜줌 
+    
+    ![image](https://user-images.githubusercontent.com/59719632/161749763-20853edb-711a-4f19-85a3-6207aa8ed313.png)
+
+    + 최단 경로를 출력하는 함수, P[q]\[r]이 0이면 중간에 거치는 vertex가 없다는 의미, V_P[q]\[r] 까지 출력 1번, V_P[q]\[r]에서 V_r 까지 출력 1번
+    
+    ![image](https://user-images.githubusercontent.com/59719632/161750164-c7be0e12-ae18-4789-8b56-157956624e7c.png)
+
+
+
