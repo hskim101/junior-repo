@@ -670,3 +670,49 @@ print(' After: ', S)
     + T_k의 일반항을 구한 후 n에 1부터 대입하면서 연립 방정식을 풀어준다.
 
     ![image](https://user-images.githubusercontent.com/59719632/161510291-daeb4bca-2e46-4c6b-be13-9ee485395a0d.png)
+
+* Solving by Substitution (치환)
+  - QuickSort Average Case
+    
+    ![image](https://user-images.githubusercontent.com/59719632/161710900-d033c6de-fa39-4348-9f9e-8e19e36e3212.png)
+
+    + 적분을 사용한 값, 1/x, 샌드위치 정리
+        
+    ![image](https://user-images.githubusercontent.com/59719632/161711574-efc6a9b3-416d-4dff-b7d8-5400177a3be6.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/161711980-89e67fd4-217c-4cd2-9a78-a36de16cd3e2.png)
+
+## 2-5. Detrmining Thresholds
+* MergeSort와 QuickSort를 Recursive로 구현할 때 발생하는 overhead
+  - Mid를 분할하는 시간
+  - Recursive calls를 할 때 시스템 내부적으로 stack에서 activation하는 연산
+  - 두 subarray를 merge하는 시간
+  - 위 경우들을 고려했을 때 n이 작으면 Exchange sort (O(n^2))같은 알고리즘이 더 빠를 수 있다.
+  - threshold보다 작은 값에서는 exchange sort를 실행하고 threshold보다 큰 값에서는 mergesort를 실행
+  
+  ![image](https://user-images.githubusercontent.com/59719632/161713697-9765e661-7cd3-4a29-be57-9375f27949eb.png)
+
+  - 내부적으로 Exchange sort를 하는 Modified MergeSort
+    + threshold t 보다 작을 때는 exchange sort, t 보다 클 때는 Mergesort
+   
+    ![image](https://user-images.githubusercontent.com/59719632/161719008-0fab92b7-4991-4df6-a924-fa77d003b31a.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/161719368-a2bd2ce5-0bc6-459a-86b1-dc3b73b99eb1.png)
+
+## 2-8. Divide and Conquer 사용하면 안되는 경우
+* Size가 n인 instance를 분할 할 때 분할된 instance 크기가 n과 거의 비슷하게 분할되는 경우
+  - Recursive Fibonacci (linear로 구현한 것보다 훨씬 비효율적)
+  
+  ![image](https://user-images.githubusercontent.com/59719632/161720123-cd662b82-7723-4a92-9aae-842455e9765f.png)
+
+  
+* Size가 n인 instance를 분할 할 때 분할된 instance 크기가 n/c인데 n과 거의 비슷한 경우
+  
+  ![image](https://user-images.githubusercontent.com/59719632/161720768-732c48dc-38f1-4623-bc45-86af5de3fb36.png)
+
+  - 이 경우 Divide and Conquer로 하면 비효율적인 알고리즘이 됨
+  
+  
+  
+  
+  
