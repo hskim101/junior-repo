@@ -242,7 +242,7 @@ for i in range(3):
 * mutable
 * key는 immutable 이다, hashing 구조이기 때문
 * 중괄호{} 사용
-* key는 집합안에 있기 때문에 순서가 없다
+* key는 집합 안에 있기 때문에 순서가 없다
   
   ![image](https://user-images.githubusercontent.com/59719632/160825428-4efaeb27-6016-4d09-b0b6-d9fd08320d6f.png)
 
@@ -256,6 +256,22 @@ for i in range(3):
 ## 4-6. Deep Copy
 
 ![image](https://user-images.githubusercontent.com/59719632/160825914-d4c13ff5-6c39-448e-91ba-1edfe12c6c1a.png)
+
+# Chap 5. Files and Exceptions
+## 5-1. Files
+
+
+## 5-2. Exceptions
+
+
+
+
+
+
+
+
+
+
 
 
   
