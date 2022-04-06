@@ -599,8 +599,56 @@ np.inner(a,b) # 벡터의 내적
 
 ![image](https://user-images.githubusercontent.com/59719632/161018284-d2a36b75-fe83-45c7-ba2a-0e814e1f2b28.png)
 
+## 4-6. 직교기저
+* 직교기저(Orthogonal basis)
+  - 하나의 span을 구성하는 2개의 벡터가 주어졌을 때
+  - 두 개의 벡터 중 하나의 벡터를 바탕으로하는 span을 구하고
+  - 다른 벡터가 해당 span에 정사영한 값을 찾음
+  - 이후, y- proj_L (y) 을 구하면 , u와 서로 직교하는 기저가 됨
 
+  ![image](https://user-images.githubusercontent.com/59719632/161910537-399590db-146a-4717-8cfb-cf9baed0b75d.png)
 
+  ![image](https://user-images.githubusercontent.com/59719632/161915138-50a21846-19e7-4e15-89ed-1d6b9cc766b7.png)
 
+## 4-7. 그람 슈미트 과정
+* 그람 슈미트 과정
+  - 기저 벡터를 직교 기저 벡터로 변환하는 과정
+  - 기저 벡터를 직교 기저 벡터로 변환하는 과정에서 벡터가 여러개 나올 수 있다.
 
+  ![image](https://user-images.githubusercontent.com/59719632/161915464-f39d2d86-ea1c-4a4c-be9e-4709d2ec87b9.png)
 
+  ![image](https://user-images.githubusercontent.com/59719632/161915660-d09e98c7-55cb-405a-9172-b3e470cbda1b.png)
+  
+  ![image](https://user-images.githubusercontent.com/59719632/161915887-62339bdd-cb38-4c97-83b8-86f7948b554d.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/161924261-f6c279de-b785-4e2b-aa3a-0dc28c975849.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/161924607-7f80d59c-6996-4db4-9da6-7247e121ffa7.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/161925961-342b7103-2599-43ea-b389-08b4b7a7e4f5.png)
+
+## 4-8. QR Factorization
+* QR 분해
+  - 행렬 A가 mxn 행렬이고, 열벡터가 모두 선형독립일 때
+  - 행렬은 A=QR 로 분해될 수 있음
+  - Q: 정규직교기저
+  - R: 가역 상삼각행렬
+
+  ![image](https://user-images.githubusercontent.com/59719632/161929479-d5a5ecca-cd5d-4b4c-acb4-6431ee0499fc.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/161929555-0f8b3e64-e911-47b8-8601-0a5e8ddd6f0b.png)
+
+  - Step 1 : 그람 슈미트 과정을 통해 정규직교벡터 도출
+  - Step 2 : R 계산
+
+  ![image](https://user-images.githubusercontent.com/59719632/161970415-bcb868e3-8076-4893-862c-27183ad2a13c.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/161971009-fd9b0bb2-16cb-487b-a4db-0f2172144968.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/161971170-cf42146a-cfe1-4315-9a99-51c08263ae3f.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/161971239-8962b5a0-efaf-43bd-a057-17b8311c1847.png)
+
+```python3
+Q,R=np.linalg.qr(A)
+```
