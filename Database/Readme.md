@@ -822,9 +822,85 @@ FROM department
 
   ![image](https://user-images.githubusercontent.com/59719632/160841351-5fa1449d-644a-4dd0-92d7-b235205b1aca.png)
 
+  - 처음에 ResultSet은 첫번째 item 바로 직전을 가리키고 있음
+  - while 문을 통해 한 줄 한 줄 읽어올 수 있다.  
+  
+  ![image](https://user-images.githubusercontent.com/59719632/162113242-59053464-46ea-4f63-958a-ce60fef0e12a.png)
+
+* JDBC Code Details
+  - getInt를 통해 값이 0이 나왔을 경우 0인지 null 인지 판단할수 없기 때문에 wasNull() 함수로 null 인지 확인해준다.
+* Prepared Statement
+  - 특수문자 같은 것이 포함된 문자열
+  - 백슬래시가 알아서 삽입됨
+  
+  ![image](https://user-images.githubusercontent.com/59719632/162114262-4ce3feb7-5ae5-48ed-bdb9-fdf6a71cddab.png)
+
+* SQL Injection
+  - 원래 의도했던 것은 name을 입력하는 것인데 2번째 줄 같은 값이 들어와버리면 항상 참이되서 의도 하지 않은 결과가 나타나버린다.
+  - Prepared statements를 사용하면 항상 프로그래머가 의도했던 대로만 결과가 나타나게 할 수 있다.
+  - sql 문을 입력해도 sql문이 string 형태로 입력된다. 문자열 그대로 받아들인다.
+
+  ![image](https://user-images.githubusercontent.com/59719632/162114840-f92b6fc0-7b6c-463d-b919-053edcec9fc0.png)
+
+* Metadata Features
+  - ResultSet metadata
+  - 각 열의 이름과 타입을 알 수 있다.
+  - 코드를 재활용하기 유연해진다.
+  - getTables 함수를 사용하면 Table에 대한 Metadata를 얻어올 수 있다.
+
+  ![image](https://user-images.githubusercontent.com/59719632/162117664-47db3ec8-0d33-4445-8058-bb4e69ce7a80.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/162117612-d7140952-be56-40a8-9037-f4d96a56e91a.png)
 
 
+* Transaction Control in JDBC
+  - 한문장 한문장을 Transaction 취급하면 안되고 setAutoCommit을 false로 turn off 시켜줘야 한다.
+  - 각 문장이 쭉 쌓이고 모든 작업을 다 했을 때 commit (적용) 또는 rollback (삭제)을 해준다
+  
+* Other feature (넘어감)
 
+## 5-3. ODBC (Open DataBase Connectivity) , Microsoft (수업에서 자세하게 다루지 않음)
+* Embedded SQL 
+ 
+  ![image](https://user-images.githubusercontent.com/59719632/162123140-95b11497-4f9b-461a-bc22-fbb088edfe77.png)
 
+  ![image](https://user-images.githubusercontent.com/59719632/162123260-0bf1a703-d1ce-493d-bae1-6eadab5b06d1.png)
 
+  -SQLSTATE가 '02000'이 되면 더 이상 fetch 해 올 튜플이 없다는 것을 의미하므로 쿼리를 close 해야한다.
 
+  ![image](https://user-images.githubusercontent.com/59719632/162123830-2db47d1c-c2fb-42db-9ba9-34db1a77dbbc.png)
+ 
+* Updates Through Embedded SQL (넘어감), Database와 host language에 따라 다르기 때문에
+
+## 5-4. Functions and Procedures
+* Functions and Procedures
+  - Functions는 값을 return하지만 Procedures는 값을 return하지 않는다.
+* Declaring SQL Functions (DB마다 구조가 다르기 때문에 구문을 이해할수 있을 정도만 되면 된다.)
+   
+![image](https://user-images.githubusercontent.com/59719632/162124627-8ee5a665-ef92-43b0-9d9c-12c9a86df113.png)
+
+* Table Functions
+
+![image](https://user-images.githubusercontent.com/59719632/162124965-9ab04480-fd3f-4d63-b71e-6ee6de930fbb.png)
+
+* Procedures (강의 자료에 없기 때문에 생략)
+
+* Language Constructs (for문 사용할 수 있다 정도만, ppt에 문제 있어서 넘김)
+* External Language Routines
+  - SQL 말고도 다른 언어로 작성된 Function이나 procedure를 호출 할 수 있구나 정도만
+
+* Security with External Language Routines
+  - 메모리를 공유하면 overheads가 발생함
+
+## 5-5. Triggers
+* Trigger
+  - Database에 변경 사항이 생겼을 때 자동으로 실행되는 명령
+  - Trigger를 사용하려면 trigger가 실행되는 조건을 명시해야함, 어떠한 동작을 할 것인가도 명시해야함
+  - 각 시스템별로 작성하는 방법이 다름
+
+* Trigger to Maintain credits_earned value
+  - Trigger를 만드는데 언제 작동하는지 예제
+  - 새로운 행 nrow, 이전 행 orow
+  - atomic : 하나의 명령어 처럼 행동해야된다. = transaction
+  - 성적이 변경 되었을 때 update 부분이 모두 실행되어야 실행, 아니면 rollback
+  
