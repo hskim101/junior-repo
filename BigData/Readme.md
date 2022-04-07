@@ -250,8 +250,8 @@ for i in range(3):
 
   ![image](https://user-images.githubusercontent.com/59719632/160825367-e550325e-5384-49c9-a793-67193a315094.png)
 
-  * keys(): 모든 key를 리스트형태로 출력
-  * values(): 모든 value를 리스트 형태로 출력
+* keys(): 모든 key를 리스트형태로 출력
+* values(): 모든 value를 리스트 형태로 출력
 
 ## 4-6. Deep Copy
 
@@ -259,19 +259,89 @@ for i in range(3):
 
 # Chap 5. Files and Exceptions
 ## 5-1. Files
+* 파일의 필요성
+  - 데이터를 영구히 보관하려면 파일에 저장해야 한다.
+* 파일의 구조
+  - 파일 안에는 바이트들이 순차적으로 저장되어 있고 끝에는 EOF (end of file) 마커가 있다. EOF는 운영체제별로 다 다름
+  - 모든 파일은 입출력 동작이 발생하는 위치를 나타내는 위치 표시자 (position indicator)를 가지고 있다. 음악파일 보면 재생 위치 표현
+* 파일의 종류
+  - 텍스트 파일 (text file)
+  - 이진 파일 (binary file)
 
+  ![image](https://user-images.githubusercontent.com/59719632/162237225-a2ef8352-c572-40c8-8f39-b88d547b6d57.png)
+
+* Opening Files
+  - 파일을 연다
+  - 파일을 처리한다
+    + 읽기
+    + 쓰기 (읽기 포함)
+  - 파일을 닫는다, 명시적으로 close 해주는걸 지향, 파일을 열면 lock이 걸리기 때문에 close를 통해 lock을 해제해줘야 외부에서 파일 접근이 가능해진다.
+
+  - 파일 읽기
+  
+  ![image](https://user-images.githubusercontent.com/59719632/162238131-d0802cd4-eb59-4f5f-8d4a-50783dd03c52.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/162238347-c8c5a324-48d9-4474-841f-791d784da14d.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/162239197-03cc5144-3bd3-4224-9526-f8566a064c80.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/162240118-bd881940-b196-4167-8554-85ea65d6814f.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/162241112-05816a88-e183-4876-96b2-2a1be984ec9e.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/162243447-82bd6fd5-c4c3-476c-bc72-548eb18f9680.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/162244385-c7da0c9d-569a-43ce-8f54-3fca2f627a11.png)
+
+  - 파일 쓰기
+
+  ![image](https://user-images.githubusercontent.com/59719632/162245310-9f17c96f-8c81-4ebb-a356-0caa4696f373.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/162245971-660508c6-1170-44f5-824b-3eb3ed2ad7fb.png)
+  
+  ![image](https://user-images.githubusercontent.com/59719632/162246368-a18ae069-aa35-4ee8-bdb5-9bad1ba6a217.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/162246749-36200f4e-9000-472a-bfa3-ea4b9d41dddc.png)
+
+  - 파일 복사하기 : 파일 읽어서 새로운 파일에 쓰기
+  
+  ![image](https://user-images.githubusercontent.com/59719632/162247216-9acfaae7-ca30-47c5-9300-49f12748e5d3.png)
+
+  - 이미지 파일 복사하기
+    + 이진 파일은 데이터가 직접 저장되어 있는 파일
+    + 이진 파일은 1024바이트씩 읽어서 출력 파일에 쓴다.
+
+  ![image](https://user-images.githubusercontent.com/59719632/162247998-0378e5c9-7632-449a-b9e8-7dc86818ad2b.png)
 
 ## 5-2. Exceptions
+* Exception
+  - extraordinary errors
+* Error Handling with Exceptions
+  - Basic structure of handling exceptions
+    + try : 에러가 생길 수 있는 statement
+    + except : 대응 방안, except는 여러 개 쓸 수 있다.
+    + else : 에러가 발생하지 않았을 때 
+    + finally : 반드시 실행되는 부분
+
+    ![image](https://user-images.githubusercontent.com/59719632/162249026-4f9a7e9a-7db6-4c04-ac0b-4748d01be02b.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/162249460-6c114584-cbf5-42e7-900b-00ca3716b034.png)
 
 
+* 예외의 종류와 예외 에러 메시지
+
+  ![image](https://user-images.githubusercontent.com/59719632/162249719-0cabbfc1-f662-4138-8672-32e10ac5ef5d.png)
+
+* Exception Handling: Keyboard input
+
+![image](https://user-images.githubusercontent.com/59719632/162250151-8689c00a-48ac-476d-bcf1-d79d6adbab72.png)
 
 
+* Try\-finally Block
 
+![image](https://user-images.githubusercontent.com/59719632/162250465-5176c328-8b69-4f71-a55c-ac14b00dadc4.png)
 
-
-
-
-
+![image](https://user-images.githubusercontent.com/59719632/162251021-158447d4-ed85-4a0c-b958-c88eb5d61171.png)
 
 
   
