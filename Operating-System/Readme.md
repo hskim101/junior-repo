@@ -703,3 +703,27 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
   - Disk는 내부적으로 disk cache를 주기적으로 platter로 저장한다. (sync), 데이터 손실을 방지하기 위함
   - Disk cache 용량이 클 수록 Disk access time이 작아질 수 있는 장점을 가지고 있다.
 
+## 5-4. Flash Memory & SSD
+* Characteristics of Flash Memeory
+  - page (sector) 단위로 데이터에 접근할 수 있는 Device => Block Device
+  - 특정 page 개수 만큼 범위가 나뉘어서 erase unit으로 나뉨
+  - Disk Access time 보다 훨씬 빠르다
+  
+  ![image](https://user-images.githubusercontent.com/59719632/162362429-e0fc00c4-2edf-4e36-8b36-b0f339259f91.png)
+
+  - Erase befor write
+    + 동일한 Page에 Write하려면 Memory의 Data를 지우고 Write를 해야한다. 
+  - 100,000 erases per block
+    + Flash memory에 데이터를 많이 저장하고 지우면 Flash memory의 수명이 줄어든다.
+* Flash File System Architecture
+  - Principal Consideration
+    + Compatibility to traditional file systems (호환성)
+  - Flash Translation Layer (FTL) => Flash Memory
+    + Flash Memory에 Firmware로 들어가 있는데 중간 Layer 역할을 한다.
+    + 호환성을 유지하기 위한 역할
+
+  ![image](https://user-images.githubusercontent.com/59719632/162373371-b91754b5-3b05-458c-90b4-7843ed151b3d.png)
+
+* Log\-structured File System (LFS)
+  - Write 속도를 증가시키기 위해 만들어진 시스템
+  - 
