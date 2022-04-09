@@ -810,10 +810,78 @@ print(' After: ', S)
   - Principle of Optimality가 성립해야 Dynamic Programming을 사용할 수 있다.
   - 반례: Longest Simple Path Problem
     + Principle of Optimality가 성립하지 않는다.
-
+    + subinstance의 optimal solution을 포함하지 않기 때문
+    
   <img width="656" alt="image" src="https://user-images.githubusercontent.com/59719632/162564372-e78577f5-6fbb-46e2-94b5-a1d9aed606fc.png">
 
+## 3-5. Optimal Binary Search Trees
+* Binary Search Tree
+  - Definition:
+    + 각 노드가 하나의 key를 가진다
+    + 어떤 노드의 left subtree에 있는 keys는 그 노드의 key 값보다 작거나 같다
+    + 어떤 노드의 right subtree에 있는 keys는 그 노드의 key 값보다 크거나 같다
+    
+    <img width="643" alt="image" src="https://user-images.githubusercontent.com/59719632/162564541-bfb917fb-e3dd-4ce6-bc41-f7f0f341d1fd.png">
+
+    <img width="649" alt="image" src="https://user-images.githubusercontent.com/59719632/162564926-310546ac-efce-4cbd-a528-8fba6304f48b.png">
+
+  - Binary Search Tree Algorithm
+    + 평균 비교횟수를 최소화
+    
+    <img width="598" alt="image" src="https://user-images.githubusercontent.com/59719632/162565240-3953d702-0c50-4783-8d4d-9e5544912ac9.png">
+
+    + 검색 key로 사용될 확률이 높은 key를 위에 두면 평균적인 비교 횟수를 줄일 수 있다.
+    + 경우의 수가 많아지면 다 따져보지 않고 Dynamic Programming 방식을 사용한다.
+  
+    <img width="677" alt="image" src="https://user-images.githubusercontent.com/59719632/162565299-fc8a5f7b-b893-4759-b585-193d1279d363.png">
+
+
+  - n개의 노드로 Binary Search tree를 만들 수 있는 방법은 최소한 n의 exponential이 된다
+    + 깊이가 가장 깊은 tree는 n-1이 된다. 이러한 모양을 갖는 경우의 수는 2^(n-1)가지 이다. (노드당 왼쪽 오른쪽 선택) 이 방법은 2^(n-1) 보다 많은 연산을 해야하기 때문에 지양한다.
+  - Dynamic Programming Approach
+    + 비교 횟수의 최소값을 A[i]\[j]에 저장
+    + 전체 n개의 key를 모두 저장할 수 있는 optimal binary search tree를 찾음
+    + 루트 node를 뭐로 할거냐에 따라 optimal solution이 나오고 이를 최종 solution으로 택하면 된다.
+
+    <img width="639" alt="image" src="https://user-images.githubusercontent.com/59719632/162566166-c809b318-e054-4b17-ab6a-cfc46027a387.png">
+
+    + key_k가 루트 노드인 경우
+    
+    <img width="644" alt="스크린샷 2022-04-09 오후 6 36 33" src="https://user-images.githubusercontent.com/59719632/162566256-9392f7f5-19b7-4ae2-b59c-4d2d02860eea.png">
+
+    <img width="663" alt="image" src="https://user-images.githubusercontent.com/59719632/162566316-32aa8046-35cc-4d94-ba4f-44e0d6893a6a.png">
+
+    <img width="656" alt="image" src="https://user-images.githubusercontent.com/59719632/162566395-8b695832-d113-40f6-8ae0-03cf507f10e7.png">
+ 
+    <img width="588" alt="image" src="https://user-images.githubusercontent.com/59719632/162568453-85f0a578-4b02-4c63-887e-20c24e5dc2e1.png">
+
+    + 초기값 설정
+    + 구하려는 위치의 값을 알기 위해선 먼저 알아야하는 값들이 있다.
+    + 초기 설정한 값을 통해 알 수 있는 값을 먼저 계산하고 이를 통해 차례로 계산한다.
+ 
+    <img width="649" alt="image" src="https://user-images.githubusercontent.com/59719632/162568675-027ebf43-028c-4188-b73c-aee98821e412.png">
+
+    + R은 A의 값이 저장될 때마다 해당하는 루트에 어떤 key가 와야하는지 저장하는 배열
+    + 나중에 분석할 때는 A[i]\[j]의 min 부분을 구하는 것도 일종의 Loop이기 때문에 고려를 해줘야 한다.
+    
+
+ 
+    <img width="660" alt="스크린샷 2022-04-09 오후 7 53 51" src="https://user-images.githubusercontent.com/59719632/162568875-674d4e66-3d79-4e6e-8c69-405d7bb42835.png">
+
+  - Dynamic Programming Approach
+    + Basic Operation: the instructions executed for each value of k (여기서는 min 함수)
+    + Input Size: n, number of keys
+
+  <img width="657" alt="image" src="https://user-images.githubusercontent.com/59719632/162568984-16d8aa96-12e0-41fa-82a8-43b60f932833.png">
+  
+  - Building an Optimal Bianry Search Tree
+    
+  <img width="651" alt="image" src="https://user-images.githubusercontent.com/59719632/162569056-69d16a52-434a-4988-95ee-4561dc06fd91.png">
+
+    
+    
 
 
 
 
+  
