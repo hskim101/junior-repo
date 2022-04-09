@@ -804,5 +804,16 @@ print(' After: ', S)
     
     ![image](https://user-images.githubusercontent.com/59719632/161750164-c7be0e12-ae18-4789-8b56-157956624e7c.png)
 
+## 3-3. Dynamic Programming and Optimization Problem
+* Principle of Optimality
+  - 어떤 Instance의 optimal solution을 찾았을 때 모든 subinstances의 optimal solutions를 포함하고 있어야한다.
+  - Principle of Optimality가 성립해야 Dynamic Programming을 사용할 수 있다.
+  - 반례: Longest Simple Path Problem
+    + Principle of Optimality가 성립하지 않는다.
+
+  <img width="656" alt="image" src="https://user-images.githubusercontent.com/59719632/162564372-e78577f5-6fbb-46e2-94b5-a1d9aed606fc.png">
+
+
+
 
 
