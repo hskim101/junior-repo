@@ -95,6 +95,9 @@ CREATE TABLE instructor (
   * database가 커질 수록 disk 용량 부족함 없도록 업그레이드
   * 성능 모니터링
 
+<img width="884" alt="스크린샷 2022-04-09 오후 2 55 37" src="https://user-images.githubusercontent.com/59719632/162558706-d15f1b0e-6304-4cfb-b50f-5335ffa641c3.png">
+
+<img width="653" alt="스크린샷 2022-04-09 오후 2 55 44" src="https://user-images.githubusercontent.com/59719632/162558713-352b82a8-dfdf-4687-918b-a9e0833da825.png">
 
 # Chap 2. Intro to Relational Model
 
@@ -190,6 +193,9 @@ CREATE TABLE instructor (
 <img width="500" alt="스크린샷 2022-03-09 오전 12 43 21" src="https://user-images.githubusercontent.com/59719632/157272589-286791db-53a2-41d9-a95c-946660bf7d87.png">
 </p>
 
+<img width="977" alt="스크린샷 2022-04-09 오후 2 57 28" src="https://user-images.githubusercontent.com/59719632/162558745-54bf4456-15cb-47b5-81f8-352896221861.png">
+
+<img width="975" alt="스크린샷 2022-04-09 오후 2 58 37" src="https://user-images.githubusercontent.com/59719632/162558779-9f580cc9-4a70-4dee-8144-b92fcafbca68.png">
 
 # Chap 3. Introduction to SQL
 ## 3-1. SQL Parts
@@ -241,12 +247,13 @@ CREATE TABLE instructor(
     + ALTER TABLE r ADD A D
     + D라는 Domain을 가지는 A라는 attribute를 추가하겠다. 기존에 있던 tuple들의 A에 대한 값은 null로 할당된다.
 
-![스크린샷 2022-03-09 오전 11 58 19](https://user-images.githubusercontent.com/59719632/157382698-28c37ec1-f27d-483e-a5ee-44ae18b11150.png)
+<img width="735" alt="스크린샷 2022-04-09 오후 2 59 24" src="https://user-images.githubusercontent.com/59719632/162558840-6b214c90-c78f-49df-9b77-84f141918aa7.png">
 
+<img width="981" alt="스크린샷 2022-04-09 오후 3 00 02" src="https://user-images.githubusercontent.com/59719632/162558845-cc2e1c68-75a6-4f6c-9920-2473854c2905.png">
 
-![스크린샷 2022-03-09 오전 11 58 38](https://user-images.githubusercontent.com/59719632/157382707-f5344d64-a8c1-4f20-88fe-9a4b766458da.png)
+<img width="972" alt="스크린샷 2022-04-09 오후 3 00 09" src="https://user-images.githubusercontent.com/59719632/162558847-88a6a49e-c72e-487c-a2db-604c70fd6c93.png">
 
-![스크린샷 2022-03-09 오후 12 01 50](https://user-images.githubusercontent.com/59719632/157382715-cc30211b-1885-4ca0-ae54-68e6abec45dc.png)
+<img width="979" alt="스크린샷 2022-04-09 오후 3 00 14" src="https://user-images.githubusercontent.com/59719632/162558856-43c0c9f4-1c22-4522-93db-d2420e9ddd1c.png">
 
 ##3-4. Basic Query Structure
 
@@ -358,11 +365,9 @@ FROM instructor
 WHERE salary IS NULL; # salary=null 이렇게 쓰면 안된다.
 ```
 
-![sql퀴즈](https://user-images.githubusercontent.com/59719632/158791036-8b44a270-5ecb-4fa9-98a4-0c56a2fdc46a.PNG)
+<img width="897" alt="스크린샷 2022-04-09 오후 3 01 43" src="https://user-images.githubusercontent.com/59719632/162558899-45547886-ece6-422d-ba7f-668015d95573.png">
 
-![sql2](https://user-images.githubusercontent.com/59719632/158791060-910d2e4e-938b-4768-8c9d-bfa73ee9311d.PNG)
-
-![sql3](https://user-images.githubusercontent.com/59719632/158791069-17711dca-897b-4daf-94f7-0fb659cd80d9.PNG)
+<img width="899" alt="스크린샷 2022-04-09 오후 3 02 48" src="https://user-images.githubusercontent.com/59719632/162558911-9280873c-9ba1-4ea2-9d7e-c0f95b6438fb.png">
 
 * Aggregate Functions
   - avg
@@ -514,12 +519,12 @@ WHERE UNIQUE (SELECT R.course_id
               WHERE T.course_id= R.course_id
                     AND R.year = 2017);
 ```
-  
-![dsafasdfasdf](https://user-images.githubusercontent.com/59719632/159105683-e3bc3083-f638-47a1-bb66-4edafb3b0c42.PNG)
 
-![2](https://user-images.githubusercontent.com/59719632/159105688-f0e21c0e-556c-430b-bf99-6a4f31c5ec0b.PNG)
+<img width="680" alt="스크린샷 2022-04-09 오후 3 03 56" src="https://user-images.githubusercontent.com/59719632/162558963-dfbd43e7-1c80-498d-8b1a-30092d20fd4f.png">
 
-![3](https://user-images.githubusercontent.com/59719632/159105691-ead5f250-d836-4b28-a09f-fc42d33e84f5.PNG)
+<img width="690" alt="스크린샷 2022-04-09 오후 3 04 18" src="https://user-images.githubusercontent.com/59719632/162558969-32095207-888a-48e1-98dd-d24960685655.png">
+
+<img width="684" alt="스크린샷 2022-04-09 오후 3 04 23" src="https://user-images.githubusercontent.com/59719632/162558973-59b68a8e-553a-4de3-9ac4-d8b379778901.png">
 
 * Subqueries in the Form Clause
 ```mysql
