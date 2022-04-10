@@ -880,9 +880,49 @@ print(' After: ', S)
 
     
 ## 3-6. Traveling SalesPerson Problem (외판원 문제)
-* 
-
-
-
-
+* Dynamic Programming Approach
+  - V1에서 시작한다고 가정
+  - 노란색 노드를 다르게 하면서 남아있는 노드들을 최단으로 통과해서 v1으로 가는 방법을 재귀적으로 찾음
+  - 파란색 edge들의 길이의 합 (v_i에서 v1까지 가는 edges) : D[v_i]\[A]에 저장
   
+  <img width="648" alt="image" src="https://user-images.githubusercontent.com/59719632/162608991-e4080650-8702-4d60-b834-f09de60cb6a0.png">
+
+  - Optimal tour의 길이
+    + W[1]\[j] 값은 v1에서 vj로 가는 edge 길이 그대로 사용하면 됨
+    + Vj에서 방문하지 않은 노드들을 한번 씩 방문해서 v1으로 가는 길이: D
+    
+    <img width="626" alt="image" src="https://user-images.githubusercontent.com/59719632/162610183-cf3e9ebe-47b7-477e-82d7-ff6603e1cba5.png">
+
+    <img width="619" alt="image" src="https://user-images.githubusercontent.com/59719632/162610285-6c1ff923-cc31-4455-b9a4-fc6ff13ae529.png">
+
+    <img width="627" alt="image" src="https://user-images.githubusercontent.com/59719632/162610441-3a6fd8bc-9208-45f1-84ee-0fb881533285.png">
+
+    <img width="596" alt="image" src="https://user-images.githubusercontent.com/59719632/162610482-bbaa7aac-cfa3-4536-9a48-77f4360adeaa.png">
+
+    <img width="595" alt="image" src="https://user-images.githubusercontent.com/59719632/162610555-5144589f-b051-4360-9b0f-4f58c9793085.png">
+
+    <img width="604" alt="image" src="https://user-images.githubusercontent.com/59719632/162610568-d4f46569-dfdf-4546-91c9-b22fb1b7e594.png">
+    
+    <img width="603" alt="image" src="https://user-images.githubusercontent.com/59719632/162610632-b8430b30-fc9c-40fc-95a7-a0049ba2dd86.png">
+
+    <img width="578" alt="image" src="https://user-images.githubusercontent.com/59719632/162610795-f77e1641-bad1-4dd0-8243-a88fbea662ef.png">
+
+  - Time Complexity Analysis
+    + Basic Operation: the instructions executed for each vertices (min 안의 더하기 연산)
+    + Input Size: n, number of vetices
+
+    <img width="649" alt="image" src="https://user-images.githubusercontent.com/59719632/162611032-8a957a91-7bd5-4f21-822d-ca2fc99cfa22.png">
+
+    <img width="621" alt="image" src="https://user-images.githubusercontent.com/59719632/162611459-8a7c6a62-4313-4eca-acaf-160b6997f957.png">
+
+    <img width="587" alt="image" src="https://user-images.githubusercontent.com/59719632/162611520-aacb62d7-ab95-4c91-a2b6-acb4b9829603.png">
+ 
+    
+  - Memory Complexity Analysis
+  
+  <img width="553" alt="image" src="https://user-images.githubusercontent.com/59719632/162611603-5eb52400-e405-4e59-8c6f-87111d8348bb.png">
+
+  - 앞서 나온 Dynamic Programming 방식과는 조금 다르다.
+    + n에대한 다항식의 Time complexity가 아님
+    + 아직까지 n에 대한 다항식으로 TSP를 만든 사람이 없다.
+    
