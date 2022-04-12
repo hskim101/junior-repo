@@ -923,8 +923,153 @@ FROM department
     + Database의 schema를 결정, 어떠한 table들을 저장해야하는지
     + 어떠한 attributes를 저장해야하는지
     + attribute들을 어떠한 테이블에 효율적으로 저장해야하는지
-    
-  - Physical Design
+  - Physical Design  
+* Design Alternatives: data 중복을 조심
+  - 불안전한 schema를 만들면 안됨
+  
 ## 6-2. Data Models
 * Entity\-Relationship data model
-*
+  - Entity: a set of attributes
+
+## 6-3. Outline of the ER Model
+* Entitiy Sets
+  - entity: 다른 object들과 구분이 되는 object (특정한 사람, 회사, 이벤트 등)
+  - entity set: type
+  - An entity is represented by a set of attributes
+
+  ![image](https://user-images.githubusercontent.com/59719632/162951454-23b71e47-00c2-4157-8d06-477660197a78.png)
+
+
+* Representing Entity sets in ER Diagram
+  - Primary key는 밑줄로 나타냄
+  - 사각형으로 객체 집합을 나타냄
+  - 객체들이 가지고 있는 attribute들을 사각형 안에 써줌
+
+![image](https://user-images.githubusercontent.com/59719632/162951816-725d75a4-bd90-4673-a6ff-27fa319c94c9.png)
+
+* Relationshiop Sets
+  - relationship은 entities 간의 연관성
+  - tuple이 관계, advisor가 관계 집합
+  - 여러 개체들을 모아놓은 것은 set, 특수한 관계 하나 (개체 2개) => relationship
+  ![image](https://user-images.githubusercontent.com/59719632/162951870-d2fa94bc-7fd0-4914-ac77-c99d82bdc0c7.png)
+  
+  ![image](https://user-images.githubusercontent.com/59719632/162952992-b9c5927e-5340-47b2-bdb5-c50b83131582.png)
+
+* Representing Relationship Sets
+  - 관계 집합: 다이아몬드로 표현
+  
+  ![image](https://user-images.githubusercontent.com/59719632/162953089-bd525007-283e-4c78-ae0c-5b9d7fabb160.png)
+
+  - Relationship Set도 Attribute를 가질 수 있다
+  
+  ![image](https://user-images.githubusercontent.com/59719632/162953222-f1f61741-7a63-4132-8950-592f82c95fa2.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/162953273-cdd9255c-cf56-4e29-97a4-e8685c2bbdbf.png)
+
+* Roles
+  - 어떠한 한 entity set에서 관계가 발생하게 되면, 똑같은 개체 두 개를 구분하기 위해 역할이 필요해진다.
+  - 다른 개체 간에서는 구분할 수 있지만 동일한 개체 사이에서 관계가 발생하면 어떤 것이 어떤 것인지 역할을 적어줘야한다.
+  - 선분에 label을 적어줌
+
+  ![image](https://user-images.githubusercontent.com/59719632/162955404-be3bcfe9-34f2-4ef9-81c6-7dec3a33daf9.png)
+
+* Degree of a Relationship Set
+  - 개체 집합에 개체가 몇개 연결되어 있는가
+  - Binary relationship
+    + 가장 많이 쓰이는 관계, 두 개의 entity가 관여됨
+    + 위에서 나온 것들 binary relationship 이다.
+  
+  - Binary가 아닌 관계 집합도 존재한다.
+
+  ![image](https://user-images.githubusercontent.com/59719632/162956943-a7192ffb-d4ba-4786-a8d5-50d99800c55e.png)
+
+* Complex Attributes (type)
+  - Simple attributes: 하나의 attribute
+  - Composite: 여러 개의 attributes, 하나의 attribute가 여러 개의 하위 attributes로 나뉨
+  
+  ![image](https://user-images.githubusercontent.com/59719632/162957437-d054ee8f-dc6b-4ec4-86f8-d1db839003d7.png)
+
+  - single\-valued: 단 하나의 값만 가지고 있음
+  - multivalues: 여러 개의 값을 가지고 있을 수 있음
+  - Derived attributes
+    + 다른 attribute를 통해 계산될 수 있는 attribute
+  - Domain: attribute가 가질 수 있는 값들의 집합
+
+* Representing Complex Attributes
+  - Composite Attribute: 들여쓰기로 나타냄
+  - multivalued : 중괄호 {} 사용
+  - Derived : 괄호 () 사용
+
+  ![image](https://user-images.githubusercontent.com/59719632/162958161-88aa3e0d-8720-446e-b28e-4edcbab86a10.png)
+
+## 6-4. Mapping Cardinality Constraints
+
+![image](https://user-images.githubusercontent.com/59719632/162958826-ad25007e-8aba-4399-a0e9-f8d0320836f8.png)
+
+![image](https://user-images.githubusercontent.com/59719632/162958856-c2504c70-3ff7-4852-882c-75d0fe520937.png)
+
+* Representing
+  - One: 화살표로 표시
+  - many: 직선으로 표시
+
+* One to Many
+  - one 이든 many든 0을 포함한다.
+
+  ![image](https://user-images.githubusercontent.com/59719632/162959405-7434506c-c4be-4105-969d-fec5164a071e.png)
+
+* Many to One
+  
+  ![image](https://user-images.githubusercontent.com/59719632/162960143-152458a1-e276-409f-9dea-d64c2650a89b.png)
+
+
+* Many to Many
+
+![image](https://user-images.githubusercontent.com/59719632/162960216-3e416ffa-2adb-43b5-a18a-482139e2a625.png)
+
+
+* Total and Partial Participation
+  - 무조건 관계에 참여해야함: double line으로 표시, 관계가 무조건 1 이상이여야함
+  
+  ![image](https://user-images.githubusercontent.com/59719632/162960527-b0f9e9ca-356d-4960-b9f0-b893731ecee8.png)
+
+* Notation for Expressing More Complex Constraints
+  - .. 왼쪽에는 minimum, 오른쪽에는 maximum
+  - 별표는 no limit을 의미
+  - instructor 쪽에 직선으로 표시되어있다고 해서 many가 아님, 주의 !! , student 쪽에서 최소 1명, 최대 1명의 instructor와 관계가 되기 때문에 instructor가 one이 된다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/162961023-753869bc-1a1c-450d-82ca-22d00d177c35.png)
+  
+* Non\-binary Relationship Sets (이해할 필요 없다_
+  - Ternary 이상에서는 화살표를 하나만 허용
+  
+* Primary Key
+  - Entity Sets
+    + entity를 unique하게 식별해주는 attributes의 집합
+    + 하나의 attribute로 불가능하면 여러 개의 attribute를 사용
+  - Relationship Sets
+    + 관계 집합 속에 다양한 관계가 있을 수 있는데 선 하나하나가 관계이다.
+    + 대문자 R은 관계집합을 의미, 대문자 E1 ~ En은 entity sets
+    + 각 entity sets를 식별하게 해주는 primary keys를 사용
+    + 예를 들어 advisor relationship set
+    + 각 개체들을 식별할 수 있는 최소한의 기본키
+    + 관계에 참여하는 entity의 primary key만 쓰면 된다.
+    + many to one은 양쪽을 다 쓸 필요없고 many 쪽의 primary key만 제공하면 됨
+    + many to many는 양쪽을 다 알아야함
+    + one to one에서는 한쪽만 쓰면 됨
+    + one to many는 many 쪽 key만 쓰면 됨
+    ![image](https://user-images.githubusercontent.com/59719632/162966294-61378f5c-fded-4405-a261-4af9c4019f95.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/162966996-3f16a847-2325-42ec-bd34-1727a4ec6776.png)
+
+  - Weak entity Sets  (중간고사 이후)
+
+
+
+
+
+
+
+
+
+
+
