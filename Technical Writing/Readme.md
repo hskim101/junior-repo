@@ -199,10 +199,69 @@ Technical Writing
     - closing with your name (~~ 드림)
       + "Best Regards, insert name"
       + "Sincerely, insert name"
-## 3-2. 
 
 
+# Chap 6. Resarch Paper
+## 6-1. Research Paper
+* 중간고사 최소 4페이지
+* 영어 실력이 아닌 성실도로 평가
+* topic에 대한 강한 지식이 있는지 보여주는 목적
+* 다양한 출처를 사용, 없는 내용에 대한 주제
+
+## 6-2. Choose a Research Paper Topic
+* 이미 나와있는 내용 하면 안됨 (예를 들어 2차 세계대전의 시간 순서)
+* 세계 2차 세계 대전 당시 독일 국경 근처에 살던 사람들의 경험 => 조사할 내용이 있기 때문에 가능
+* 주제에 관련되서 논의되고 있는 내용을 note taking
+* paper에 관한 이슈를 긁어모음
+* 많은 출처를 사용
+* 머리 속에 있는 아이디어만 쓰지말고 반대되는 내용도 넣어라
 
 
+![image](https://user-images.githubusercontent.com/59719632/162873471-894ed85a-196e-4659-983a-3e038f3bece4.png)
 
+* Research Questions
+  - 이 주제에 대해 어떤 질문을 할 것이냐
+  - 좁혀서 한 주제로 정하라
+  - 현재 진행되고 있는 문제에 대해 어떤 솔루션이 있을 것인가
+  - 해결할 문제에 대해 서브 문제를 찾아서 완성해가라
+  
+![image](https://user-images.githubusercontent.com/59719632/162875498-b02d94bb-b2bf-4b4f-b272-ce45b25b6571.png)
+
+* Outline
+
+![image](https://user-images.githubusercontent.com/59719632/162876052-579944d2-3d74-4fc2-98ec-9d10e9a2ec90.png)
+
+![image](https://user-images.githubusercontent.com/59719632/162876248-74b57ef3-ca39-4b50-8e4b-b73d72619874.png)
+
+![image](https://user-images.githubusercontent.com/59719632/162876458-5677464f-2888-49bb-a28e-deea4459e701.png)
+
+![image](https://user-images.githubusercontent.com/59719632/162876633-35af6f1b-d8c9-4395-81bc-bfa026af80c4.png)
+
+![image](https://user-images.githubusercontent.com/59719632/162876720-6a4a5282-fe62-4a35-b3d9-524761fef60d.png)
+
+
+* First Draft
+
+![image](https://user-images.githubusercontent.com/59719632/162876917-236795e7-eb17-48cb-8056-46b41ad96469.png)
+
+* Writing a Good Paragraph
+
+![image](https://user-images.githubusercontent.com/59719632/162877117-cab3a91c-3ed3-4601-8150-fa31bee4bdc2.png)
+
+
+* Citing Sources (출처)
+
+![image](https://user-images.githubusercontent.com/59719632/162877639-98f30e35-a5e4-41d9-bcaa-67be862695f3.png)
+
+
+* Writing the Introduction
+
+![image](https://user-images.githubusercontent.com/59719632/162877844-9ede2440-429b-481b-87d8-14b788d2324f.png)
+
+* Writing the Conclusion
+  - 불필요한 내용 쓰기 x
+  
+![image](https://user-images.githubusercontent.com/59719632/162877991-520c5c8e-b717-44dd-87a5-9ce1686547ce.png)
+
+* 즁간고사 4pg 제출
 
