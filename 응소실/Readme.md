@@ -852,3 +852,19 @@ private void rdoOption_CheckedChanged(object sender, EventArgs e)
     + 메소드를 활성화 하기 위해, 버튼의 추가기능 또는 버튼 대신에 메뉴 항목을 사용할 수 있음
   - ToolStripMenuItem 클래스
     + MenuStrip이나 ContextMenuStrip에 표시되는 선택 가능한 을 나타냄
+
+* 아이템 컬렉션
+  - 아이템을 관리하기 위해 사용함
+  
+  ![image](https://user-images.githubusercontent.com/59719632/163008121-58530131-72b6-4071-a435-e768dd102017.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/163008363-72b69242-e691-47e3-ba75-2d421db68f7e.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/163008663-5e262c76-9f30-4045-99dc-e015046656c7.png)
+
+* 공통 대화상자
+  - 모든 windows 응용 프로그램에서 공통적으로 사용되는 대화상자
+  
+  
+  
+
