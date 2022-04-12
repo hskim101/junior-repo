@@ -909,3 +909,22 @@ FROM department
   - atomic : 하나의 명령어 처럼 행동해야된다. = transaction
   - 성적이 변경 되었을 때 update 부분이 모두 실행되어야 실행, 아니면 rollback
   
+* 트리거를 사용하는 것 대신 built in 방식으로 사용함
+* 가급적 트리거를 사용하지 않는 방법으로 나아감
+  - 백업으로부터 복사를 해오면 데이터 하나하나 건드릴 때마다 트리거가 동작해서 summary data를 건드릴 수 있음
+
+
+# Chap 6. Database Design Using the E\-R Model (schema를 어떻게 만드는지)
+## 6-1. Design Phases
+* Database User의 needs를 파악
+* Data model을 사용해서 database user들이 필요로 하는 data를 schema로 변환
+* Final Phase
+  - Logical Design
+    + Database의 schema를 결정, 어떠한 table들을 저장해야하는지
+    + 어떠한 attributes를 저장해야하는지
+    + attribute들을 어떠한 테이블에 효율적으로 저장해야하는지
+    
+  - Physical Design
+## 6-2. Data Models
+* Entity\-Relationship data model
+*
