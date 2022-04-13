@@ -652,3 +652,39 @@ np.inner(a,b) # 벡터의 내적
 ```python3
 Q,R=np.linalg.qr(A)
 ```
+
+# Chap 6. 고유값 분해
+
+## 6-1. 고유값과 고유벡터 (Eigenvalue and Eigenvector)
+* 고유벡터
+  - 벡터에 선형 변환 했을 때, 방향은 변하지 않고 크기만 변하는 벡터
+  - 람다에 대응하는 A의 고유벡터
+* 고유값
+  - 선형 변환 이후 변한 크기
+  - 람다를 A의 고유값
+
+  ![image](https://user-images.githubusercontent.com/59719632/163105177-9974be07-d55e-45ba-a2a0-0d665d03262a.png)
+
+
+## 6-2. Characteristic Equation
+
+![image](https://user-images.githubusercontent.com/59719632/163105711-6d8ee19b-407f-42a7-ad0d-c3a3383e2c8b.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163105829-133f9a54-5251-4d53-8e25-ec7fa14af200.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163106031-88526abd-81e0-48c3-a054-0ade3a556005.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163106203-a7727fc2-a749-4f04-a554-fa5da330fe46.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163106725-7d085ab0-febe-437e-aa8d-5fc622acc3f9.png)
+ 
+![image](https://user-images.githubusercontent.com/59719632/163107009-8ac28826-e491-44eb-a92e-cd811ecfb6eb.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163107462-21a616ad-eab2-4dd5-aac7-bd1f9dbc96d7.png)
+
+* 고유벡터는 유일하지 않지만 방향성 자체는 동일해야한다.
+
+```python3
+np.linalg.eig
+```
+
