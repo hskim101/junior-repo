@@ -726,4 +726,4 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
 
 * Log\-structured File System (LFS)
   - Write 속도를 증가시키기 위해 만들어진 시스템
-  - 
+  
