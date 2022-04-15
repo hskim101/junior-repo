@@ -972,9 +972,19 @@ print(' After: ', S)
 
   ![image](https://user-images.githubusercontent.com/59719632/163529556-c60ec949-fa34-46f8-814a-29f105c0ee90.png)
 
+  ![image](https://user-images.githubusercontent.com/59719632/163529868-c50d81cf-06d0-40fb-8667-d0f58857edc4.png)
+
   ![image](https://user-images.githubusercontent.com/59719632/163529799-772d3370-7f1a-43e3-a9a4-8e4c54cdfc9c.png)
 
+  ![image](https://user-images.githubusercontent.com/59719632/163530306-d6b4e572-1777-4cc6-91de-a540949e88c2.png)
 
+  ![image](https://user-images.githubusercontent.com/59719632/163530323-d8eacebb-3352-4b1c-832d-77580b396814.png)
 
+  ![image](https://user-images.githubusercontent.com/59719632/163530351-c6d3550c-6acd-48ff-9a3f-622db232df98.png)
 
+  ![image](https://user-images.githubusercontent.com/59719632/163530388-dbd69dfc-1175-43c2-9cdf-767a40f5303e.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/163530421-0e79123c-dcb3-4591-8ccc-e56c9c30829f.png)
+
+* Kruskal's Algorithm
 
