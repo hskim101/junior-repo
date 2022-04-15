@@ -926,3 +926,55 @@ print(' After: ', S)
     + n에대한 다항식의 Time complexity가 아님
     + 아직까지 n에 대한 다항식으로 TSP를 만든 사람이 없다.
     
+# Chap 4. Greedy Algorithm
+* 일련의 선택을 할때 그 순간에 가장 좋아보이는 것을 선택하는 방법
+* solution set에 넣으면 끝까지 사용
+* 항상 최적을 보장하진 않음
+
+![image](https://user-images.githubusercontent.com/59719632/163523754-cdaa5588-c529-4e00-af2c-5cc3f84fece1.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163523918-f3db841e-ddff-44ec-bebb-c8517773ea30.png)
+
+## 4-1. Minimum Spanning Trees
+* Definitions
+  - Unbdirected Graph
+    + 그래프의 edges가 방향성이 없는 그래프
+  - Connected Graph
+    + 어떤 vertices pair를 고르더라도 그 둘 사이의 path가 존재하는 그래프
+  - Acyclic Graph
+    + cycle이 없는 graph => 자신에게 다시 돌아오는 경로가 존재하지 않는 그래프
+  - Tree
+    + acyclic, connected, undirected graph
+
+  - Spanning Tree for undirected graph
+    + 원래 있는 그래프의 모든 정점들을 가지고 있는 부분 그래프, tree 형태
+  - Minimum Spanning Tree for undirected graph
+    + spanning tree의 가중치의 합이 최소인 tree
+    
+  ![image](https://user-images.githubusercontent.com/59719632/163524243-3894cc8a-7cd4-47fb-bdca-11d5df66d251.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/163524848-95b48147-1117-4ed8-98af-96c18930a33e.png)
+
+* Prim's Algorithm
+  - 시작 노드에서 가중치가 가장 짧은 것을 선택하면서 탐색
+  
+  ![image](https://user-images.githubusercontent.com/59719632/163525122-ad9be5f7-b7cc-4f5d-b085-629e0b2fb299.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/163525162-bcc1f2d2-cecb-43ff-bdb1-532f792f6bd3.png)
+
+  - 구현
+    
+  ![image](https://user-images.githubusercontent.com/59719632/163525569-88eee7ab-12d2-4777-9d16-83890e4fceee.png)
+  
+  ![image](https://user-images.githubusercontent.com/59719632/163525605-ec024544-fe13-4202-827f-1d6e2bcb4458.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/163529155-75fefcf2-def6-4544-947a-11e25fdc40fd.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/163529556-c60ec949-fa34-46f8-814a-29f105c0ee90.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/163529799-772d3370-7f1a-43e3-a9a4-8e4c54cdfc9c.png)
+
+
+
+
+
