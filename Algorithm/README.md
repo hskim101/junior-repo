@@ -1025,3 +1025,5 @@ print(' After: ', S)
 ![image](https://user-images.githubusercontent.com/59719632/163572409-41a1eefa-39e3-484c-a63b-85fcb817487d.png)
 
 ## 4-4. Huffman Code
+
+![image](https://user-images.githubusercontent.com/59719632/163572766-177b5c59-ff2e-4551-8a00-1167ccd53ed9.png)
