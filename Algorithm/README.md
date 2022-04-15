@@ -988,3 +988,40 @@ print(' After: ', S)
 
 * Kruskal's Algorithm
 
+![image](https://user-images.githubusercontent.com/59719632/163572012-2cf42f4d-9050-4290-8ed4-fa4a5dbba607.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572049-da2f476d-1044-4c0a-a999-8ca2212d9f5b.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572061-ffe44221-112e-414b-b571-590ce29678e8.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572071-9af9c0aa-afe5-4801-80a7-5cfba0f45bbe.png)
+
+* Disjoint sets as forest
+
+![image](https://user-images.githubusercontent.com/59719632/163572133-e159bee9-f7c5-443b-9982-71c16e1d575d.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572149-a047b975-7ebe-4654-ba47-7bdbce049669.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572175-543d8649-93f0-4587-844d-2a23907107c1.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572202-b10dfe9a-6754-45f1-b24a-4378e2ab560b.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572243-2c282649-ca0f-461b-84a9-0d8974c95682.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572261-8a5a8fa1-cdc7-40a4-8498-0991be441c92.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572280-7cf69d14-4e1b-49d7-9b48-2c6622039074.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572296-6b512274-eb48-4556-a58a-0d26d4d6bffa.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572322-1f29598c-7c7b-42c2-9301-47dbc9aeb9be.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572346-637cbe07-9ccb-4c33-98d2-e8fcf61121f7.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572363-f80c83d4-7701-4a1a-8ae3-7859f8f38aa3.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572384-155472b7-994c-404b-817c-b2869e952446.png)
+
+![image](https://user-images.githubusercontent.com/59719632/163572409-41a1eefa-39e3-484c-a63b-85fcb817487d.png)
+
+## 4-4. Huffman Code
