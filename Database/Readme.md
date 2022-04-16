@@ -141,6 +141,11 @@ CREATE TABLE instructor (
 
 ![스크린샷 2022-03-09 오전 12 19 52](https://user-images.githubusercontent.com/59719632/157268073-52f07b93-e9bd-406b-87b9-c41a5620de8e.png)
 
+* Relatinal Algebra basic operation (기본 연산자)
+
+![image](https://user-images.githubusercontent.com/59719632/163682705-1dc3ff26-9793-4191-8650-0ff121f40ae6.png)
+
+
 * Project : 주어진 relation에서 특정한 attribute들만 보여줌
 
 <img width="525" alt="스크린샷 2022-03-09 오전 12 21 27" src="https://user-images.githubusercontent.com/59719632/157268342-18b13d01-d6bb-443b-a743-1c073c458ca7.png">
