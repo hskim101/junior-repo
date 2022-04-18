@@ -867,4 +867,259 @@ private void rdoOption_CheckedChanged(object sender, EventArgs e)
   
   
   
+  
+## Chap. Windows Form 4
+* 파일 입출력
+  - StreamReader 클래스
+  - StreamWriter 클래스
+  - File 클래스
+    + File 클래스
+    + FileInfo 클래스
+  - Directory 클래스
+    + Directory 클래스: 디렉토리 전반의 일을 함
+    + DirectoryInfo: 특정 경로에 대해 그 경로의 정보를 나타냄
+
+```c#
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+namespace WindowsFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void testFileBtn_Click_Click(object sender, EventArgs e)
+        {
+            string file_path = "testFile.txt";
+            if (File.Exists(file_path))
+            {
+                File.Delete(file_path);
+                MessageBox.Show("파일을 삭제합니다.");
+            }
+            else
+            {
+                MessageBox.Show("파일이 존재하지 않습니다.");
+            }
+        }
+
+        private void testDirBtn_Click_Click(object sender, EventArgs e)
+        {
+            string directory_path = "testDirectory.txt";
+            if (Directory.Exists(directory_path))
+            {
+                Directory.Delete(directory_path);
+                MessageBox.Show("디렉터리를 삭제합니다.");
+            }
+            else
+            {
+                MessageBox.Show("디렉터리이 존재하지 않습니다.");
+            }
+        }
+    }
+```
+
+* MDI (Multiple Document Interface)
+  - 하나의 폼 안에 여러 폼을 포함하여, 개별 폼마다 다른 문서를 동시에 작업할 수 있는 형태의 인터페이스
+
+```c#
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+namespace WindowsFormsApp2
+{
+    public partial class Parent : Form
+    {
+        Child child;
+        int nChild =0;
+        public Parent()
+        {
+            InitializeComponent();
+        }
+
+        private void 새파일ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            child = new Child();
+            child.MdiParent = this;
+            child.Text = "NONAME" + nChild++;
+            child.Show();
+        }
+
+        private void 열기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFDlg.ShowDialog() == DialogResult.OK)
+            {
+                Stream str = openFDlg.OpenFile();
+                StreamReader reader = new StreamReader(str);
+
+                child = new Child();
+                child.MdiParent = this;
+                child.Text = "NONAME" + nChild++;
+                child.Show();
+
+                child.getTextBox().Text = reader.ReadToEnd();
+                reader.Close();
+                str.Close();
+            }
+        }
+
+        private void 저장ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFDlg.ShowDialog() == DialogResult.OK)
+            {
+                child = (Child)(this.ActiveMdiChild);
+                string fName = child.Text;
+                StreamWriter write = new StreamWriter(fName);
+                write.Write(child.getTextBox().Text);
+                write.Close();
+           
+            }
+        }
+
+        private void 다른이름으로저장ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFDlg.ShowDialog() == DialogResult.OK)
+            {
+                child = (Child)(this.ActiveMdiChild);
+                string fName = saveFDlg.FileName;
+                StreamWriter write = new StreamWriter(fName);
+                write.Write(child.getTextBox().Text);
+                write.Close();
+                child.Text = fName;
+            }
+        }
+
+        private void 실행취소ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            child=(Child)(this.ActiveMdiChild);
+            child.getTextBox().Cut();
+        }
+
+        private void 오려내기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            child = (Child)(this.ActiveMdiChild);
+            child.getTextBox().Cut();
+        }
+
+        private void 복사하기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            child = (Child)(this.ActiveMdiChild);
+            child.getTextBox().Copy();
+        }
+
+        private void 붙여넣기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            child = (Child)(this.ActiveMdiChild);
+            child.getTextBox().Paste();
+        }
+
+        private void 지우기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            child = (Child)(this.ActiveMdiChild);
+            child.getTextBox().Text = "";
+        }
+
+        private void 자동줄바꿈ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (child.getTextBox().WordWrap)
+            {
+                child.getTextBox().WordWrap = false;
+                자동줄바꿈ToolStripMenuItem.Checked = false;
+            }
+            else
+            {
+                child.getTextBox().WordWrap = true;
+                자동줄바꿈ToolStripMenuItem.Checked = true;
+            }
+        }
+
+        private void 글꼴ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fontDlg.ShowDialog() == DialogResult.OK)
+            {
+                child.getTextBox().Font = fontDlg.Font;
+            }
+        }
+
+        private void 글자색바꾸기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (colorDlg.ShowDialog() == DialogResult.OK)
+                child.getTextBox().ForeColor = colorDlg.Color;
+        }
+
+        private void 바탕색바꾸기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (colorDlg.ShowDialog() == DialogResult.OK)
+                child.getTextBox().BackColor = colorDlg.Color;
+        }
+
+        private void 바둑판배열세로ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void 바둑판배열가로ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void 계단식배열ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.Cascade);
+        }
+    }
+}
+```
+
+```c#
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp2
+{
+    public partial class Child : Form
+    {
+        public Child()
+        {
+            InitializeComponent();
+        }
+        public TextBox getTextBox()
+        {
+            return this.textBox;
+        }
+    }
+
+}
+
+```
+
+* 대화상자
+  - Modal: 현재 활성화된 창을 닫기 전에는 다른 작업을 할 수 없음
+  - Modaless: 현재 활성화된 폼 이외에 다른 폼을 활성화 할 수 있음
+  - Owner 속성: Owner 속성으로 지정된 폼이 닫히거나 최소화 되면, 현재의 폼도 함께 닫히거나 최소화 됨
 
