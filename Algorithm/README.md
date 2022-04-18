@@ -1105,3 +1105,67 @@ print(' After: ', S)
     ![image](https://user-images.githubusercontent.com/59719632/163873792-d7823d8f-a38b-4f9e-b0c0-722e6c8b1d90.png)
     
 ## 4-5. KnapSack
+* Greedy Approach가 적용이 잘 안되는 예로 Knapsack 소개
+  - S의 부분집합 A를 찾는데, A의 item의 weight 합이 knapsack 용량보다 크면 안되고, 이 중 가장 큰 이득을 줄 수 있는 부분집합을 찾는 문제
+  - 0\-1 Knapsack Problem: Item을 모두 담거나 모두 담지 않거나. 일부만 담는 것을 허용하지 않는 문제
+
+  ![image](https://user-images.githubusercontent.com/59719632/163877006-dba6c3bc-231b-42fb-8a91-8b2eb93bd41a.png)
+
+  - Brute\-Force Solution to The 0\-1 Knapsack Problem
+    + n에 대한 exponential complexity
+
+  - A Simple Greedy Approach
+    + Idea: profit 기준 오름차순 정렬된 item => 가장 profit이 큰 item이 큰 weight를 가지면 optimal을 보장하지 않는다.
+
+  - Another Simple Greedy Approach
+    + Idea: Weight 기준 오름차순 정렬된 item에서 weight가 작은 것부터 넣어감 => weight가 작은 item이 small profit을 가질 때 optimal이 안됨
+     
+  - More Sophisticated Greedy Approach
+    + Idea: 단위 무게 당 profit의 내림차순 => Optimal한 solution을 찾아주지만 모든 경우의 optimal을 찾아주진 않는다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/163884731-7ed5c1b1-fd82-4a57-b604-03a3be4969a8.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/163884881-ddff58f8-df0a-4fc8-a300-da5f9ebd8537.png)
+
+  - 아직까지 Greedy Approach로 0\-1 Knapsack Problem의 optimal solution을 찾는 방법이 발견되지 않았다.
+  - A Greedy Approach to the fractional Knapsack Problem (Item 일부만 택해서 사용)
+    + Item을 일부만 사용하고 Profit도 일부만 얻게 허용을 해주면 profit per unit weight으로 Optimal solution을 찾을 수 있다.
+    + 증명 생략
+* Dynamic Programming Approach to the 0\-1 Knapsack Problem
+  - P[i]\[w] 를 i개의 item 사용, w는 남아있는 용량 => n개 중에 첫번째부터 i번째 item까지만 선택했을 때 total weight가 w를 넘지 않는 범위에서 얻을 수 있는 최대 profit
+   
+  ![image](https://user-images.githubusercontent.com/59719632/163886091-909b33dc-a64f-4e45-bc7e-c91bcdd9d725.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/163886444-97dac349-27c4-4648-9dea-ec88a1db157a.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/163886586-a85fa3e9-31d9-45dc-a0b3-f24481f8d899.png)
+
+  - Dynamic Programming 방식으로 접근해도 효율적이진 않다.
+  
+# Chap 5. Backtracking
+## 5-1. The Backtracking Technique
+* N\-queens Problem
+  - NxN chessboard에서 n개의 queen을 놓는데 서로 공격하지 않도록 놓는 방법을 찾는 문제
+  - Sequence: n개의 position을 찾아나가는 것
+  - Set: NxN의 chessboard cell
+  - Criterion: queen들이 서로 공격하지 않는 것
+  - 4 queens problem
+    
+    ![image](https://user-images.githubusercontent.com/59719632/163887425-b6be7810-e417-4a20-8569-649d9dc2041f.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/163887446-e1577e76-65b6-4aa8-b2e3-385fd5983b66.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/163888244-e6834881-4d86-4911-b4c3-9eff3ccfce1a.png)
+
+  
+    + Backtracking => Depth\-First\-Search 사용
+
+    ![image](https://user-images.githubusercontent.com/59719632/163888469-6e6e4747-1e85-4416-95ff-471d94f7189d.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/163888717-c9ece91c-7e4a-421b-94ac-3c0ea3609410.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/163888868-dd63477f-48a2-4333-a3d9-e310853f10b1.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/163888893-de9ff9a6-9076-447f-965d-f8215edf957f.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/163888928-5d047aaa-78f8-400c-8aa8-902562d8e15e.png)
