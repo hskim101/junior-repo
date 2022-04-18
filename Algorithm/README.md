@@ -1026,4 +1026,69 @@ print(' After: ', S)
 
 ## 4-4. Huffman Code
 
-![image](https://user-images.githubusercontent.com/59719632/163572766-177b5c59-ff2e-4551-8a00-1167ccd53ed9.png)
+* Huyffman Code
+
+  ![image](https://user-images.githubusercontent.com/59719632/163572766-177b5c59-ff2e-4551-8a00-1167ccd53ed9.png)
+
+  - 고정길이 vs 가변길이 이진 코드
+    + 가변길이 이진코드 사용하면 전체 비트 수를 줄일 수 있다.
+    + String에 자주 나타나는 character들에 대해 적은 비트 수의 코드를 부여하기 때문이다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/163856396-18fc7eed-89a5-4567-bbee-6122505b125c.png)
+
+  - Prefix Code  
+    + 어떠한 글자에 대한 코드도 다른 코드의 시작 부분이 되지 않는 Code
+    + 루트 node로부터 해당 node 까지의 값을 이어서 쓰면 해당 node의 이진 코드가 된다.
+    
+  ![image](https://user-images.githubusercontent.com/59719632/163856656-f93b8e54-473b-4c7b-96fb-a3636f4abd67.png)
+
+
+  - 총 비트 수 계산
+  
+  ![image](https://user-images.githubusercontent.com/59719632/163856916-5828be5f-4057-4ef0-9b68-f14922da4c61.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/163857079-30ef87fd-f88b-42c0-9834-0042730dbd1a.png)
+
+  - code 3가 허프만 코드
+  
+  ![image](https://user-images.githubusercontent.com/59719632/163857128-a4b911e7-51e0-4d18-9c5d-d7572097485f.png)
+
+  - Huffman's Algorithm
+    + n개의 single-node tree를 만든다.
+    + 각각 글자의 빈도가 제일 작은 값을 tree들을 merge 반복\
+    + 하나의 tree로 만들어질 때까지 반복
+    
+    ![image](https://user-images.githubusercontent.com/59719632/163858097-1ebff1f3-cf50-4158-b558-c13538880881.png)
+
+    + priority는 frequency가 결정. priority가 높다는 것은 frequency가 낮은 것
+    + frequency가 낮은 것부터 remove
+    + priority queue를 주로 heap으로 구현한다. => 깊이가 log n 에 해당하는 일을 함
+    
+    ![image](https://user-images.githubusercontent.com/59719632/163858653-6f4a6ebb-1e8c-45cb-8d72-32dd4dd2c9a1.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/163858692-6f240376-9e3d-4816-b0de-a8bb6e1de2ea.png)
+
+  - Optimality of Huffman's Algorithm 증명 (수학적 귀납법)
+  
+    ![image](https://user-images.githubusercontent.com/59719632/163858875-7a352168-3958-4df5-93ba-c701e762c7cd.png)
+
+    + optimal tree의 왼쪽과 오른쪽을 바꾸더라도 모양은 달라지지만 여전히 optimal tree 이다. (증명 없이 넘어감)
+    + sibling 끼리 바꾸는 경우
+    
+    ![image](https://user-images.githubusercontent.com/59719632/163859810-d7e7ceb5-54b5-4b2d-9f54-56823175e0ad.png)
+
+    + 같은 depth의 subtree의 위치를 바꿔도 여전히 optimal tree이다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/163860024-4e37c629-c16b-4c4b-9b53-fe4424a59873.png)
+
+    + Frequency가 같은 subtree 끼리 위치를 바꿔도 optimal tree를 유지한다. (depth, sibling 등 위치 상관 없이)
+
+    ![image](https://user-images.githubusercontent.com/59719632/163860422-99f75c1e-a6bf-495d-901a-21cb652cc87c.png)
+
+
+  - Huffman Tree Construction
+  
+  ![image](https://user-images.githubusercontent.com/59719632/163860742-8a050ce0-734d-4c0e-a34b-22f57d1a00f8.png)
+
+
+
