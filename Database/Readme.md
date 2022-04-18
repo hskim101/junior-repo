@@ -805,7 +805,14 @@ FROM department
   - 그룹을 만들어 줌
   ![image](https://user-images.githubusercontent.com/59719632/160789915-1a165ad2-d9e2-4aa4-93a9-bf78a62f330a.png)
 
-* 뷰에 대한 권한 (강의 다시 봐야함)
+* 뷰에 대한 권한
+
+![image](https://user-images.githubusercontent.com/59719632/163842237-c4156c6d-346b-42ea-bcb6-fdf51e80408f.png)
+  - instructor에 대한 권한이 없어도 뷰에 대한 권한 부여를 할 수 있다.
+  - 뷰를 만드는 사람이 privilege 권한을 가지고 있어야 한다.
+  
+![image](https://user-images.githubusercontent.com/59719632/163842700-4f3e531d-cc05-48c3-a39c-7514bd662cd5.png)
+
 
 # Chap 5. Advanced SQL
 ## 5-1. Accessing SQL from a programming language
