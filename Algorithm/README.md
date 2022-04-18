@@ -1088,7 +1088,20 @@ print(' After: ', S)
 
   - Huffman Tree Construction
   
-  ![image](https://user-images.githubusercontent.com/59719632/163860742-8a050ce0-734d-4c0e-a34b-22f57d1a00f8.png)
+    ![image](https://user-images.githubusercontent.com/59719632/163860742-8a050ce0-734d-4c0e-a34b-22f57d1a00f8.png)
 
-  
+    + Case 1: Optimal Tree T 안에 u,v가 sibling으로 있는 경우
+    + 계속 결합해서 나가면 Optimal한 Tree를 만들 수 있다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/163871287-0a61b6db-8091-4db1-ac25-8cc668d82e43.png)
+    
+    + Case 2: Optimal Tree T 안에 u,v의 parent가 다른 경우
+    + u의 짝이 되는 w가 존재
+    
+    ![image](https://user-images.githubusercontent.com/59719632/163871954-3ecee131-5fc0-4baf-90c1-4fa6c1c0e3c9.png)
 
+    ![image](https://user-images.githubusercontent.com/59719632/163872538-28097fe9-384f-4b78-b71a-9b14ef27e168.png)
+
+    ![image](https://user-images.githubusercontent.com/59719632/163873792-d7823d8f-a38b-4f9e-b0c0-722e6c8b1d90.png)
+    
+## 4-5. KnapSack
