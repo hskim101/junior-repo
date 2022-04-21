@@ -125,6 +125,7 @@ CREATE TABLE instructor (
    - ex) 학번, 주민등록번호
  * primary key(기본 키) : 가급적이면 변하지 않는 고유의 값
  * Foreign key(외래 키) : Table이 여러 개가 있을 때 다른 table에 존재하는 key
+   - 외래키 설정 시 attribute 이름이 동일한 경우 'referneces 테이블' 만 하면 되지만 그렇지 않은 경우 'references 테이블 (attribute)'로 설정한다.
  * Schema Diagram 
 
 <img width="718" alt="스크린샷 2022-03-09 오전 12 12 07" src="https://user-images.githubusercontent.com/59719632/157266525-4f5d9195-b3f7-4b66-ba87-c34157505e89.png">
