@@ -726,4 +726,120 @@ p1 \-> p0 context swtich 발생 시, p0의 context가 다시 cpu로 로드, p0�
 
 * Log\-structured File System (LFS)
   - Write 속도를 증가시키기 위해 만들어진 시스템
+  - 변경된 데이터를 segment 단위만큼 축적 시킴
   
+  ![image](https://user-images.githubusercontent.com/59719632/164882383-4522c622-3a85-404e-98fb-1373748afffa.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/164882408-458e8e60-fb62-4171-a798-058f782ac9d2.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/164882451-3f0c1d83-7f3b-4653-928d-5d569b598886.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/164882456-88059002-b0ea-4822-b4be-f7cf18ac78cd.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/164882637-73438b06-4339-489f-bff0-10d28d897345.png)
+
+* Solid\-State Device (SSD)
+  - SSD (반도체)
+    + read 속도가 빠르다
+    + 순차적인 data write 속도가 빠르다
+    + 데이터의 비용이 적다
+    + 파워 소비가 적다
+    
+  ![image](https://user-images.githubusercontent.com/59719632/164882981-377a5995-12b7-475a-8bb9-c900fff3d715.png)
+
+# Chap 6. File System
+## 6-1. File System
+
+![image](https://user-images.githubusercontent.com/59719632/164885804-ba9b6b9a-02b8-4758-9a07-78c0925b9e5b.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164885834-435183e9-8197-4b48-887d-a8a13059a07e.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886058-49b89b73-fb05-4f8c-959a-c221ac82bef9.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886069-fe5f178b-56de-4bc0-a8fc-ebef685d937f.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886101-58f75112-cba4-49e3-81fa-aadbfda5d022.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886109-d0977376-09a4-4b6e-bf43-19c822911bd7.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886127-abf18211-d57f-45cb-94e4-daae928824f9.png)
+
+## 6-2. Virtual File Systems
+
+![image](https://user-images.githubusercontent.com/59719632/164886153-7a8fd3ac-cf9a-4278-8735-b9841cf22fc3.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886164-185c12b3-dde7-498b-aa9d-4a53a81e9cab.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886189-e4089743-e626-4803-83b8-343f7669a101.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886212-9ec661ff-39fd-4f1d-8f4f-c4c20b523b8c.png)
+
+## 6-3. Directory
+
+![image](https://user-images.githubusercontent.com/59719632/164886244-edb1dcb8-fb02-4c83-9e86-b103c184430b.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886251-97ce8eb3-6705-4867-af8e-2d17f92ae172.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886255-1eee751c-d216-4cf4-ad66-ff9b0052371f.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886266-e2a24a66-8b53-4955-bdda-55d2ae19a2e9.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886277-0ff64eb6-0c7d-4227-a648-23444ff1a8f2.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886283-854b7fc6-8fe5-4427-8a92-3ce5c6f025eb.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886290-7cb0802d-80b7-4e79-9efb-744e906d6b4b.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886481-eda8d311-1b41-4b90-ad9c-5a68bf893475.png)
+
+## 6-4. Allocation
+* Contiguous Allocation
+  
+![image](https://user-images.githubusercontent.com/59719632/164886520-faaf46e4-951c-412a-a1ca-429d4c1978e0.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886531-b2c99c29-bbe4-4bea-802d-e55a3ed584e6.png)
+
+* Linked Allocation
+
+![image](https://user-images.githubusercontent.com/59719632/164886550-b23d98be-93bd-4fc6-92e0-a40b3b610c44.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886555-425c9c57-2ac9-42c0-a499-c8695cdc42ff.png)
+  
+![image](https://user-images.githubusercontent.com/59719632/164886561-22dc9cd1-cadb-43b3-a9d4-5a3382d0ffdf.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886562-392ba05e-f4a6-4dea-9a3e-9aa4a3397901.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886571-f7c4b6a5-5b44-472e-be17-3f29ffd2ab51.png)
+
+* Indexed Allocation
+
+![image](https://user-images.githubusercontent.com/59719632/164886586-721c2a4b-accf-4b3e-a116-8693342701f8.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886597-3f6fb2e5-147d-4646-aa27-1e36a16803b9.png)
+  
+![image](https://user-images.githubusercontent.com/59719632/164886610-8ad9c8f2-4fde-493f-9632-ccb224fca430.png)
+  
+![image](https://user-images.githubusercontent.com/59719632/164886630-c1e0e5f6-3241-49e9-97df-322e223ff2a4.png)
+  
+![image](https://user-images.githubusercontent.com/59719632/164886635-d391fcc9-ed57-42b7-87f9-420c0022559e.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886646-5307fcff-f4a1-4b4b-8886-96f3eb950a16.png)
+
+## 6-5. Internal Structure
+
+![image](https://user-images.githubusercontent.com/59719632/164886685-9b30d6c4-7cd7-47e9-a2f3-f4709ac5ad55.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886695-bd57639b-648d-4283-a54d-399ec27c5078.png)
+
+## 6-6. Free Space Management
+
+![image](https://user-images.githubusercontent.com/59719632/164886706-a9d2521a-6b89-432a-81ba-80019ae5cd56.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886723-6aa7bf42-87ec-4888-82a9-baf577c19ce2.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886729-bda4ef6e-bb2e-4277-b8b5-7f47877affba.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164886738-e7d1895f-f503-4b1a-98cd-364bb87834ee.png)
+
+
+
