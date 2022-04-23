@@ -864,9 +864,30 @@ private void rdoOption_CheckedChanged(object sender, EventArgs e)
 
 * 공통 대화상자
   - 모든 windows 응용 프로그램에서 공통적으로 사용되는 대화상자
+  - OpenFileDialog
   
+  ![image](https://user-images.githubusercontent.com/59719632/164892668-af954594-5115-486c-bb1a-2632e227932f.png)
+
+  - ColorDialog
   
+  ![image](https://user-images.githubusercontent.com/59719632/164892707-0efad5e8-cb34-47f5-99eb-03e86291f836.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/164892712-4e8e3f66-4c07-4df8-ad92-d66a2aca4962.png)
+
+  - 파일 핸들링
   
+  ![image](https://user-images.githubusercontent.com/59719632/164892736-56b5a888-a2d3-4888-b8d9-d4e1a9f9547d.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/164892744-21f5773c-8f06-4dff-84c8-d59774654433.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/164892749-cf9d426c-d0be-4aa8-a966-8698eff521e9.png)
+
+* 메모장 만들기
+
+![image](https://user-images.githubusercontent.com/59719632/164892819-c7af4aa3-0186-48e8-86c8-46106f687394.png)
+
+![image](https://user-images.githubusercontent.com/59719632/164892827-a180e949-a33a-4975-b22a-3453688c7dd4.png)
+
   
 ## Chap. Windows Form 4
 * 파일 입출력
