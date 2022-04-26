@@ -688,3 +688,91 @@ Q,R=np.linalg.qr(A)
 np.linalg.eig
 ```
 
+* 직교 행렬
+  - 직교 벡터(orthogonal): 두 벡터가 직각인 벡터
+  - 정규 직교 벡터(orthonormal): 직교 벡터이면서 두 벡터의 크기가 각각 1인 벡터
+  - 직교 행렬: 어떤 행렬의 행 벡터 혹은 열 벡터가 직교 기저를 이루는 행렬
+  
+    ![image](https://user-images.githubusercontent.com/59719632/165186529-30b50ca3-38cd-494e-be40-7aea3afd5486.png)
+
+  - (정규) 직교 행렬의 특징
+    
+    + 직교 행렬의 전치행렬, 역행렬은 직교 행렬
+    + 직교 행렬끼리의 곱은 직교 행렬
+    + 직교 행렬의 행렬식은 1 또는 -1
+    
+    ![image](https://user-images.githubusercontent.com/59719632/165186732-4249d054-17b4-4030-9d9d-1399631ad702.png)
+
+* 닮음
+
+  ![image](https://user-images.githubusercontent.com/59719632/165186830-0a2079b9-180c-4ca5-afe9-5916dbf7d135.png)
+
+  - 닮음의 성질
+  
+    ![image](https://user-images.githubusercontent.com/59719632/165187013-50e529b8-d7d7-4176-bb3d-f797bca0042a.png)
+
+
+* 대각화 (diagonalization)
+
+  ![image](https://user-images.githubusercontent.com/59719632/165187100-ef0910be-2e6d-431d-8c90-45fc1a1895cd.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/165187344-5b7903fb-0d69-429f-a512-52a5d514d728.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/165187437-b7e637aa-081b-40bf-879f-251fd0c40aa0.png)
+
+* 고유값 분해
+
+  ![image](https://user-images.githubusercontent.com/59719632/165187509-2a8e0151-3335-4c94-872a-07a95dd39cb8.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/165187624-70fab2fd-bf5c-49f2-90dc-5780cbf9dfa6.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/165187836-12890f01-b224-46b4-bb91-45199e3e1c64.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/165188101-4dd3111b-66e8-4c87-84da-dba5eeb00989.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/165188605-70d1ab5d-656e-4467-812c-d576803e41a5.png)
+
+  - 중근이 나오면 두 벡터를 선택해야되는데 선형 독립관계의 벡터를 선택해야함 => P가 선형 독립이므로
+
+  ![image](https://user-images.githubusercontent.com/59719632/165189206-0381a0a9-0d5e-407b-8c98-48f88b4ec30f.png)
+
+```python3
+e,v=np.linalg.eig(A)
+
+p=v
+d=np.diag(e)
+p_inv=np.linalg.inv(v)
+```
+
+# Chap 7. 특이값 분해
+
+## 7-1. 고유값 분해의 기하학적 의미
+
+![image](https://user-images.githubusercontent.com/59719632/165193261-b51356c1-d504-4295-b3ff-1691320dfa22.png)
+
+![image](https://user-images.githubusercontent.com/59719632/165193394-abb0f150-704e-4997-b2be-a1b03a1c268f.png)
+
+![image](https://user-images.githubusercontent.com/59719632/165196760-a24660ed-0fe5-4aaa-9515-fd1ce6b690ce.png)
+
+![image](https://user-images.githubusercontent.com/59719632/165197335-54043848-4470-46e5-828f-3dfdfb75b33b.png)
+
+- A가 대칭행렬일 때 고유벡터를 길이가 1인 벡터로 만들어줘야한다.
+
+![image](https://user-images.githubusercontent.com/59719632/165199189-ba9489c7-ad44-4848-af55-8170f81b239c.png)
+
+## 7-2. 특이값 분해 
+
+![image](https://user-images.githubusercontent.com/59719632/165202019-c4f4f167-153f-43f6-a85e-f5ee6426af88.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
