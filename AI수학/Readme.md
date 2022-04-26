@@ -776,6 +776,11 @@ p_inv=np.linalg.inv(v)
 
 ![image](https://user-images.githubusercontent.com/59719632/165216139-5eedc280-a008-443a-9f28-6d9cc78eaa5c.png)
 
+![image](https://user-images.githubusercontent.com/59719632/165238034-d2269854-0adf-42ac-a2ab-31ef14d5a39b.png)
+
+![image](https://user-images.githubusercontent.com/59719632/165238086-07e30075-d92b-4d2d-85e3-856bc2e5a110.png)
+
+![image](https://user-images.githubusercontent.com/59719632/165238127-2c99cd06-de1e-4195-8921-7b19c499ade2.png)
 
 
 
