@@ -764,10 +764,17 @@ p_inv=np.linalg.inv(v)
 
 ![image](https://user-images.githubusercontent.com/59719632/165202019-c4f4f167-153f-43f6-a85e-f5ee6426af88.png)
 
+![image](https://user-images.githubusercontent.com/59719632/165214687-932ce2bc-a702-4666-a230-a7818b4168f1.png)
 
+![image](https://user-images.githubusercontent.com/59719632/165214802-2825c4a9-ebb2-49ac-845a-058ca1f8d754.png)
 
+![image](https://user-images.githubusercontent.com/59719632/165214940-97dc1d90-db12-4391-8498-6fa2c36df0cb.png)
 
+![image](https://user-images.githubusercontent.com/59719632/165215042-5bf43697-747a-4c72-b5d7-12683e8398b2.png)
 
+![image](https://user-images.githubusercontent.com/59719632/165215360-2595c6ae-3c68-4376-b631-267136c67426.png)
+
+![image](https://user-images.githubusercontent.com/59719632/165216139-5eedc280-a008-443a-9f28-6d9cc78eaa5c.png)
 
 
 
