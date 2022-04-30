@@ -50,6 +50,8 @@
   - Schema EM은 E의 primary key, M으로 구성되어 있다. 
   - 여기서는 전화번호가 같을 수도 있고, 한 전화번호를 여러 명이 같이 사용할 수 있다고 생각해서 ID와 같이 구성한다.
   
+  ![image](https://user-images.githubusercontent.com/59719632/166112126-01f9c185-cf90-4a34-b408-95e8c6fcaf2a.png)
+
 * Relationship sets를 Schema로 변환
   - one to one에서는 둘 중 한 쪽 primary key
   - many to many에서는 양쪽에서 선택
