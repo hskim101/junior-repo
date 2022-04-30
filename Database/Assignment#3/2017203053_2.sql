@@ -1,0 +1,6 @@
+SELECT DISTINCT A.name
+FROM actors AS A
+EXCEPT
+SELECT DISTINCT A.name
+FROM movies AS M, actors AS A, actor_role AS R
+WHERE A.AID=R.AID AND M.MID=R.MID
