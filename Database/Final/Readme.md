@@ -26,6 +26,7 @@
 
   ![image](https://user-images.githubusercontent.com/59719632/166110205-6ba0aa46-143f-4a5a-a3a2-556bbf76e94e.png)
 
+  - classroom 과 time_slot entity는 section의 identifying entity가 아니다.
 * Redundant Attributes
   - student 입장에서는 관계를 나타내면 dept_name attribute가 더 이상 필요 없다. => ER diagram에서 student.dept_name 없어진다.
   - 관계형 데이터베이스 모델에서 테이블로 만들 때는 지워진 attribute가 다시 살아날 수 있다.
@@ -65,5 +66,54 @@
 
   
   - 약한 개체 집합을 schema로 변환하는 과정에는 은연 중에 식별 해주는 entity의 primary key가 schma에 들어가기 때문에 식별해주는 관계를 굳이 schema로 변환할 필요가 없다.
+
+## 6-3. Extended E\-R Features
+* Specialization
+  - Top down 방식
+  - 속이 빈 화살표로 표시
+  - 하위 레벨 개체 집합은 상위 레벨 개체집합의 attribute를 상속 받는다.
+  - instructor 개체는 person, employee의 attribute를 모두 가지고 있다.
+  - 화살표가 따로 되어 있으면 화살표 별로 전문화가 가능하지만 화살표가 하나로만 되어 있으면 양쪽 중 하나만 가능
+  
+  ![image](https://user-images.githubusercontent.com/59719632/166111269-91034421-4b19-4d26-bfb0-6756506b5463.png)
+
+* Specialization을 Schema로 변환
+  - Method 1
+    + 하위로 내려갈 수록 꼭 필요한 것들만 저장 (상위 primary key 포함)
+    + 전문화가 깊게 들어간 상태라면 상위의 모든 schema의 정보를 다 얻어와야한다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/166111515-b4ab4c8b-6a62-4eba-b243-86ff9a15b663.png)
+
+  - Method 2
+    - local attribute와 inherited attribute 모두를 schema에 기재
+    - 단점은 정보들이 중복되서 저장될 수 있다
+    - 데이터 불일치 문제가 있을 수 있다
+    - 디자인이 잘못 되어서 데이터 변경이 student에만 적용이 되고 person에는 적용이 안될 수 있다. 
+  
+  ![image](https://user-images.githubusercontent.com/59719632/166111529-fddfb1a7-bc77-4198-99e0-8f5b72f2ca3e.png)
+
+  - Method 1 이 정보를 얻어오는데 번거롭더라도 더 나은 디자인이라고 할 수 있다.
+  
+* Generalization
+  - Bottom up 방식
+  - Specialization과 Generalization은 서로 역의 관계이고 ER Diagram에서 그림이 동일하기 때문에 엄격하게 구분하지는 않는다.
+  - 상위에서 하위로 전문화 했다고 해도 되고 하위에서 상위로 일반화 했다고 표현해도 된다.
+
+* Completeness Constraint
+  - Partial이 default 이다. 반드시 전문화가 수행될 필요는 없다.
+  - total 표시가 붙으면 total이고 없으면 partial이다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/166111778-707a7405-d0d0-475d-8e6c-9783573699ed.png)
+
+  - total: 상위 레벨의 개체 집합이 하위 레벨 개체 집합에 속해야하는 경우
+  - partial: 속하지 않고 그 상태로 머물러 있어도 됨
+  
+
+
+
+
+
+
+
 
 
