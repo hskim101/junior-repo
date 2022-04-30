@@ -24,6 +24,8 @@
 
   ![image](https://user-images.githubusercontent.com/59719632/166109166-8a5f981d-2c3a-4f63-8b47-60fc2d2d1e9d.png)
 
+  ![image](https://user-images.githubusercontent.com/59719632/166110205-6ba0aa46-143f-4a5a-a3a2-556bbf76e94e.png)
+
 * Redundant Attributes
   - student 입장에서는 관계를 나타내면 dept_name attribute가 더 이상 필요 없다. => ER diagram에서 student.dept_name 없어진다.
   - 관계형 데이터베이스 모델에서 테이블로 만들 때는 지워진 attribute가 다시 살아날 수 있다.
