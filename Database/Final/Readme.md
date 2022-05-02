@@ -112,12 +112,32 @@
   
 * Aggregation
   - 관계는 무조건 개체 간에 발생한다.
+  - 관계가 중복되어 저장될 때 
+  - Aggregation된 집합을 하나의 개체로 판단
   
+  ![image](https://user-images.githubusercontent.com/59719632/166180846-ca5d2bc3-68f3-4251-9efc-bb5806fe7219.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/166180855-d2d641b8-0380-410a-b72c-89c7f9d4bd18.png)
 
 
+  - 어떠한 관계를 추상적인 개체로 취급
+  - 관계와 관계가 관계를 허용하도록 함
+  - Schema로 변환하면 Aggregation을 한 것과 하지 않은 것에 차이가 없다.
+  - 다른 개체 집합의 primary key가 필요하다 (위에서는 evaluation의 key)
+  
+  ![image](https://user-images.githubusercontent.com/59719632/166181013-e8d91d74-d6af-453e-af7e-713edd0627e0.png)
 
+  - 보기 편하고 나중에 제약조건 넣기 편하기 때문에 사용한다.
 
+* Design Issues
+  - E\-R diagram에서는 관계를 형성하는 개체의 attribute 넣을 필요가 없다. 넣으면 중복 발생
+  
+  ![image](https://user-images.githubusercontent.com/59719632/166181173-d950f60b-f580-4255-83df-26f7136e326e.png)
 
-
+  - Multivalued attribute가 필요한데 single valued를 사용하는 경우
+    + 아래 그림에서 b가 single valued를 사용한 경우, d가 알맞게 수정한 경우이다.
+    + c는 weak entity를 이용해서 수정한 경우
+    + assignment 각각에 대해서 어떠한 정보를 저장할 때에는 c 방법이 더 선호된다.
+  ![image](https://user-images.githubusercontent.com/59719632/166181230-a9869abf-f2be-482d-9de7-7c71c94be7f5.png)
 
 
