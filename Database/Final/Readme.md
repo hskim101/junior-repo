@@ -141,3 +141,26 @@
   ![image](https://user-images.githubusercontent.com/59719632/166181230-a9869abf-f2be-482d-9de7-7c71c94be7f5.png)
 
 
+
+# Chap 7. Normalization
+## 7-1. First normal form (시험에는 안나오는데 자격증 시험에는 나옴, 퀴즈에는 나올 수 있음)
+* 값이 atomic하기만 하면 된다.
+
+## 7-2. Second normal form (시험에는 안나오는데 자격증 시험에는 나옴, 퀴즈에는 나올 수 있음)
+* atomic
+* 후보키의 일부만 가지고 다른 항목들이 결정되어서는 안된다.
+
+
+## 7-3. Decomposite
+* 정보가 중복되는 문제가 있는데 이를 해결하기 위해 큰 테이블을 두 개의 schema로 나누는 것이다.
+  - 테이블을 나누었다가 다시 합칠 때 원래 테이블로 복구를 하지 못하면 정보 손실이 발생한다. (정보가 잃어버리지는 않더라도 쓸데 없는 정보가 추가되었을 때도 정보 손실이라고 본다. 정확한 정보를 얻기 어려워졌을 경우)
+
+* 정보 손실 없이 Decomposition하는 방법
+  - 원래 테이블과 정확하게 일치하는 테이블이 나오면 lossless decomposition이라고 한다. 
+  - 원본보다 튜플들이 더 많아지면 decomposition이 lossy 하다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/167068545-7673ae09-16bd-4a73-b2f2-c33a0b24402e.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/167068805-fa190764-c588-4f70-8b82-f6251b5ad72b.png)
+
+  
