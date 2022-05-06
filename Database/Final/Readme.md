@@ -37,7 +37,7 @@
   ![image](https://user-images.githubusercontent.com/59719632/166109475-83d661f3-4dd0-49d1-a21a-646dd9d4bf97.png)
 
 * Complex Attributes
-  - Composite attributes를 다룰 때는 가장 하위 항목들만 저장한다.
+  - Composite attributes를 schema로 변환할 는 가장 하위 항목들만 저장한다.
   
   ![image](https://user-images.githubusercontent.com/59719632/166109555-645dcb47-a558-4777-bc76-6ed7f2a3a137.png)
 
