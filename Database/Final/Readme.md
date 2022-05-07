@@ -163,4 +163,49 @@
 
   ![image](https://user-images.githubusercontent.com/59719632/167068805-fa190764-c588-4f70-8b82-f6251b5ad72b.png)
 
+
+## 7-4. Functional Dependencies
+
+* Functional Dependencies
+
+  ![image](https://user-images.githubusercontent.com/59719632/167245327-66ba6da8-23ef-494f-9a45-866030dafc2f.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/167245341-8cd2660a-ce4f-4e23-b7e8-4074ffaa5a8f.png)
+
+  - 한 attribute 값을 알 때 다른 attribute 값을 알 수 있는 경우
+  - 현실 세계의 여러가지 constraints를 만족하는 instance를 legal instance라고 한다.
+  - 어떠한 기본 키가 주어졌을 때 해당 키로 모든 것을 구분할 수 있다.
   
+  ![image](https://user-images.githubusercontent.com/59719632/167245448-1613d281-23b7-4624-be80-db9ca0f3923e.png)
+
+* Closure
+  - 다른 functional dependencies를 통해 유추할 수 있는 것
+   
+  ![image](https://user-images.githubusercontent.com/59719632/167245542-6229f952-7272-43d3-aa1c-6f58eeb082cf.png)
+
+* Key와 functional dependencies
+  - 슈퍼 키가 동일하면 해당하는 relation 아래 있는 모든 attribution 값이 같다
+  - 슈퍼 키의 일부만 가지고 모든 튜플을 구분지을 수 있으면 해당 집합은 후보 키가 될 수 없다.
+  - 예시에서는 ID,name이 슈퍼키 집합인데 ID 만으로 모든 튜플을 구분할 수 있기 때문에 ID,name 은 후보 키는 될 수 없지만 ID는 후보키가 될 수 있다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/167245671-7b80176a-be2c-4aea-8fb4-20fb7aedcf56.png)
+
+* Use
+  - 함수적 종속성이 없는데 함수적 종속성이 있는 것 처럼 보일 때가 있다.
+  - 예를 들면 name \-> ID
+  
+* Lossless Decomposition
+  - 겹치는 attribute인 B가 R1을 결정 짓거나 R2를 결정지으면 된다. (둘 중에 하나만 만족하면 무손실 분해가 성립)
+  
+  ![image](https://user-images.githubusercontent.com/59719632/167245818-f693d699-4377-4fd1-934b-4ca7c892d759.png)
+
+  - B \-> B 성립, B \-> BC => B \-> B , B \-> C
+  
+  ![image](https://user-images.githubusercontent.com/59719632/167245926-a2c51cc5-14ed-4f1e-82bf-0ab1e0e39139.png)
+
+  ![image](https://user-images.githubusercontent.com/59719632/167246045-333687ad-f6c5-4781-a75d-444209e6c36f.png)
+
+
+
+
+
