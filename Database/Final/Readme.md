@@ -140,7 +140,17 @@
     + assignment 각각에 대해서 어떠한 정보를 저장할 때에는 c 방법이 더 선호된다.
   ![image](https://user-images.githubusercontent.com/59719632/166181230-a9869abf-f2be-482d-9de7-7c71c94be7f5.png)
 
+* 관계 집합을 별도의 Entity set으로 만들지 말지 선택
 
+  ![image](https://user-images.githubusercontent.com/59719632/167309897-12dc46f1-a30c-4e9c-9469-cbd48598b243.png)
+
+  - 관계 집합을 Entity로 만들었다는 것은 many to many에서 관계 선 하나하나가 개체가 되었다는 의미
+    + 무조건 연결되어 있어야한다.
+  - 일반적인 가이드라인은 entity들 사이에 어떠한 action이 있다 하면 관계 집합으로 만들어라
+
+* non binary를 binary로 바꾸는법은 자세히 알 필요 없다
+
+* 표기법은 각자 익히기
 
 # Chap 7. Normalization
 ## 7-1. First normal form (시험에는 안나오는데 자격증 시험에는 나옴, 퀴즈에는 나올 수 있음)
