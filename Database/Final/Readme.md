@@ -215,7 +215,28 @@
 
   ![image](https://user-images.githubusercontent.com/59719632/167246045-333687ad-f6c5-4781-a75d-444209e6c36f.png)
 
-* 
+* Dependency Preservation
+  - natural join 은 비용이 큰 연산이다.
+  - 여러 테이블을 합쳐서 dependency를 만족하는지 판단해야하는 경우 비용이 크기 때문에 dependency가 보존된다고 하지 않는다.
+  - 
+
+  ![image](https://user-images.githubusercontent.com/59719632/168395282-b132d331-bdf0-4ece-948d-dad69312f482.png)
+
+* Boyce\-Codd Normal Form (BCNF)
+  - 제 3정규형보다 조건은 간단하지만 더 엄격하다
+  - 모든 함수적 종속성에 대해서 2가지 중 하나를 만족해야한다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/168395476-0e44b28b-df18-4295-86e1-c5f94c736e60.png)
+
+    - trivial 하려면 좌변이 우변보다 더 큰 집합이면 된다. => 우변이 좌변의 부분집합
+    - 좌변이 superkey 이면 된다.
+  - 슈퍼키가 아닌데 다른 것을 결정짓는다면 정보가 중복되었다는 뜻이다 => 분해를 시켜 버린다. => 함수의 종속성이 깨진다. => 정보 중복 문제는 해결된다.
+  - BCNF라고 해서 무조건 함수적 종속성이 깨지는 것이 아니고 깨질 가능성이 있다는 것이다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/168396807-c6fe6da8-433f-4237-b92a-c2a15eb425fc.png)
+
+  
+
 
 
 
