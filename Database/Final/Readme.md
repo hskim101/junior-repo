@@ -235,8 +235,60 @@
   
   ![image](https://user-images.githubusercontent.com/59719632/168396807-c6fe6da8-433f-4237-b92a-c2a15eb425fc.png)
 
+* Third Noraml Form
+  - BCNF 조건 OR 베타에만 있는 attribute들이 후보키에 속해있다. 각 attribute는 서로 다른 후보 키에 속해 있을 수 있다.
+  - 각각이 어떠한 후보 키에만 속해 있으면 된다. (하나의 후보키에 속해있을 필요 없음)
   
+  ![image](https://user-images.githubusercontent.com/59719632/168482944-ad891adb-b8db-4f5d-9956-79967a32710e.png)
+  
+  - 위에서 dept_name은 BCNF는 만족하지 않지만 제3정규형은 만족한다. 분해했을 때 한쪽의 후보 키에 속해 있기 때문이다.
+  - BCNF 이면 제3정규형이다. 제3정규형이면 무조건 BCNF인 것은 아니다.
+  
+* Redundancy in 3NF
+  - 함수적 종속성을 만족하기 위해 테이블을 분해하지 않으면 정보 중복되어 저장된다.
+  - null value를 써야한다.
 
+* Comparison of BCNF and 3NF
+  - 제3정규형의 장점: decomposition을 했을 때 정보손실 이나 dependency preservation을 깨지 않고도 제3정규형을 만족시킬 수 있다.
+  - BCNF는 위의 내용을 허용하지 않음
+  - 제3정규형의 단점: null value를 써야하는 경우가 생김, 어느 교원이 어느 학과에 속해있는지 계속 반복적으로 나타내줘야하는 단점이 있다.
+  - 둘 다 loseless decomposition이 되지만, 제3정규형은 정보 중복 문제가 발생할 수 있고, BCNF는 dependency가 보존되지 않을 수 있다.
+  
+* Goals of Normalization
+  - relation이 좋은 형태인지 판별해주는 것이 정규화이다.
+  - schema가 좋은 형태가 아니면 그 schema를 여러 개의 schema로 나누고 각각의 schema에 대해 다시 좋은 형태인지 검샇나다.
+  - 좋은 형태, 무손실 분해 (lossless decomposition), 가급적이면 dependency가 보존되어야한다. (마지막은 필수 조건은 아님, BCNF는 dependency를 깨버린다)
+  
+* How good is BCNF?
+  - BCNF는 모든 함수적 종속성에 대해 trivial 인지, a \-> b로 갈 때 a가 슈퍼 키인지 검사
+  - 함수적 종속성이 아에 존재하지 않는 경우 BCNF가 된다. => 모든 함수적 종속성이 만족된다고 봄, 좋은 table이 아닐 수 있다.
+  - 이 문제를 해결하기 위해 제 4 정규형이 등장한다.
 
+* Functional\-Dependency Theory Roadmap (수업에서 생략)
+
+* Design Goals
+  - BCNF이면 좋다
+  - Lossless이면 좋다
+  - Dependency가 보존되면 좋다
+  - 위 내용을 만족하지 못하는 경우, dependency 보존이 안된 상태로 BCNF로 가던가, 정보 중복이 발생해도 3NF로 가던가한다.
+  - 슈퍼 키 이외에 함수적 종속성을 직접적으로 표현할 수 있는 방법이 없다.
+  - assertion을 활용할 수있지만 test 비용이 비싸다.
+  - SQL 입장에서는 함수적 종속성을 test하는 것이 만만치 않다.
+  - 이론적으로 함수적 종속성이 중요하지만, 이것이 깨지더라도 BCNF가는게 좋지만 나중에 생길 문제가 확실히 보이면 BCNF보다 3NF로 가는게 편할 수 있다.
+  
+* Multivalued Dependencied (MVDs)
+  - 함수적 종속성에서는 하나의 값만 결정 지었는데 여기서는 여러 개의 값을 결정지을 수 있다.
+  - ID\->\->child_name
+    + 모든 조합에 대해서 튜플들이 모두 있는지 확인하는 과정
+    + a\->\->b 에서 b가 t1에 있으면 b가 아닌 attribute는 t1이 아닌 t2에 있어야한다.
+  - ID가 정해졌을 때 child_name이 유일하게 정해지는 것 => 함수적 종속성
+  - 화살표 두 개 : 모든 조합에 대해 튜플들이 생김, ID가 child_name을 여러 개 가지고 있다 라는 의미
+
+  ![image](https://user-images.githubusercontent.com/59719632/168484321-92dae435-9f0e-4223-9bbc-74f37371d5cf.png)
+
+  - 가능한 조합 중 일부 튜플이 없을 때, 화살표 두 개 종속성이 없어진다.
+  - a가 b를 다중결정하게 되면 a는 R-b-a를 다중결정하기도 한다.
+    + a\->\->b => a\->\->R-b-a 이다.
+    
 
 
