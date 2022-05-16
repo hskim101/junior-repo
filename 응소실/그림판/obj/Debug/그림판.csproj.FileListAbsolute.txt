@@ -1,0 +1,10 @@
+C:\Users\comso\source\repos\그림판\bin\Debug\그림판.exe.config
+C:\Users\comso\source\repos\그림판\bin\Debug\그림판.exe
+C:\Users\comso\source\repos\그림판\bin\Debug\그림판.pdb
+C:\Users\comso\source\repos\그림판\obj\Debug\그림판.csproj.AssemblyReference.cache
+C:\Users\comso\source\repos\그림판\obj\Debug\그림판.Form1.resources
+C:\Users\comso\source\repos\그림판\obj\Debug\그림판.Properties.Resources.resources
+C:\Users\comso\source\repos\그림판\obj\Debug\그림판.csproj.GenerateResource.cache
+C:\Users\comso\source\repos\그림판\obj\Debug\그림판.csproj.CoreCompileInputs.cache
+C:\Users\comso\source\repos\그림판\obj\Debug\그림판.exe
+C:\Users\comso\source\repos\그림판\obj\Debug\그림판.pdb
