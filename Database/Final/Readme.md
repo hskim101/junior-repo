@@ -290,5 +290,67 @@
   - a가 b를 다중결정하게 되면 a는 R-b-a를 다중결정하기도 한다.
     + a\->\->b => a\->\->R-b-a 이다.
     
+  - t1, t2를 어떻게 잡던간에 이로인해 생성되는 t3, t4가 무조건 존재해야한다.
+  - 직관적으로 Multivalued attribute들이 있을 때 가능한 모든 조합의 튜플들이 존재하면 Multivalued Dependency가 만족된다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/169448224-d0f6374f-dfed-4f2d-8e43-7bccc0c66c12.png)
+
+  - a\->\->b => a\->\->R-b-a 이다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/169449331-00eef7c9-9baf-43bd-b949-f26b2f13f1f7.png)
+
+* Use of Multivalued Dependencies
+  - relation을 test 하기 위함
+  - 제약조건을 명시한다.
+  - relation이 MVDs를 만족하지 않았을 경우, 튜플들을 추가함으로써 MVDs를 만족하게 할 수 있다.
+
+* Theory of MVDs
+  - If a → b, then a →→ b
+  - Closure
+    + Closure를 구할 때는 간단한 경우는 추론할 수 있지만, 복잡한 경우 기계적으로 추론법칙을 통해 구한다(이 부분은 자세히 다루지 않음)
+
+  ![image](https://user-images.githubusercontent.com/59719632/169449798-fde8bfbe-3553-4b30-958c-4ae5727b8ac8.png)
 
 
+* Fourth Normal Form
+  - a \->\-> b 가 trivial (a union b = R) => R-a-b = 공집합
+  - a가 schema R의 superkey
+  
+* Further Normal Forms (넘어감)
+
+* Overall Database Design Process
+  - R이 E\-R diagram을 통해 만들어진 table 일 수도 있고
+  - 필요로하는 attribute를 모두 담고 있는 하나의 table이 될 수도 있다
+  - R을 작게 쪼개는 과정이 들어감
+  - ad hoc design을 쓸 수도 있다. 
+  
+* ER Model and Normalization
+  - ER diagram을 정말 잘 사용했다면 Normalization이 필요 없을 수 있다.
+  - 현실세계에서는 정규화과정이 필요할 수 있다. 정규화를 통해 별도의 table로 만들어주는 것이 좋다.
+
+* Denomalization for Performance
+  - 시간적 효율성을 위해 table을 합쳐 놓는 것
+    + 빠르게 찾을 수 있다
+    + Update 할 때 시간이 많이 걸린다
+    + 프로그래머가 관리하기 힘들어서 버그가 생길 수 있다.
+  - use materialized view (실체화된 view)
+    + 빠르게 찾을 수 있다
+    + Update 할 때 시간이 많이 걸린다
+    + 프로그래머가 감당해야되는 에러에 대한 걱정은 없다.
+  
+* Other Design Issues
+  - 연도 마다 tabel을 따로 만들면 좋지 않은 design이다.
+  - column이 따로 있는 경우도 좋지 않은 design 이다.
+
+* Modeling Temporal Data
+  - 시간과 관련된 Data
+  - snapshot을 찍어서 특정 시점의 값을 기재한다.
+  - But no accepted standard
+  - 제약조건을 넣을 수 있지만 강제하기 힘들다.
+  - 외래키 참조를 현재 시점을 참조할지, 특정 시점을 참조할지 정할 수 있다.
+  
+  
+  
+  
+  
+  
