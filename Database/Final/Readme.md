@@ -349,8 +349,75 @@
   - 제약조건을 넣을 수 있지만 강제하기 힘들다.
   - 외래키 참조를 현재 시점을 참조할지, 특정 시점을 참조할지 정할 수 있다.
   
+# Chap 8. ComplexDataTypes
+
+## 8-1. Semi\- Structured Data
+* 상황에 따라 schema를 유동적으로 바꿔가면서 보여줄 필요가 있음
+* 특징
+  - Flexible schema
+    + Wide Column: 많은 종류의 값을 넣을 수 있고 언제든지 새로운 attribute를 추가할 수 있다.
+    + Sparse Column: 많은 attribute가 있지만 선택되는 것은 아주 적은 수 이다.
+  - Multivalued Data Types
+    + Sets, multisets
+    + Key\-value map
+    + Arrays
   
+    ![image](https://user-images.githubusercontent.com/59719632/169708061-2526132b-3766-4cd0-adeb-d47a32cffdb8.png)
+
+## 8.2 Nested Data Types
+  - JSON: Text file
+    + key\-value 형식으로 되어 있다.
+    + 많은 웹에서 사용되고 있다.
+    + 일반적인 JSON 형태는 사람이 읽을 수 있도록 되어 있어서 기계적으로는 굉장히 비효율적이다. 바이너리 형태로 압축하면 용량이 줄어든다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/169708172-bfae5517-07ec-47c2-b73b-4a25cdf29897.png)
+
+  - XML: tag를 사용하는 mark up language이다.
+    + JSON과 마찬가지로 사람이 쉽게 읽고 쓸 수 있다.
+    
+    ![image](https://user-images.githubusercontent.com/59719632/169708215-2e6eb34f-ea28-43d9-bc07-f0c69d172238.png)
+
+* Knowledge Representation
+  - RDF: Resource Description Format (시험에 안나옴)
+
+## 8.3 Object Orientation (깊게 다루지 않음)
+* 객체지향형 프로그래밍을 사용하는 언어에서 사용하는 Type들이 관계형 데이터베이스의 Type 들과 매칭이 안된다.
+* 객체지향형 관계형 데이터베이스를 만들어서 객체지향언어를 받아들이도록 추가해준다.
+* Object\-Relational Mapping: 기본적인 data 형식으로 다 변환을 해준다.
+ 
+## 8-4. Textual Data (넘어감)
+
+## 8-5. Spatial Data (지도)
+* Geographic data
+  - Geographic information systems (GIS) : 지리적 정보를 담고 있는 시스템
+* Geometric data: 위도 경도
+* Representation of Geometric Constructs : 삼각형으로 분할하는 것이 중요하다. (시험에 안나옴)
+
+# Chap 9. Application Development
+## 9.1 Application Programs and User Interfaces
+* 응용프로그램이 사용자와 데이터베이스를 연결해주는 역할을 한다.
+* Front\-end : user interfaces
+* Backend: 데이터베이스 시스템과 직접 교신하는 역할
+* Web Interface
+  - 웹브라우저를 통해 수많은 유저들이 어디서든 데이터베이스에 접근 가능
+  - 불필요한 다운로드, 설치를 피한다.
+* Three\-Layer Web Architecture
+  - web server: 사용자의 요청을 받고 요청을 전달해줌
+  - application server: 주로 코딩이 일어나는 곳
+  - database server: mysql, oracle 등
+  - Two Layer를 많이 사용함
+    
+  ![image](https://user-images.githubusercontent.com/59719632/169708777-3e54c84f-bf6a-4ea6-8bf8-e37d0c38e075.png)
+
+* HTTP and Sessions
+  - 웹문서를 볼 때 인터넷을 끊어도 계속 볼 수 있다 => HTTP가 connectionless 이기 때문
+  - 서버에 부하를 줄이기 위함
+  - 각 사용자의 session 정보가 필요할 때 문제가 된다. => solution : cookie
+* Sessions and Cookies
+  - Cookie는 식별 정보를 담고 있는 작은 Text 조각이다.
+  - 사용자는 쿠키를 가지고 있다가 서버에 정보를 요청할 때 쿠키를 보낸다.
+  - 쿠키는 영구적으로 저장할 수도 있고, 일정 기간동안 저장할 수도 있다.
   
-  
-  
-  
+
+
+ 
