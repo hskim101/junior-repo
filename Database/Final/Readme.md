@@ -419,10 +419,35 @@
   - 쿠키는 영구적으로 저장할 수도 있고, 일정 기간동안 저장할 수도 있다.
   
 ## 9.2 Sevelets
-* Sevelets: 자바로 웹 페이지의 문서를 동적으로 만드는 것
+* Servlets: 자바로 웹 페이지의 문서를 동적으로 만드는 것
   - 누가 접속을 하든지 간에 똑같은 화면을 나타내는 경우 그냥 웹문서로 작성하면 된다.
-  - 사용자로부터 정보를 받아서 사용자에게 특화된 웹 페이지를 보여주고자 하면 Sevelet을 사용하면 된다.
+  - 사용자로부터 정보를 받아서 사용자에게 특화된 웹 페이지를 보여주고자 하면 Servlet을 사용하면 된다.
 
+## 9.3 Server\-Side Scripting
+* Server \- Side Scripting
+  - HTML 문서 안에 script가 들어가 있는 형태
+  - Javascript: 자바랑 상관 없음
+  - Cross Site Scripting: 보안에 취약하다
+    
 
+# Chap 15. Query Processing (join)
+* Basic Steps in Query Processing
+  - Parsing and translation
+    + Parser가 query를 번역해서 관계 대수 표현식으로 번역해줌
+    + 수식 실행 전에 optimizer가 있어서 효율적으로 실행하게 분석한 후 execution plan을 만듦
+    + evaluation engine이 결과를 사용자에게 보내줌
+    + 똑같은 쿼리라고 하더라도 실행 할 수 있는 방법이 다를 수 있다.
+  - Query Optimization: Cost가 낮은 plan을 선택한다. 정확히 알 수 는 없고 추정을 할 수 있다.
 
+* Measures of Query Cost
+  - response time: 추정하기 힘들다
+  - CPU cost는 무시한다. (복잡한 연산은 안하기 때문), 실제로는 고려해야한다.
+  - 똑같은 결과가 나오기 때문에 같은 결과를 디스크에 저장하는 cost는 어차피 똑같기 때문에 무시한다.
+  - Disk Cost
+  
+  ![image](https://user-images.githubusercontent.com/59719632/170696951-91a327da-ba8d-45de-977b-3f7bac9acf43.png)
+
+  - 버퍼에서 읽어올 경우 디스크의 입출력을 하지 않기 때문에 추정한 cost와 다를 수 있다. (고려하기 힘들다)
+  - 디스크마다 버퍼가 다르기 때문에 Worst case 추정을 하지 않을 수도 있다.
+  - 버퍼가 있을 경우 버퍼에 의해 상당한 성능 향상이 있다고 생각하면 Average Case로 분석을 해도 된다.
  
