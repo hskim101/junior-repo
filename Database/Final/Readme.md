@@ -451,3 +451,45 @@
   - 디스크마다 버퍼가 다르기 때문에 Worst case 추정을 하지 않을 수도 있다.
   - 버퍼가 있을 경우 버퍼에 의해 상당한 성능 향상이 있다고 생각하면 Average Case로 분석을 해도 된다.
  
+* Selection Operation
+  - File Scan
+  - Linear Search
+    + Cost estimate = 1 seek (원하는 테이블이 저장되어있는 곳으로 가기 위한) \+ 연속된 b_r 개의 블록을 읽음 transfer
+    + key attribute로 selection을 하는 경우: b_r/2 block tranfers \+ 1 seek, 평균 b_r/2개 
+    + selection 조건, 순서, 인덱스의 유무 => 상관 없다
+  - binary search: 데이터들이 정렬된 상태라고 보장할 수 없기 때문에 적용할 수 없고 적용할 수 있더라도 이동할 때 seek를 계속 해줘야하기 때문에 적용하지 않는다.
+    + block tranfer 시간보다 seek 시간이 수십배 많이 걸리기 때문
+  
+* Sorting (자세히 다루지 않음)
+  - index를 이용해서 sorting을 수행: seek time
+  - 퀵소트나 다른 정렬 알고리즘 사용하면 되는데 tabel이 너무 크면 external merge sort를 사용하면 된다.
+  
+  ![image](https://user-images.githubusercontent.com/59719632/171415478-5ae6fb0c-eeec-4f7e-9574-b9db7c6c31a9.png)
+
+* Join Operation
+  - join을 수행하는 여러가지 알고리즘
+    + Nested\-loop join : for loop을 2번 돔 => 1번 테이블에서 1번, 2번 테이블에서 1번 => 비용이 비싸다, 모든 조합에 대해 다 살펴봄
+      - worst case: 메모리에 한 블록만 올릴 수 있다고 가정한 경우, n_r \* b_s \+ b_r \+ seek time(n_r + b_r)
+      - b_r=100, b_s=400, n_r=5000, n_s=10000
+      - 바깥의 loop를 어떤걸 선택하냐에 따라 비용이 달라짐
+      - 작은 테이블이 메모리에 완벽하게 들어가는 경우, 작은 테이블을 inner loop에 넣어라
+      
+      ![image](https://user-images.githubusercontent.com/59719632/171417488-45666b31-8753-41ce-8bca-2fae60d8fe0b.png)
+      
+      ![image](https://user-images.githubusercontent.com/59719632/171417723-8c71b2b9-4004-480c-a1d5-8107b5c5b300.png)
+
+      ![image](https://user-images.githubusercontent.com/59719632/171416758-9edbb7b7-f8e2-4adb-9f83-78cfb824bf8a.png)
+    
+      - Block 단위로 nested loop : 한 블록에 대해 full scan 하는 장점이 있다. full scan 횟수가 줄어든다. => 모든 block pair에 대해 join할지 말지 살펴봄
+      
+      ![image](https://user-images.githubusercontent.com/59719632/171420326-a3509543-9a7f-444f-be09-350fe8dd270c.png)
+
+
+    + Block nested\-loop join : 
+    + Indexed nested\-loop join
+    + Merge\-join
+    + Hash\-join
+ 
+ 
+
+
