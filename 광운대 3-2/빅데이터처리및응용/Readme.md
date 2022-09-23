@@ -28,8 +28,26 @@
     - 하둡과 호환 가능
     - RDD (Resilient Distributed Dataset)
         + key, value pair 강제 하지 않음
-        
-  
+        + Caching dataset in memory
+        + RDD를 다른 RDD로 transform해서 겨로가를 낼 수 있음
+        + Transformations: RDD를 변환해서 다른 RDD를 만들어냄
+        + Lazy evaluation: 사용자가 어떠한 action을 요구하기 전까지 아무런 action을 취하지 않음 (사용자 명령어를 최적화할 수 있는 장점)
+        + Actions: return value or export data
+    - DataFrame, Dataset 지원
+        + Pandas DataFrame과 동일
+        + 둘 다 RDD로 변환 가능
+    - Spark SQL
+    - Spark Streaming
+    - MLlib
+    - GraphX
+    - Spark vs Hadoop
+        + 성능상에서는 Spark가 더 빠르다.
+        + Memory에서 작업을 하면 할 수록 Spark이 빠르다.
+        + Memory가 크지 않을 때 disk를 사용하게 되므로 spark의 성능이 떨어진다.
+        + MapReduce는 성능 저하가 크게 없이 다른 서비스들과 잘 동작하지만 Spark는 잘못 쓰면 Memory를 왕창 쓰게 된다.
+        + Spark이 프로그래머 입장에서는 훨씬 쉽다.
+        + 일반적으로 Spark이 좋다.
+         
   
   
   
