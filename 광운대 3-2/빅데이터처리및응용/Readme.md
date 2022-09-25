@@ -48,8 +48,8 @@
         + Spark이 프로그래머 입장에서는 훨씬 쉽다.
         + 일반적으로 Spark이 좋다.
          
-  
-  
+### 1-4. Problems Suited for MapReduce  
+* 
   
   
 
